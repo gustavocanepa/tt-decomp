@@ -12,6 +12,10 @@ rm -f "$out" "$out.lines"
 work="$(mktemp -d)"
 trap 'rm -rf "$work"' EXIT
 cp "$in" "$work/"
+# The project's headers next to the source, as tools/cc_wsl.sh does (-Iinclude, and CPATH for
+# commands that do not say it).
+cp -r "$(dirname "$(realpath "$0")")/../include" "$work/include"
+export CPATH="$work/include${CPATH:+:$CPATH}"
 src="$(basename "$in")"
 cd "$work"
 eval "$*" -g -S "\"$src\"" -o lines.s

@@ -1,0 +1,12 @@
+# Subsystems carried over from GT4 through shared functions (tools/import_names.py):
+# start address, the folder under src/ (tools/layout.py), description.
+00100008 startup      start-up, static initialisation, game-mode menu glue
+00159590 gamedata     native game-data classes (m* data model, save/memory card, options)
+00197D80 media        EyeToy, logger, photo view
+002C2D08 race         race: sessions, HUD, dynamics, cars, driver models
+00418938 engine       camera, car-data base, settings, engine sound, AI line
+004627B8 network      network C stack (XML, transport, online services)
+004A6A48 libstream    streams, sockets, libc
+004B4C60 network      network C stack (XML, transport, online services)
+004BB940 libstream    streams, sockets, libc
+004E8780 runtime      STL, libstdc++, Sony SDK, RTTI

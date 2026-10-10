@@ -1,0 +1,15 @@
+typedef int s32;
+
+struct Obj_003BE0F0 {
+    char pad0[0x6C];
+    s32 unk6C;
+};
+
+extern "C" void func_0033AE38(struct Obj_003BE0F0 *arg0);
+extern "C" void CarIconMaker__structor_1(void *arg0, s32 arg1);
+
+extern "C" void func_003731D8(struct Obj_003BE0F0 *arg0) {
+    func_0033AE38(arg0);
+
+    CarIconMaker__structor_1((char *)arg0 + 0xF280, arg0->unk6C);
+}

@@ -1,0 +1,9 @@
+typedef float f32;
+
+struct Obj;
+
+extern "C" char *func_00341AD8(Obj *arg0);
+
+extern "C" f32 NormalCarGeometry__virtual_19(Obj *arg0) {
+    return *(f32 *)(func_00341AD8(arg0) + 0x54);
+}

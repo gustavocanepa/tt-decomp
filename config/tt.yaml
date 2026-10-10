@@ -1,0 +1,50 @@
+# splat configuration for CORE.TT (Tourist Trophy, NTSC-U SCUS-97502 v1.00).
+# The "rom" is the executable's memory image, made from your own CORE.TT by tools/splat.sh.
+# Everything splat writes (assembly, data, linker script) is generated from your copy of the game
+# and stays out of the repository (build/splat/).
+name: Tourist Trophy (CORE.TT)
+sha1: aa71197b9db18bc2c0543317efbb6d897ec53589
+options:
+  basename: tt
+  base_path: ..
+  target_path: build/splat/tt.rom
+  elf_path: build/splat/tt.elf
+  platform: ps2
+  compiler: EEGCC
+
+  asm_path: build/splat/asm
+  src_path: build/splat/src
+  build_path: build/splat/obj
+  ld_script_path: build/splat/tt.ld
+  cache_path: build/splat/.splat_cache
+  symbol_addrs_path:
+    - config/symbol_addrs.txt
+  undefined_funcs_auto_path: build/splat/undefined_funcs_auto.txt
+  undefined_syms_auto_path: build/splat/undefined_syms_auto.txt
+
+  ld_dependencies: False
+  ld_wildcard_sections: True
+  find_file_boundaries: False
+  o_as_suffix: True
+  create_asm_dependencies: False
+
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
+  named_regs_for_c_funcs: False
+
+  section_order: [.text, .data, .rodata, .sdata, .sbss, .bss]
+  auto_link_sections: [.data, .rodata, .sdata, .sbss, .bss]
+
+segments:
+  - name: core
+    type: code
+    start: 0x000000
+    vram: 0x00100000
+    bss_size: 0x0
+    subsegments:
+      - [0x000000, c, core/text]            # code: 0x00100000 - 0x00578cb8 (one .s per function)
+      - [0x478CB8, pad]                     # zero gap between the two loaded segments
+      - [0x478D00, data, core/data]         # data: 0x00578d00 - 0x0061b5fc
+  - [0x51B5FC]

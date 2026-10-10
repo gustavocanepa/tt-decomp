@@ -1,0 +1,96 @@
+# Everything the tools need to know about this game. Another game = another project.toml
+# (plus a loader in tools/loaders/ and a knowledge file); the tools themselves stay the same.
+
+[game]
+name = "Tourist Trophy (NTSC-U, SCUS-97502 v1.00)"
+serial = "SCUS-97502"
+# Short name: the WSL working directories and the linked image (tools/project.py BASENAME).
+basename = "tt"
+# CORE.TT is encrypted (Salsa20) and compressed; tools/core2elf.py turns it into this ELF once,
+# and the tools load the ELF (tools/loaders/elf.py) instead of decrypting on every run.
+executable = "orig/SCUS-97502/CORE.TT.elf"
+elf = "orig/SCUS-97502/CORE.TT.elf"
+splat_config = "config/tt.yaml"
+# tools/loaders/<loader>.py must define load(path) -> (entry, [(address, bytes), ...])
+loader = "elf"
+
+[cpu]
+# rabbitizer instruction category and assembler/objdump flags for the permuter
+category = "R5900"
+as_flags = "-EL -march=r5900 -mabi=eabi"
+objdump_arch = "mips:5900"
+# m2c target triple for the first draft of each function
+m2c_target = "mipsee-gcc-c"
+
+[compiler]
+name = "Sony ee-gcc 2.96 (2.96-ee-001003-1)"
+# Runs on Linux/WSL. {dir} is replaced by the directory below; sources are compiled from /tmp.
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "{dir}/bin/ee-gcc -c -B {dir}/bin/ee- -O2 -G0 -fno-exceptions"
+# The language model output is compiled as this language (file extension).
+extension = "cpp"
+
+# Other compilers a source may ask for with a marker on its first line, `/* compiler: NAME */`
+# (tools/project.py source_compiler): match.py, build.py and the CI compile that source with NAME's
+# command. ~270 functions (0x3ac140-0x5b9af0, Sony SDK code) were built by ee-gcc 2.9, which saves
+# callee-saved registers 16 bytes apart (knowledge/ee-gcc-2.96.md). `archive` is where the CI gets it.
+[compilers."ee-gcc2.9-991111"]
+dir = "~/.local/share/gt4/compilers/ee-gcc2.9-991111"
+command = "{dir}/bin/ee-gcc -c -O2 -G0 -fno-exceptions"
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.9-991111.tar.xz"
+
+# The project's compiler without strict aliasing: how the game's expat was built (THIRD_PARTY.md,
+# tools/libmatch.py). Same archive as the main compiler, unpacked a second time under this name.
+[compilers."ee-gcc2.96-no-strict-aliasing"]
+dir = "~/.local/share/gt4/compilers/ee-gcc2.96-no-strict-aliasing"
+command = "{dir}/bin/ee-gcc -c -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-strict-aliasing"
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+
+# The project's compiler with the SGI STL headers (include/stl, gcc 2000-10-03's libstdc++ v2, see
+# THIRD_PARTY.md) and the C-library stand-ins (include/shim) on the include path, and no implicit
+# template instantiation: the object holds only the member the source instantiates explicitly
+# (tools/stl.py). Same archive as the main compiler, unpacked a second time under this name.
+[compilers."ee-gcc2.96-stl"]
+dir = "~/.local/share/gt4/compilers/ee-gcc2.96-stl"
+command = "{dir}/bin/ee-gcc -c -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-strict-aliasing -fno-implicit-templates -Iinclude/stl -Iinclude/shim"
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+
+[model]
+# Facts given to the model with every function: the compiler's habits (shared by every game built
+# with it) and this game's own idioms.
+knowledge = ["knowledge/ee-gcc-2.96.md", "knowledge/tt.md"]
+
+# Library code built with -fno-strict-aliasing AND without sibling calls: functions whose last
+# call is a jal followed by the epilogue where a `j` would be possible (found on 0x0055a2b8, a
+# struct copy between lock/unlock calls). Same archive as the main compiler, unpacked again.
+[compilers."ee-gcc2.96-nsa-nosib"]
+dir = "~/.local/share/gt4/compilers/ee-gcc2.96-nsa-nosib"
+command = "{dir}/bin/ee-gcc -c -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-strict-aliasing -fno-optimize-sibling-calls"
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+
+# The game's flags without sibling calls, for translation units whose tail calls are jal + epilogue.
+[compilers."ee-gcc2.96-nosib"]
+dir = "~/.local/share/gt4/compilers/ee-gcc2.96-nosib"
+command = "{dir}/bin/ee-gcc -c -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-optimize-sibling-calls"
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+
+# Library code assembled by a tool that expands gcc's unaligned-access macros (uld/usd/ulw/usw)
+# right half first (ldr before ldl; GNU as does left first): gcc -S, tools/rf_as.py, then as.
+[compilers."ee-gcc2.96-nsa-nosib-rf"]
+dir = "~/.local/share/gt4/compilers/ee-gcc2.96-nsa-nosib"
+command = "bash {tools}/cc_rf.sh \"{dir}/bin/ee-gcc -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-strict-aliasing -fno-optimize-sibling-calls\""
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+
+# The game's flags (and the library flags) with gcc's symbolic load/store macros written out before
+# assembling (tools/hilo_as.py): the project's gas sometimes gives the macro's lui the opcode of the
+# load it ends with (`lw rX, 0(rX)` carrying R_MIPS_HI16) after a `.p2align 3,,7` frag, e.g. an
+# indexed global array D_X[i] right after a branch (found on 0x001f6c58).
+[compilers."ee-gcc2.96-hilo"]
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "bash {tools}/cc_hilo.sh \"{dir}/bin/ee-gcc -B {dir}/bin/ee- -O2 -G0 -fno-exceptions\""
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+
+[compilers."ee-gcc2.96-nsa-hilo"]
+dir = "~/.local/share/gt4/compilers/ee-gcc2.96-no-strict-aliasing"
+command = "bash {tools}/cc_hilo.sh \"{dir}/bin/ee-gcc -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-strict-aliasing\""
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"

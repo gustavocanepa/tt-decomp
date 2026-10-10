@@ -1,0 +1,466 @@
+#!/usr/bin/env python3
+"""The script engine's class-registration functions: names for their callbacks, and the functions
+themselves from a template.
+
+Each registration function builds the class name as a string and hands it to a virtual call
+(vtable + 0x190), links the class to its parent (`func_002F3A30(obj, getter())`, the getter
+differs per class), then registers every native method in order. A method is registered with its
+name built as a string and released afterwards: `func_002F3818`/`func_003068A8(obj, &s, cb)` or the
+two-callback `func_002F3860(obj, &s, cb1, cb2)`; a few register a global object directly:
+`func_00306780`/`func_002F36E0(obj, &D_x, cb)`. Rarer shapes: the class named by a global symbol
+(`func_00305550(obj, &D_x)`, func_002EE208), named integer constants (`func_00306938(obj, &s,
+HInt(n))` with a C++ temporary, func_002FF068), and a tail call to a continuation that registers
+more for the same class (`func_0014EF00(obj)` at the end of func_00141B90). So the callbacks get real names (Class::method)
+and the functions are written from one template (matched by Claude Fable on func_0015CC58 and
+others) with only the strings, callbacks, getter and registrars changed.
+
+    registration.py names [OUT] -> config/adhoc_methods.txt (class, method, callback address), or OUT
+    registration.py try ADDR    write and judge one function (prints the diff on failure)
+    registration.py solve [-jN] write and judge every unmatched registration function
+"""
+import os
+import re
+import subprocess
+import sys
+
+import build
+import match
+import project
+
+ROOT = match.ROOT
+REGISTRARS = ("func_002F3818", "func_003068A8")      # (obj, &string, callback)
+REGISTRARS2 = ("func_002F3860",)                     # (obj, &string, callback, callback)
+GLOBAL_REGISTRARS = ("func_00306780", "func_002F36E0")  # (obj, &global, callback)
+PARENT_LINK = "func_002F3A30"
+CLASS_BY_GLOBAL = "func_00305550"                    # (obj, &global): the class name is a global string
+INT_NEW, INT_DEL = "func_002FE278", "func_002FC870"  # hInt temporary: construct (&t, value), destroy (&t, 2)
+CONST_REGISTRAR = "func_00306938"                    # (obj, &string, &value): a named constant
+STRING_HELPERS = {"func_005C2560", "func_005C2630", "func_0057F260", "func_005C11A8", "func_00326798"}
+DATA = 0x617A80
+LO = re.compile(r"%lo\((\w+)\)")
+JAL = re.compile(r"\bjal\s+(func_[0-9A-F]{8})")
+A3_IS_A2 = re.compile(r"\bdaddu\s+\$(?:7|a3),\s*\$(?:6|a2),\s*\$(?:0|zero)\b")   # second callback = the first
+A2_ZERO = re.compile(r"\bdaddu\s+\$(?:6|a2),\s*\$(?:0|zero),\s*\$(?:0|zero)\b")   # first callback = 0
+A1_IMM = re.compile(r"\b(?:addiu|ori)\s+\$(?:5|a1),\s*\$(?:0|zero),\s*(-?0x[0-9A-Fa-f]+|-?\d+)\s*$")
+A1_ZERO = re.compile(r"\bdaddu\s+\$(?:5|a1),\s*\$(?:0|zero),\s*\$(?:0|zero)\b")
+REP = "D_00659FA8"
+
+
+def cstring(data, addr):
+    o = addr - DATA
+    if not 0 <= o < len(data):
+        return None
+    end = data.index(b"\0", o)
+    try:
+        return data[o:end].decode("ascii")
+    except UnicodeDecodeError:
+        return None
+
+
+def parse(body):
+    """Ordered blocks: ('class', string), ('parent', getter), ('m1', string, registrar, cb),
+    ('m2', string, cb1, cb2), ('global', registrar, symbol, cb); None when the function calls
+    anything else (another shape)."""
+    events = []
+    for line in body:
+        for s in LO.findall(line):
+            if s.startswith("D_"):
+                s = f"D_{int(s[2:], 16):08X}"
+            events.append(("lo", s))
+        m = JAL.search(line)
+        if m:
+            events.append(("jal", m.group(1)))
+        if "jalr" in line:
+            events.append(("jalr", None))
+        if A3_IS_A2.search(line):
+            events.append(("same", None))
+        if A2_ZERO.search(line):
+            events.append(("zero2", None))
+        m = A1_IMM.search(line.rstrip())
+        if m:
+            events.append(("imm1", int(m.group(1), 0)))
+        elif A1_ZERO.search(line):
+            events.append(("imm1", 0))
+    blocks = []
+    strings, cbs = [], []
+    last_jal = None
+    skip = False
+    same = zero2 = False
+    imm1 = value = None
+    for i, (kind, val) in enumerate(events):
+        if skip:
+            skip = False
+            continue
+        if kind == "imm1":
+            imm1 = val
+        elif kind == "same":
+            same = True
+        elif kind == "zero2":
+            zero2 = True
+        elif kind == "lo" and val.startswith("D_") and val != REP:
+            strings.append(val)
+        elif kind == "lo" and val.startswith("func_"):
+            cbs.append(val)
+        elif kind == "jalr":
+            if blocks or not strings:
+                return None
+            blocks.append(("class", strings[-1]))
+        elif kind == "jal":
+            if val in REGISTRARS + REGISTRARS2 + GLOBAL_REGISTRARS:
+                # a callback loaded in the delay slot shows up after the jal
+                if i + 1 < len(events) and events[i + 1][0] == "lo" and events[i + 1][1].startswith("func_"):
+                    cbs.append(events[i + 1][1])
+                    skip = True
+                elif i + 1 < len(events) and events[i + 1][0] in ("same", "zero2"):
+                    same = same or events[i + 1][0] == "same"
+                    zero2 = zero2 or events[i + 1][0] == "zero2"
+                    skip = True
+            if val in STRING_HELPERS:
+                same = zero2 = False
+            elif val == CLASS_BY_GLOBAL and not blocks and strings:
+                blocks.append(("classg", strings[-1]))
+            elif val == INT_NEW:
+                if imm1 is None:
+                    return None
+                value, imm1 = imm1, None
+            elif val == CONST_REGISTRAR:
+                if not strings or value is None or cbs:
+                    return None
+                blocks.append(("const", strings[-1], value))
+                value = None
+            elif val == INT_DEL:
+                pass
+            elif val == PARENT_LINK:
+                if last_jal is None or last_jal in STRING_HELPERS:
+                    return None
+                blocks.append(("parent", last_jal))
+            elif val in REGISTRARS:
+                if not strings or len(cbs) != 1:
+                    return None
+                blocks.append(("m1", strings[-1], val, cbs[0]))
+                cbs = []
+            elif val in REGISTRARS2:
+                if not strings or len(cbs) not in (1, 2):
+                    return None
+                if len(cbs) == 2:
+                    pair = (cbs[0], cbs[1])
+                elif same:
+                    pair = (cbs[0], cbs[0])
+                elif zero2:
+                    pair = ("0", cbs[0])
+                else:
+                    pair = (cbs[0], "0")
+                blocks.append(("m2", strings[-1]) + pair)
+                cbs = []
+                same = zero2 = False
+            elif val in GLOBAL_REGISTRARS:
+                if not strings or len(cbs) > 1 or (not cbs and not zero2):
+                    return None
+                blocks.append(("global", val, strings[-1], cbs[0] if cbs else "0"))
+                cbs = []
+                same = zero2 = False
+            elif blocks and blocks[-1][0] in ("m1", "m2", "global", "const") and not cbs:
+                # another registration function called with the object (func_00141B90 ends so)
+                blocks.append(("call", val))
+            elif not (blocks and blocks[-1][0] in ("class", "classg")) or cbs:
+                # a parent getter is the only other call, right after the class block
+                return None
+            last_jal = val
+    if not any(b[0] in ("m1", "m2", "global", "const") for b in blocks):
+        return None
+    return blocks
+
+
+BLOCK = """    {{
+        Str *ps = &s;
+        const char *src = {string};
+        Rep *r = &D_00659FA8;
+        char *d;
+        if (r->sel != 0) {{
+            d = func_005C2560(r);
+        }} else {{
+            d = (char *)(r + 1);
+            r->ref++;
+        }}
+        ps->p = d;
+        func_005C2630(ps, 0, -1, src, func_0057F260(src));
+{call}
+        {{
+            Rep *q = (Rep *)(s.p - 0x10);
+            if (--q->ref == 0) {{
+                s32 cap = q->cap + 0x10;
+                func_00326798(q, cap, 4, func_005C11A8()->name);
+            }}
+        }}
+    }}
+"""
+
+FLAT_CLASS = """    Str *ps = &s;
+    const char *src = {string};
+    Rep *r = &D_00659FA8;
+    char *d = (char *)(r + 1);
+    if (r->sel != 0) {{
+        d = func_005C2560(r);
+    }} else {{
+        r->ref++;
+    }}
+    ps->p = d;
+    func_005C2630(ps, 0, -1, src, func_0057F260(src));
+    {{
+        VEntry *e = (VEntry *)(arg0->vtbl + 0x190);
+        e->fn((char *)arg0 + e->delta, &s);
+    }}
+    {{
+        Rep *q = (Rep *)(s.p - 0x10);
+        if (--q->ref == 0) {{
+            s32 cap = q->cap + 0x10;
+            func_00326798(q, cap, 4, func_005C11A8()->name);
+        }}
+    }}
+"""
+
+HEADER = """typedef int s32;
+
+struct Rep {
+    s32 len;
+    s32 cap;
+    s32 ref;
+    s32 sel;
+};
+
+struct S00659988 {
+    const char *name;
+};
+
+struct Str {
+    char *p;
+};
+
+struct VEntry {
+    short delta;
+    short index;
+    void (*fn)(void *, Str *);
+};
+
+struct Obj {
+    char pad0[4];
+    char *vtbl;
+};
+
+extern Rep D_00659FA8;
+
+extern "C" char *func_005C2560(Rep *r);
+extern "C" s32 func_0057F260(const char *s);
+extern "C" void *func_005C2630(Str *s, s32 pos, s32 n, const char *src, s32 len);
+extern "C" struct S00659988 *func_005C11A8(void);
+extern "C" void func_00326798(void *p, s32 size, s32 align, const char *name);
+extern "C" int func_00309CC0(void);
+extern "C" void func_002F3A30(Obj *arg0, s32 arg1);
+"""
+
+
+def source(addr, blocks):
+    out = [HEADER]
+    regs, strings, cbs, globs, getters = [], [], [], [], []
+    for b in blocks:
+        if b[0] in ("class", "classg"):
+            strings.append(b[1])
+        elif b[0] == "const":
+            strings.append(b[1]); regs.append(CONST_REGISTRAR)
+        elif b[0] == "call":
+            getters.append(b[1])
+        elif b[0] == "parent":
+            getters.append(b[1])
+        elif b[0] == "m1":
+            strings.append(b[1]); regs.append(b[2]); cbs.append(b[3])
+        elif b[0] == "m2":
+            strings.append(b[1]); regs.append("func_002F3860"); cbs += [b[2], b[3]]
+        else:
+            regs.append(b[1]); globs.append(b[2]); cbs.append(b[3])
+    for g in dict.fromkeys(getters):
+        if ("call", g) in blocks:
+            out.append(f'extern "C" void {g}(Obj *arg0);\n')
+        else:
+            out.append(f'extern "C" int {g}(void);\n')
+    if any(b[0] == "classg" for b in blocks):
+        out.append(f'extern "C" void {CLASS_BY_GLOBAL}(Obj *arg0, void *arg1);\n')
+    for reg in sorted(set(regs)):
+        if reg == CONST_REGISTRAR:
+            # a C++ temporary: g++ 2.96 gives each one its own 32-byte slot (func_002FF068)
+            out.append(f'extern "C" void {INT_NEW}(void *arg0, s32 arg1);' + chr(10) +
+                       f'extern "C" void {INT_DEL}(void *arg0, s32 arg1);' + chr(10) +
+                       f'struct HInt {{ s32 v[4]; HInt(s32 x) {{ {INT_NEW}(this, x); }} ~HInt() {{ {INT_DEL}(this, 2); }} }};' + chr(10) +
+                       f'extern "C" void {reg}(Obj *arg0, Str *arg1, const HInt &arg2);' + chr(10))
+        elif reg in REGISTRARS2:
+            out.append(f'extern "C" void {reg}(Obj *arg0, Str *arg1, void (*arg2)(void), void (*arg3)(void));\n')
+        elif reg in GLOBAL_REGISTRARS:
+            out.append(f'extern "C" void {reg}(Obj *arg0, void *arg1, void (*arg2)(void));\n')
+        else:
+            out.append(f'extern "C" void {reg}(Obj *arg0, Str *arg1, void (*arg2)(void));\n')
+    for s in dict.fromkeys(strings + globs):
+        out.append(f"extern char {s}[];\n")
+    for cb in dict.fromkeys(cbs):
+        if cb != "0":
+            out.append(f'extern "C" void {cb}(void);\n')
+    out.append(f'\nextern "C" void func_{addr:08X}(Obj *arg0) {{\n    Str s;\n')
+    flat = not any(b[0] in ("m1", "m2", "const") for b in blocks)
+    for b in blocks:
+        if b[0] == "class" and flat:
+            # no method blocks: the class string's locals live at function scope (func_0012B6E8)
+            out.append(FLAT_CLASS.format(string=b[1]))
+        elif b[0] == "class":
+            out.append(BLOCK.format(string=b[1], call="        {\n            VEntry *e = (VEntry *)(arg0->vtbl + 0x190);\n"
+                                                     "            e->fn((char *)arg0 + e->delta, &s);\n        }"))
+        elif b[0] == "classg":
+            out.append(f"    {CLASS_BY_GLOBAL}(arg0, {b[1]});\n")
+        elif b[0] == "call":
+            out.append(f"    {b[1]}(arg0);\n")
+        elif b[0] == "const":
+            out.append(BLOCK.format(string=b[1], call=f"        {CONST_REGISTRAR}(arg0, &s, HInt({b[2]}));"))
+        elif b[0] == "parent":
+            out.append(f"    func_002F3A30(arg0, {b[1]}());\n")
+        elif b[0] == "m1":
+            out.append(BLOCK.format(string=b[1], call=f"        {b[2]}(arg0, &s, {b[3]});"))
+        elif b[0] == "m2":
+            out.append(BLOCK.format(string=b[1], call=f"        func_002F3860(arg0, &s, {b[2]}, {b[3]});"))
+        else:
+            out.append(f"    {b[1]}(arg0, {b[2]}, {b[3]});\n")
+    out.append("}\n")
+    return "".join(out)
+
+
+def parse_loose(body):
+    """The one-callback registrations of a function that is not of the template's shape (a script
+    module built with func_00306E00 and filled through a local object, func_0030E100 and others):
+    [('m1', string, registrar, callback)]. The callback is the one loaded in the registrar's delay
+    slot, else the last one loaded since the previous registration (never an older one)."""
+    out, strings, cb = [], [], None
+    lines = [l for l in body if LO.search(l) or JAL.search(l)]
+    for i, line in enumerate(lines):
+        m = JAL.search(line)
+        if m and m.group(1) in REGISTRARS:
+            nxt = lines[i + 1] if i + 1 < len(lines) else ""
+            slot = [s for s in LO.findall(nxt) if s.startswith("func_")] if nxt.split("*/")[0].strip() and \
+                int(nxt.split()[2], 16) == int(line.split()[2], 16) + 4 else []
+            if slot:
+                cb = slot[0]
+            if strings and cb:
+                out.append(("m1", strings[-1], m.group(1), cb))
+            cb = None
+            continue
+        if m and m.group(1) in REGISTRARS2 + GLOBAL_REGISTRARS:
+            cb = None
+            continue
+        for s in LO.findall(line):
+            if s.startswith("D_") and s != REP:
+                strings.append(f"D_{int(s[2:], 16):08X}")
+            elif s.startswith("func_"):
+                cb = s
+    return out
+
+
+def candidates():
+    funcs = build.splat_functions()
+    out = {}
+    for addr, (_, body) in funcs.items():
+        if any(r in line for line in body for r in REGISTRARS + REGISTRARS2 + GLOBAL_REGISTRARS if "jal" in line):
+            p = parse(body)
+            if p:
+                out[addr] = p
+    return out
+
+
+def cmd_names():
+    """Methods and functions (one callback), attributes (get_/set_ + name, the two callbacks of
+    func_002F3860) and registrations on a global symbol object (global_ + its address: the symbol's
+    name is interned at static-initialization time, not here)."""
+    data = open(os.path.join(build.OUT, "data.bin"), "rb").read()
+    cands = candidates()
+    owner = {}
+    for addr, blocks in cands.items():
+        cls = next((b[1] for b in blocks if b[0] == "class"), None)
+        if cls:
+            owner[addr] = cstring(data, int(cls[2:], 16))
+    # a continuation (func_0014EF00, called at the end of func_00141B90) registers for the caller's class
+    for addr, blocks in cands.items():
+        for b in blocks:
+            if b[0] == "call" and int(b[1][5:], 16) in cands and int(b[1][5:], 16) not in owner and addr in owner:
+                owner[int(b[1][5:], 16)] = owner[addr]
+    # functions of another shape (script modules filled through a local object): their plain
+    # method/function registrations only, listed under the function's own name
+    for addr, (_, body) in build.splat_functions().items():
+        if addr not in cands and f"func_{addr:08X}" not in REGISTRARS + REGISTRARS2 + GLOBAL_REGISTRARS:
+            if any(r in line for line in body for r in REGISTRARS if "jal" in line):
+                loose = parse_loose(body)
+                if loose:
+                    cands[addr] = loose
+    rows = []
+    for addr, blocks in sorted(cands.items()):
+        cname = owner.get(addr) or f"func_{addr:08X}"
+        for b in blocks:
+            if b[0] in ("m1", "m2"):
+                mname = cstring(data, int(b[1][2:], 16)) or b[1]
+            if b[0] == "m1":
+                rows.append((cname, mname, b[3]))
+            elif b[0] == "m2":
+                for prefix, cb in (("get_", b[2]), ("set_", b[3])):
+                    if cb != "0":
+                        rows.append((cname, prefix + mname, cb))
+            elif b[0] == "global" and b[3] != "0":
+                rows.append((cname, "global_" + b[2][2:], b[3]))
+    rows = [(c, m, f"0x{cb[5:]}") for c, m, cb in rows]
+    # splat's listing has every function, matched or not, so the list is rebuilt from the original
+    # code each time; rows of an older file are never merged back (the first generator paired a
+    # callback loaded in the registrar's delay slot with the next name, and merging its rows back
+    # would leave one name on two addresses).
+    path = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, "config", "adhoc_methods.txt")
+    with open(path, "w", newline="\n") as f:
+        f.write("# Native methods the script engine registers: class, method, callback (tools/registration.py names)\n"
+                "# get_X/set_X: attribute X (func_002F3860); global_ADDR: registered on the global symbol at ADDR\n")
+        f.writelines(f"{c} {m} {cb}\n" for c, m, cb in rows)
+    print(f"{len(rows)} methods of {len({r[0] for r in rows})} classes -> {path}")
+
+
+def judge(addr, blocks):
+    work = os.path.join(ROOT, "build", "auto", "registration")
+    os.makedirs(work, exist_ok=True)
+    path = os.path.join(work, f"{addr:08x}.cpp")
+    open(path, "w", newline="\n").write(source(addr, blocks))
+    res = subprocess.run([sys.executable, os.path.join(ROOT, "tools", "match.py"), "check", f"{addr:x}", path],
+                         capture_output=True, text=True)
+    return res.returncode == 0 and "MATCH" in res.stdout, res.stdout + res.stderr, path
+
+
+def cmd_try():
+    addr = int(sys.argv[2], 16)
+    body = build.splat_functions()[addr][1]
+    blocks = parse(body)
+    if blocks is None:
+        sys.exit("not this shape")
+    for b in blocks:
+        print(b)
+    ok, out, path = judge(addr, blocks)
+    print(out[:6000])
+    print(f"-> {path}")
+
+
+def cmd_solve():
+    from concurrent.futures import ThreadPoolExecutor
+    jobs = next((int(a[2:]) for a in sys.argv[2:] if a.startswith("-j")), 2)
+    done = set(project.sources(refresh=True))
+    cands = {a: p for a, p in candidates().items() if a not in done}
+    print(f"{len(cands)} unmatched registration functions", flush=True)
+    ok = 0
+    with ThreadPoolExecutor(max_workers=jobs) as pool:
+        for addr, (matched, out, path) in zip(sorted(cands), pool.map(lambda a: judge(a, cands[a]), sorted(cands))):
+            if matched:
+                open(os.path.join(ROOT, "src", f"func_{addr:08X}.cpp"), "w", newline="\n").write(open(path).read())
+                ok += 1
+                print(f"{addr:08x} MATCH ({len(cands[addr])} blocks)", flush=True)
+            else:
+                print(f"{addr:08x} no: {(out.splitlines() or ['?'])[0][:100]}", flush=True)
+    print(f"solved {ok} of {len(cands)} from the template")
+
+
+if __name__ == "__main__":
+    {"names": cmd_names, "solve": cmd_solve, "try": cmd_try}.get(sys.argv[1] if len(sys.argv) > 1 else "", lambda: sys.exit(__doc__))()

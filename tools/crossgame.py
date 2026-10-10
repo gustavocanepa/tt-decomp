@@ -195,6 +195,10 @@ def apply_one(addr, other):
         res = check()
     if res.returncode != 0:
         return addr, False, (res.stdout.splitlines() or ["?"])[0]
+    import asm_policy
+    bad = asm_policy.violations(text)
+    if bad:  # the other project's source predates a policy fix: never copy it on
+        return addr, False, "asm policy: " + "; ".join(bad)
     final = symbols.rename_text(text)
     os.replace(path, os.path.join(root, "src", f"func_{addr:08X}.{other['ext']}"))
     open(os.path.join(root, "src", f"func_{addr:08X}.{other['ext']}"), "w", encoding="utf-8", newline="\n").write(final)

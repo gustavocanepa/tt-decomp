@@ -1,6 +1,6 @@
-extern void func_002A4378(void);
+extern void hModule__findModuleValue(void);
 
 void func_002A5D08(void)
 {
-    func_002A4378();
+    hModule__findModuleValue();
 }

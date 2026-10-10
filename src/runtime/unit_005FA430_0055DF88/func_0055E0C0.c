@@ -1,5 +1,5 @@
-extern void func_0038F548(void);
+extern void RaceDisplayUtil__getScaledColor(void);
 void func_0055E0C0(void)
 {
-    func_0038F548();
+    RaceDisplayUtil__getScaledColor();
 }

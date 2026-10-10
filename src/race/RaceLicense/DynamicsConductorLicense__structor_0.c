@@ -1,108 +1,38 @@
-typedef signed char s8; typedef unsigned char u8; typedef short s16; typedef unsigned short u16;
-typedef int s32; typedef unsigned int u32; typedef long long s64; typedef unsigned long long u64;
-typedef float f32; typedef double f64;
-typedef int s128 __attribute__((mode(TI))); typedef unsigned int u128 __attribute__((mode(TI)));
+#include "types.h"
 #define NULL 0
 void *func_005A4724(void *, const void *, unsigned int);
-/*
- * This header contains macros emitted by m2c in "valid syntax" mode,
- * which can be enabled by passing `--valid-syntax` on the command line.
- *
- * In this mode, unhandled types and expressions are emitted as macros so
- * that the output is compilable without human intervention.
- */
 
-#ifndef M2C_MACROS_H
-#define M2C_MACROS_H
-
-/* Unknown types */
-typedef s32 M2C_UNK;
-typedef s8  M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-typedef s64 M2C_UNK64;
-
-/* Unknown field access, like `*(type_ptr) &expr->unk_offset` */
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-/* Bitwise (reinterpret) cast */
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-/* Unaligned reads */
-#define M2C_LWL(expr) (expr)
-#define M2C_FIRST3BYTES(expr) (expr)
-#define M2C_UNALIGNED32(expr) (expr)
-
-/* Unhandled instructions */
-#define M2C_ERROR(desc) (0)
-#define M2C_TRAP_IF(cond) (0)
-#define M2C_BREAK() (0)
-#define M2C_SYNC() (0)
-#define M2C_DCACHE_CLEAN(addr) (0)
-#define M2C_DCACHE_INVALIDATE(addr) (0)
-#define M2C_DCACHE_CLEAN_INVALIDATE(addr) (0)
-#define M2C_DCACHE_BLOCK_SETZERO(addr) (0)
-#define M2C_DCACHE_BLOCK_SETZERO_LOCKED(addr) (0)
-#define M2C_ICACHE_INVALIDATE(addr) (0)
-#define M2C_PREFETCH(addr) (0)
-#define M2C_PREFETCH_STORE(addr) (0)
-
-#define GLUE_F64(a, b) (0.0)
-#define MULT_HI(a, b) (0)
-#define MULTU_HI(a, b) (0)
-#define DMULT_HI(a, b) (0)
-#define DMULTU_HI(a, b) (0)
-#define CLZ(x) (0)
-#define REVERSE_BITS(x) (0)
-#define ROTATE_RIGHT(x, shift) (0)
-#define ARM_RRX(x, carry) (0)
-#define BSWAP32(x) (0)
-#define BSWAP16(x) (0)
-#define BSWAP16X2(x) (0)
-
-/* Carry/overflow bits from partially-implemented instructions */
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-
-/* Memcpy patterns */
-#define M2C_MEMCPY_ALIGNED func_005A4724
-#define M2C_MEMCPY_UNALIGNED func_005A4724
-#define M2C_STRUCT_COPY func_005A4724
-
-/* Sh2 control register loads/stores */
-#define M2C_LOAD_SR() (0)
-#define M2C_LOAD_GBR() (0)
-#define M2C_LOAD_VBR() (0)
-#define M2C_STORE_SR(a)
-#define M2C_STORE_GBR(a)
-#define M2C_STORE_VBR(a)
-
-#define M2C_CMP_STR(a, b) (0)
-#define M2C_TAS_B(a) (0)
-
-#endif
-
-M2C_UNK DynamicsConductor__structor_1(void *, M2C_UNK);             /* extern */
-M2C_UNK func_00370E78(void *, M2C_UNK);             /* extern */
-M2C_UNK func_00371730();                            /* extern */
-M2C_UNK func_00371DE8(void *, M2C_UNK);             /* extern */
-M2C_UNK RacePause__structor_1(void *, M2C_UNK);             /* extern */
-M2C_UNK func_0037FB98(void *, M2C_UNK);             /* extern */
-M2C_UNK func_00386198(void *, M2C_UNK);             /* extern */
-M2C_UNK LicenseConcourse__structor_1(void *, M2C_UNK);             /* extern */
-M2C_UNK func_0050E1A8(void *);                      /* extern */
+s32 DynamicsConductor__structor_1(void *, s32);             /* extern */
+s32 func_00370E78(void *, s32);             /* extern */
+s32 func_00371730();                            /* extern */
+s32 func_00371DE8(void *, s32);             /* extern */
+s32 RacePause__structor_1(void *, s32);             /* extern */
+s32 func_0037FB98(void *, s32);             /* extern */
+s32 func_00386198(void *, s32);             /* extern */
+s32 LicenseConcourse__structor_1(void *, s32);             /* extern */
+s32 func_0050E1A8(void *);                      /* extern */
 
 extern char D_005D2760[];
 extern char D_005D6548[];
-void DynamicsConductorLicense__structor_0(void *arg0, s32 arg1) {
-    void *temp_v1;
+struct DynamicsConductorLicense__structor_0_temp_v1 {
+    char pad0[0x241CC];
+    s32 unk241CC;
+};
 
-    M2C_FIELD(arg0, s32 *, 0x64) = (s32)D_005D2760;
+struct DynamicsConductorLicense__structor_0_arg0 {
+    char pad0[0x64];
+    s32 unk64;
+};
+
+void DynamicsConductorLicense__structor_0(void *arg0, s32 arg1) {
+    struct DynamicsConductorLicense__structor_0_temp_v1 *temp_v1;
+
+    ((struct DynamicsConductorLicense__structor_0_arg0 *)arg0)->unk64 = (s32)D_005D2760;
     func_00371730();
     LicenseConcourse__structor_1(arg0 + 0x3A8C0, 2);
     func_0037FB98(arg0 + 0x39F90, 2);
     temp_v1 = arg0 + 0x15DC0;
-    M2C_FIELD(temp_v1, s32 *, 0x241CC) = (s32)D_005D6548;
+    temp_v1->unk241CC = (s32)D_005D6548;
     DynamicsConductor__structor_1(temp_v1, 0);
     func_00371DE8(arg0 + 0x104A8, 2);
     func_00370E78(arg0 + 0xF2B8, 2);

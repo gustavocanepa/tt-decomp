@@ -1,9 +1,15 @@
 extern "C" void *RaceDisplayEventBase__structor_0(void *arg0);
 extern "C" char D_005CFAD8[];
 
-extern "C" void func_00358E68(void *arg0)
+struct func_00358E68_arg0 {
+    char pad0[0x4];
+    void *unk4;
+    int unk8;
+};
+
+extern "C" void func_00358E68(struct func_00358E68_arg0 *arg0)
 {
     RaceDisplayEventBase__structor_0(arg0);
-    *(int *)((char *)arg0 + 0x8) = 0;
-    *(void **)((char *)arg0 + 0x4) = D_005CFAD8;
+    arg0->unk8 = 0;
+    arg0->unk4 = D_005CFAD8;
 }

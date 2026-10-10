@@ -1,6 +1,6 @@
-extern void RaceNetBattle__virtual_107(void);
+extern void RaceBasic__render_other(void);
 
 void func_0033FC20(void)
 {
-    RaceNetBattle__virtual_107();
+    RaceBasic__render_other();
 }

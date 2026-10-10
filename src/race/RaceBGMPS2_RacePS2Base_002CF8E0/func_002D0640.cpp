@@ -23,9 +23,15 @@ struct S00659988 {
 };
 
 extern "C" s32 func_0039C730(void *);
-extern "C" void func_00104F18(void *, void *);
+extern "C" void GSBuffer__getTexture(void *, void *);
 extern "C" void func_0039C4A8(void *, void *);
 extern "C" void func_0039C318(void *, s32, s32, s32);
+
+struct func_002D0640_arg0 {
+    char pad0[0x6C];
+    s32 unk6C;
+    s32 unk70;
+};
 
 extern "C" void func_002D0640(s32 *arg0, void *arg1, s32 arg2) {
     s32 buf0[4];
@@ -34,8 +40,8 @@ extern "C" void func_002D0640(s32 *arg0, void *arg1, s32 arg2) {
     char *v_s1;
     v_s1 = (char *)arg0 + 0x36C0;
     if (func_0039C730(v_s1) != 0) {
-        func_00104F18(arg1, buf0);
+        GSBuffer__getTexture(arg1, buf0);
         func_0039C4A8(v_s1, buf0);
-        func_0039C318(v_s1, arg2, *(s32 *)((char *)arg0 + 0x70), *(s32 *)((char *)(*(s32 *)((char *)(*(s32 *)((char *)(*(s32 *)((char *)arg0 + 0x6c)) + 0x80)) + 0x4)) + 0x80));
+        func_0039C318(v_s1, arg2, ((struct func_002D0640_arg0 *)arg0)->unk70, *(s32 *)((char *)(*(s32 *)((char *)(*(s32 *)((char *)(((struct func_002D0640_arg0 *)arg0)->unk6C) + 0x80)) + 0x4)) + 0x80));
     }
 }

@@ -1,5 +1,5 @@
-extern void func_002F14C8(void);
+extern void DynamicsConductor__getSpecialStart_Launch(void);
 void func_002F1520(void)
 {
-    func_002F14C8();
+    DynamicsConductor__getSpecialStart_Launch();
 }

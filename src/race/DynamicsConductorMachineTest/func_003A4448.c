@@ -1,5 +1,5 @@
-extern void DynamicsConductorBattle2P__virtual_41(void);
+extern void DynamicsConductor__GetNumberOfSplits(void);
 void func_003A4448(void)
 {
-    DynamicsConductorBattle2P__virtual_41();
+    DynamicsConductor__GetNumberOfSplits();
 }

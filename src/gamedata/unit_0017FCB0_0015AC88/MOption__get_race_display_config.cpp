@@ -36,6 +36,11 @@ extern "C" void func_002C0FE8(s32);
 extern "C" void func_002C1050(s32);
 extern "C" void func_0029CEF0(void *, s32);
 
+struct MOption__get_race_display_config_v_s0 {
+    char pad0[0x10];
+    s32 unk10;
+};
+
 extern "C" void MOption__get_race_display_config(s32 *arg0, void *arg1, s32 arg2, char **arg3) {
     s32 buf0[4];
     s32 buf1[4];
@@ -47,7 +52,7 @@ extern "C" void MOption__get_race_display_config(s32 *arg0, void *arg1, s32 arg2
     if (arg2 > 0) {
         func_0015A6E8(buf0);
         v_s0 = buf0[0];
-        func_003FDC30(*(s32 *)((char *)v_s0 + 0x10), 0x400, (0 < vcall_58((char *)*(s32 *)arg3)));
+        func_003FDC30(((struct MOption__get_race_display_config_v_s0 *)v_s0)->unk10, 0x400, (0 < vcall_58((char *)*(s32 *)arg3)));
         func_0015A690(buf0, 0x2);
     } else {
         func_0015A6E8(buf0);

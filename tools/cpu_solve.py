@@ -6,7 +6,7 @@ compiler), m2c writes compilable C (`--valid-syntax`), which is compiled as C an
 goes to src/func_ADDR.c; a near miss (few differing instructions) is kept for the permuter
 (tools/permute_cpu.py); the rest is listed for the language models. No model is called.
 
-    cpu_solve.py [--jobs 3] [--max-bytes 2048] [--limit N] [--context types]
+    cpu_solve.py [--jobs 3] [--max-bytes 2048] [--limit N] [--context types] [--only FILE]
 
 --context adds drafts made with the type database (tools/types_db.py build first): m2c then
 calls known functions with their real prototypes and reads class fields with their real
@@ -36,12 +36,28 @@ OUT = os.path.join(ROOT, "build", "auto", "cpu")
 RESULTS = os.path.join(OUT, "results.jsonl")
 M2C = autoloop.M2C
 MACROS = open(os.path.join(os.path.dirname(M2C), "m2c_macros.h")).read()
-PRELUDE = ("typedef signed char s8; typedef unsigned char u8; typedef short s16; typedef unsigned short u16;\n"
-           "typedef int s32; typedef unsigned int u32; typedef long long s64; typedef unsigned long long u64;\n"
-           "typedef float f32; typedef double f64;\n"
-           "typedef int s128 __attribute__((mode(TI))); typedef unsigned int u128 __attribute__((mode(TI)));\n"
+# Every draft starts with this: the sized types and m2c's macros come from include/ (types.h,
+# m2c_macros.h; every compile command has -Iinclude), not pasted into each source.
+PRELUDE = ('#include "types.h"\n'
            "#define NULL 0\n"
-           "void *memcpy(void *, const void *, unsigned int);\n" + MACROS + "\n")
+           "void *memcpy(void *, const void *, unsigned int);\n"
+           '#include "m2c_macros.h"\n\n')
+# What drafts written before 2026-10-10 start with (the same declarations, pasted).
+LEGACY_PRELUDE = ("typedef signed char s8; typedef unsigned char u8; typedef short s16; typedef unsigned short u16;\n"
+                  "typedef int s32; typedef unsigned int u32; typedef long long s64; typedef unsigned long long u64;\n"
+                  "typedef float f32; typedef double f64;\n"
+                  "typedef int s128 __attribute__((mode(TI))); typedef unsigned int u128 __attribute__((mode(TI)));\n"
+                  "#define NULL 0\n"
+                  "void *memcpy(void *, const void *, unsigned int);\n" + MACROS.replace("\r\n", "\n") + "\n")
+
+
+def strip_prelude(text, prelude=None):
+    """A draft without its prelude (the current or the legacy one), or None if it has neither."""
+    for pre in ((prelude,) if prelude else (PRELUDE, LEGACY_PRELUDE)):
+        if text.startswith(pre):
+            return text[len(pre):]
+    return None
+
 
 FLOAT = re.compile(r"(?<![\w.])(\d+\.\d*(?:[eE][-+]?\d+)?|\d+[eE][-+]?\d+)(f?)(?![\w.])")
 
@@ -349,7 +365,7 @@ def attempt(addr, context=None, out=OUT, plain=True):
     # the draft kept by an earlier run competes too, so a retry never makes a function farther
     if os.path.exists(path):
         old = open(path).read()
-        old = old[len(PRELUDE):] if old.startswith(PRELUDE) else None
+        old = strip_prelude(old)
         if old:
             res = judge(addr, path)
             best = (differs_by(res), old, res, "kept")
@@ -415,6 +431,9 @@ def main():
     ap.add_argument("--shard", default="0/1", help="K/N: only every N-th function, starting at K")
     ap.add_argument("--context", choices=["protos", "types"],
                     help="also draft with tools/types_db.py's context (known prototypes, or everything)")
+    ap.add_argument("--only", metavar="FILE",
+                    help="only these functions (hex addresses, one per line), retried whatever their last "
+                         "result says: e.g. those whose context a new type database changed")
     ap.add_argument("--context-only", action="store_true",
                     help="with --context --retry: keep the earlier draft, add only the context drafts "
                          "(half the work); functions whose last result already used this context are skipped")
@@ -436,13 +455,17 @@ def main():
         tried = {k for k, r in latest.items()
                  if not (a_retry and r["result"] in ("differs", "does not compile", "m2c could not decompile it"))
                  or (a.context_only and r.get("ctx") == a.context)} | recent
+    only = None
+    if a.only:
+        only = {int(x, 16) for x in open(a.only).read().split() if x.strip()}
+        tried = set()
     done = autoloop.done_addrs()
     asm_only = inventory.asm_functions()
     text_addr, text = match.load_text()
     todo = []
     for r in csv.DictReader(open(match.FUNCTIONS)):
         addr = int(r["address"], 16)
-        if addr in done or addr in asm_only or f"{addr:08x}" in tried:
+        if addr in done or addr in asm_only or f"{addr:08x}" in tried or (only is not None and addr not in only):
             continue
         words = match.trim_padding(match.words_at(text_addr, text, addr, int(r["max_size"])))
         if len(words) * 4 > a.max_bytes or autoloop.other_compiler(words):

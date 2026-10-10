@@ -3,8 +3,13 @@ extern "C" void func_0050E1A8(void *arg0);
 
 extern void *D_005D41F0;
 
-extern "C" void func_0037BEA8(void *arg0, int arg1) {
-    *(void **)((char *)arg0 + 0x134) = &D_005D41F0;
+struct func_0037BEA8_arg0 {
+    char pad0[0x134];
+    void *unk134;
+};
+
+extern "C" void func_0037BEA8(struct func_0037BEA8_arg0 *arg0, int arg1) {
+    arg0->unk134 = &D_005D41F0;
     func_00370300(arg0, 0);
     if (arg1 & 1) {
         return func_0050E1A8(arg0);

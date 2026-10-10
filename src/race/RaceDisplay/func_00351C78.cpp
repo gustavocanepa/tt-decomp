@@ -1,6 +1,6 @@
 typedef int s32;
 
-extern "C" void func_0035A288(void *arg0, float arg1);
+extern "C" void RaceEventDisplay__clear(void *arg0, float arg1);
 extern "C" void func_0035BA50(char *arg0);
 
 struct Obj0039CD70 {
@@ -8,6 +8,6 @@ struct Obj0039CD70 {
 };
 
 extern "C" void func_00351C78(struct Obj0039CD70 *arg0) {
-    func_0035A288((char *)arg0 + 0x177C, 0.0f);
+    RaceEventDisplay__clear((char *)arg0 + 0x177C, 0.0f);
     func_0035BA50((char *)arg0 + 0x2E24);
 }

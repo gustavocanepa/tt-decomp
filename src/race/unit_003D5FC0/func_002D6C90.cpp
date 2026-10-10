@@ -1,6 +1,6 @@
-extern void func_002D6CB0(void);
+extern void RaceMonitor__renderCallback(void);
 
 void func_002D6C90(void)
 {
-    func_002D6CB0();
+    RaceMonitor__renderCallback();
 }

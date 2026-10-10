@@ -25,15 +25,25 @@ struct S00659988 {
 extern char D_004F5478[];
 extern "C" void func_004F52A8(void *, s32, s32, void *);
 
+struct func_004F54B8_arg0 {
+    char pad0[0x38];
+    s32 unk38;
+    s32 unk3C;
+    char pad40[0x198];
+    s32 unk1D8;
+    s32 unk1DC;
+    s32 unk1E0;
+};
+
 extern "C" void func_004F54B8(s32 *arg0) {
     char *v_s1;
     v_s1 = (char *)arg0 + 0x1e4;
-    *(s32 *)((char *)arg0 + 0x3c) = (s32)&D_004F5478;
-    *(s32 *)((char *)arg0 + 0x38) = 0x1;
+    ((struct func_004F54B8_arg0 *)arg0)->unk3C = (s32)&D_004F5478;
+    ((struct func_004F54B8_arg0 *)arg0)->unk38 = 0x1;
     func_004F52A8(v_s1, 0x4, 0, arg0);
     func_004F52A8((char *)arg0 + 0x23c, 0x9, 0x1, arg0);
     func_004F52A8((char *)arg0 + 0x294, 0xa, 0x2, arg0);
-    *(s32 *)((char *)arg0 + 0x1d8) = 0;
-    *(s32 *)((char *)arg0 + 0x1e0) = (s32)v_s1;
-    *(s32 *)((char *)arg0 + 0x1dc) = 0x3;
+    ((struct func_004F54B8_arg0 *)arg0)->unk1D8 = 0;
+    ((struct func_004F54B8_arg0 *)arg0)->unk1E0 = (s32)v_s1;
+    ((struct func_004F54B8_arg0 *)arg0)->unk1DC = 0x3;
 }

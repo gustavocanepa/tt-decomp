@@ -35,6 +35,11 @@ extern "C" void func_002C0FE8(s32);
 extern "C" void func_002C1050(s32);
 extern "C" void func_00299AB0(void *, s32);
 
+struct func_0026F0F0_v_s0 {
+    char pad0[0x54];
+    f32 unk54;
+};
+
 extern "C" void func_0026F0F0(s32 *arg0, void *arg1, s32 arg2, char **arg3) {
     s32 buf0[4];
     s32 buf1[4];
@@ -47,7 +52,7 @@ extern "C" void func_0026F0F0(s32 *arg0, void *arg1, s32 arg2, char **arg3) {
         func_0026E9C0(buf0);
         v_s0 = buf0[0];
         t1 = vcall_60((char *)*(s32 *)arg3);
-        *(f32 *)((char *)v_s0 + 0x54) = t1;
+        ((struct func_0026F0F0_v_s0 *)v_s0)->unk54 = t1;
         func_0026E968(buf0, 0x2);
     } else {
         p_s1 = buf1;

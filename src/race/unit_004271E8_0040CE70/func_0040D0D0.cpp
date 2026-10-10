@@ -20,16 +20,16 @@ struct Obj {
 };
 
 extern "C" s32 func_0040B980(Global *g, s64 id);
-extern "C" s32 func_0040B910(Global *g, s64 id, void *info);
+extern "C" s32 SPEC_DATABASE__DatabaseStorage__getRow(Global *g, s64 id, void *info);
 
 extern "C" s32 func_0040D0D0(Obj *self, s32 kind) {
     Ref r;
-    func_0040B910(&D_00585A30, self->id, &r);
+    SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, self->id, &r);
     if (r.id == -1 || func_0040B980(&D_00585A30, r.id) == 0) {
         return 0;
     }
     Info info;
-    func_0040B910(&D_00585A30, r.id, &info);
+    SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, r.id, &info);
     if (kind != 0x14) {
         return 0;
     }

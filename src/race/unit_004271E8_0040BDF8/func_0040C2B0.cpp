@@ -83,12 +83,12 @@ struct Obj {
     u16 f15E;
 };
 
-extern "C" s32 func_0040B910(Global *g, s64 id, Info *info);
+extern "C" s32 SPEC_DATABASE__DatabaseStorage__getRow(Global *g, s64 id, Info *info);
 extern "C" s32 func_0040D6D0(Obj *self);
 
 extern "C" s32 func_0040C2B0(Obj *self, s64 id) {
     Info info;
-    if (func_0040B910(&D_00585A30, id, &info) == 0) {
+    if (SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, id, &info) == 0) {
         return 0;
     }
     self->f128 = info.f2;

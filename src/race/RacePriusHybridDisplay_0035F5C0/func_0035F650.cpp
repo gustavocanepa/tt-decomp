@@ -10,11 +10,11 @@ struct Obj_003AA488 {
     Elem_003AA488 elems[5];
 };
 
-extern "C" void func_0035F470(Elem_003AA488 *e, f32 t);
+extern "C" void PaletteFlowAnimation__update(Elem_003AA488 *e, f32 t);
 
 extern "C" void func_0035F650(Obj_003AA488 *arg0, f32 t) {
     s32 i;
     for (i = 0; i < 5; i++) {
-        func_0035F470(&arg0->elems[i], t);
+        PaletteFlowAnimation__update(&arg0->elems[i], t);
     }
 }

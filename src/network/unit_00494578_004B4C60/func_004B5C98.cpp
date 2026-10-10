@@ -1,0 +1,22 @@
+struct Req {
+    int handle;
+    char pad[0x3C];
+    int arg0;
+};
+extern Req D_00773FC0;
+
+extern "C" void func_004F4348(int);
+extern "C" int func_004F45D8(void *obj, int a1, int a2, void *buf, int size);
+
+extern "C" void func_004B5C98(float x) {
+    float lo = -1.0f;
+    float hi = 1.0f;
+    if (x < lo)
+        x = lo;
+    if (hi < x)
+        x = hi;
+    int v = (int)(x * 32768.0f);
+    func_004F4348(D_00773FC0.handle);
+    D_00773FC0.arg0 = v;
+    func_004F45D8(&D_00773FC0, 3, 0, 0, 0);
+}

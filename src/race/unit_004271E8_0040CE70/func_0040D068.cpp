@@ -16,7 +16,7 @@ struct Obj {
     s64 id;
 };
 
-extern "C" s32 func_0040B910(Global *g, s64 id, Info *info);
+extern "C" s32 SPEC_DATABASE__DatabaseStorage__getRow(Global *g, s64 id, Info *info);
 extern "C" s32 func_0040D170(Obj *self);
 
 extern "C" s32 func_0040D068(Obj *self) {
@@ -24,7 +24,7 @@ extern "C" s32 func_0040D068(Obj *self) {
     s64 id = self->id;
     if (id != -1) {
         Info info;
-        func_0040B910(&D_00585A30, id, &info);
+        SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, id, &info);
         r = info.f6;
     }
     if (func_0040D170(self)) {

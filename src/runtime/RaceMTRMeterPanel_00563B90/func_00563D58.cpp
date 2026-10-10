@@ -9,8 +9,12 @@ static inline void vcall_0(char *o, s32 a0) {
     e->fn(o + e->delta, a0);
 }
 
+struct func_00563D58_arg0 {
+    void *unk0;
+};
+
 extern "C" void func_00563D58(void *arg0, s32 arg1) {
-    *(void **)((char *)arg0 + 0x0) = &D_005D9068;
+    ((struct func_00563D58_arg0 *)arg0)->unk0 = &D_005D9068;
     if ((char *)arg0 + 0xC != 0) {
         char *p0 = (char *)arg0 + 0xDC;
         while ((char *)arg0 + 0xC != p0) {

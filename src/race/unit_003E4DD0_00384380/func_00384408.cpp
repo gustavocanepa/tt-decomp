@@ -23,7 +23,12 @@ struct S00659988 {
 };
 
 extern "C" s32 func_003855A0(void *, void *, void *, s32, void *);
-extern "C" void func_00384518(void *, void *, void *, void *, void *, s32, s32, s32);
+extern "C" void GT4Course__RunwayData__traverse(void *, void *, void *, void *, void *, s32, s32, s32);
+
+struct func_00384408_arg0 {
+    char pad0[0x4C];
+    u16 unk4C;
+};
 
 extern "C" void func_00384408(s32 *arg0, void *arg1, s32 arg2, char **arg3) {
     s32 buf0[4];
@@ -33,6 +38,6 @@ extern "C" void func_00384408(s32 *arg0, void *arg1, s32 arg2, char **arg3) {
     v_s0 = (char *)arg0 + 0x20;
     p_s1 = buf1;
     if (func_003855A0(v_s0, buf0, p_s1, arg2, arg3) != 0) {
-        func_00384518(arg0, arg1, v_s0, buf0, p_s1, 0, *(u16 *)((char *)arg0 + 0x4c) - 0x1, 0);
+        GT4Course__RunwayData__traverse(arg0, arg1, v_s0, buf0, p_s1, 0, ((struct func_00384408_arg0 *)arg0)->unk4C - 0x1, 0);
     }
 }

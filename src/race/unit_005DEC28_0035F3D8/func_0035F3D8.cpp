@@ -9,8 +9,8 @@ struct Obj {
     Vec4 unk154;
 };
 
-extern "C" void RacePriusHybridDisplay__virtual_10(Vec4 *arg0);
+extern "C" void RacePriusHybridDisplay__DMAsafe(Vec4 *arg0);
 
 extern "C" void func_0035F3D8(struct Obj *arg0) {
-    RacePriusHybridDisplay__virtual_10(&arg0->unk154);
+    RacePriusHybridDisplay__DMAsafe(&arg0->unk154);
 }

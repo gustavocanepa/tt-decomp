@@ -1,106 +1,51 @@
-typedef signed char s8; typedef unsigned char u8; typedef short s16; typedef unsigned short u16;
-typedef int s32; typedef unsigned int u32; typedef long long s64; typedef unsigned long long u64;
-typedef float f32; typedef double f64;
-typedef int s128 __attribute__((mode(TI))); typedef unsigned int u128 __attribute__((mode(TI)));
+#include "types.h"
 #define NULL 0
 void *memcpy(void *, const void *, unsigned int);
-/*
- * This header contains macros emitted by m2c in "valid syntax" mode,
- * which can be enabled by passing `--valid-syntax` on the command line.
- *
- * In this mode, unhandled types and expressions are emitted as macros so
- * that the output is compilable without human intervention.
- */
 
-#ifndef M2C_MACROS_H
-#define M2C_MACROS_H
-
-/* Unknown types */
-typedef s32 M2C_UNK;
-typedef s8  M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-typedef s64 M2C_UNK64;
-
-/* Unknown field access, like `*(type_ptr) &expr->unk_offset` */
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-/* Bitwise (reinterpret) cast */
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-/* Unaligned reads */
-#define M2C_LWL(expr) (expr)
-#define M2C_FIRST3BYTES(expr) (expr)
-#define M2C_UNALIGNED32(expr) (expr)
-
-/* Unhandled instructions */
-#define M2C_ERROR(desc) (0)
-#define M2C_TRAP_IF(cond) (0)
-#define M2C_BREAK() (0)
-#define M2C_SYNC() (0)
-#define M2C_DCACHE_CLEAN(addr) (0)
-#define M2C_DCACHE_INVALIDATE(addr) (0)
-#define M2C_DCACHE_CLEAN_INVALIDATE(addr) (0)
-#define M2C_DCACHE_BLOCK_SETZERO(addr) (0)
-#define M2C_DCACHE_BLOCK_SETZERO_LOCKED(addr) (0)
-#define M2C_ICACHE_INVALIDATE(addr) (0)
-#define M2C_PREFETCH(addr) (0)
-#define M2C_PREFETCH_STORE(addr) (0)
-
-#define GLUE_F64(a, b) (0.0)
-#define MULT_HI(a, b) (0)
-#define MULTU_HI(a, b) (0)
-#define DMULT_HI(a, b) (0)
-#define DMULTU_HI(a, b) (0)
-#define CLZ(x) (0)
-#define REVERSE_BITS(x) (0)
-#define ROTATE_RIGHT(x, shift) (0)
-#define ARM_RRX(x, carry) (0)
-#define BSWAP32(x) (0)
-#define BSWAP16(x) (0)
-#define BSWAP16X2(x) (0)
-
-/* Carry/overflow bits from partially-implemented instructions */
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-
-/* Memcpy patterns */
-#define M2C_MEMCPY_ALIGNED memcpy
-#define M2C_MEMCPY_UNALIGNED memcpy
-#define M2C_STRUCT_COPY memcpy
-
-/* Sh2 control register loads/stores */
-#define M2C_LOAD_SR() (0)
-#define M2C_LOAD_GBR() (0)
-#define M2C_LOAD_VBR() (0)
-#define M2C_STORE_SR(a)
-#define M2C_STORE_GBR(a)
-#define M2C_STORE_VBR(a)
-
-#define M2C_CMP_STR(a, b) (0)
-#define M2C_TAS_B(a) (0)
-
-#endif
-
-M2C_UNK func_001B9AF0();                            /* extern */
-void *func_0050DB48(s32, M2C_UNK, M2C_UNK, void *, M2C_UNK, void *); /* extern */
+s32 func_001B9AF0();                            /* extern */
+void *GT4MC__FileGT4GameData__loadInstance(s32, s32, s32, void *, s32, void *); /* extern */
 
 extern char D_00522F68[];
 extern char D_0054D6E8[];
-void func_001B5610(void *arg0, void *arg1) {
-    void *temp_v0;
-    void *var_a0;
+struct func_001B5610_temp_v0 {
+    s16 unk0;
+    char pad2[0x2];
+    s32 unk4;
+};
+struct func_001B5610_arg0 {
+    char pad0[0xD4];
+    u16 unkD4;
+    u16 unkD6;
+    u16 unkD8;
+    u16 unkDA;
+};
+struct func_001B5610_var_a0 {
+    char pad0[0xD4];
+    u16 unkD4;
+    u16 unkD6;
+    u16 unkD8;
+    u16 unkDA;
+};
+
+struct func_001B5610_arg1 {
+    char pad0[0x4];
+    void *unk4;
+};
+
+void func_001B5610(struct func_001B5610_arg0 *arg0, void *arg1) {
+    struct func_001B5610_temp_v0 *temp_v0;
+    struct func_001B5610_var_a0 *var_a0;
 
     func_001B9AF0();
     var_a0 = NULL;
     if (arg1 != NULL) {
-        temp_v0 = M2C_FIELD(arg1, void **, 4);
-        var_a0 = func_0050DB48(M2C_FIELD(temp_v0, s32 *, 4), (s32)D_00522F68, 0, arg1 + M2C_FIELD(temp_v0, s16 *, 0), (s32)D_0054D6E8, arg1);
+        temp_v0 = ((struct func_001B5610_arg1 *)arg1)->unk4;
+        var_a0 = GT4MC__FileGT4GameData__loadInstance(temp_v0->unk4, (s32)D_00522F68, 0, arg1 + temp_v0->unk0, (s32)D_0054D6E8, arg1);
     }
     if (var_a0 != NULL) {
-        M2C_FIELD(arg0, u16 *, 0xD4) = (u16) M2C_FIELD(var_a0, u16 *, 0xD4);
-        M2C_FIELD(arg0, u16 *, 0xD6) = (u16) M2C_FIELD(var_a0, u16 *, 0xD6);
-        M2C_FIELD(arg0, u16 *, 0xD8) = (u16) M2C_FIELD(var_a0, u16 *, 0xD8);
-        M2C_FIELD(arg0, u16 *, 0xDA) = (u16) M2C_FIELD(var_a0, u16 *, 0xDA);
+        arg0->unkD4 = (u16) var_a0->unkD4;
+        arg0->unkD6 = (u16) var_a0->unkD6;
+        arg0->unkD8 = (u16) var_a0->unkD8;
+        arg0->unkDA = (u16) var_a0->unkDA;
     }
 }

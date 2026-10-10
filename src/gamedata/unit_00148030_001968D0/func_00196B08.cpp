@@ -14,7 +14,7 @@ extern char func_00550B70[];
 extern char func_00551160[];
 
 extern Node **func_00196AF8(void);
-extern int func_0050DB48(int, void *, int, void *, void *, void *);
+extern int GT4MC__FileGT4GameData__loadInstance(int, void *, int, void *, void *, void *);
 
 int func_00196B08(void)
 {
@@ -29,7 +29,7 @@ int func_00196B08(void)
         temp_v1 = *temp_v0;
         if (temp_v1 != 0) {
             Unk64 *u = temp_v1->unk64;
-            var_v0 = func_0050DB48(u->unk4, func_00550B70, 0,
+            var_v0 = GT4MC__FileGT4GameData__loadInstance(u->unk4, func_00550B70, 0,
                                     (char *)temp_v1 + u->unk0,
                                     func_00551160, temp_v1);
         } else {

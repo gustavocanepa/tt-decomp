@@ -1,6 +1,6 @@
-extern void func_0036C450(void);
+extern void ErrorEventView__removeMessage(void);
 
 void func_0036C308(void)
 {
-    func_0036C450();
+    ErrorEventView__removeMessage();
 }

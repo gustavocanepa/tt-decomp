@@ -123,7 +123,7 @@ def compile_c(src):
     os.makedirs(os.path.join(ROOT, "build", "obj"), exist_ok=True)
     obj = os.path.join(ROOT, "build", "obj", f"match_{os.getpid()}_{uuid.uuid4().hex}.o")
     rel = lambda p: os.path.relpath(os.path.abspath(p), ROOT).replace("\\", "/")
-    args = ["bash", "tools/cc_wsl.sh", rel(src), rel(obj), project.compiler_command(project.source_compiler(src))]
+    args = project.with_include_stamp(["bash", "tools/cc_wsl.sh", rel(src), rel(obj), project.compiler_command(project.source_compiler(src))])
     if os.name == "nt":
         cmd = ["wsl", "-d", "Ubuntu", "--cd", "/mnt/" + ROOT[0].lower() + ROOT[2:].replace("\\", "/"), "--"] + args
     else:
@@ -388,6 +388,14 @@ def judge(addr, src, obj=None, sources=None):
         if obj:
             os.remove(obj)
         return False, f"REFUSED by tools/asm_policy.py: {'; '.join(bad)}"
+    # A file-scope `int D_X;` without extern is a tentative definition: the object then defines the
+    # game's global itself (a common symbol), which the full build's link rejects.
+    tentative = re.findall(r"(?m)^(?!extern\b|static\b|typedef\b|struct\b|class\b|union\b|enum\b)[A-Za-z_][\w \t*]*?\b((?:D|func)_[0-9A-Fa-f]{8})\s*(?:\[[^\]]*\])?\s*;",
+                           open(src, encoding="utf-8", errors="replace").read())
+    if tentative:
+        if obj:
+            os.remove(obj)
+        return False, f"REFUSED: global defined instead of declared (add extern): {', '.join(sorted(set(tentative)))}"
     text_addr, text = load_text()
     target = trim_padding(words_at(text_addr, text, addr, function_span(addr)))
     obj = obj or compile_c(src)
@@ -489,7 +497,7 @@ def compile_many(srcs, jobs=2):
             command = project.compiler_command(project.source_compiler(src))
         except SystemExit:
             continue  # unknown compiler marker: no object, judged as not compiling
-        lines.append(" ".join(["bash", "tools/cc_wsl.sh", shlex.quote(rel(src)), shlex.quote(rel(obj)),
+        lines.append(" ".join(["env", f"INCLUDE_STAMP={project.include_stamp()}", "bash", "tools/cc_wsl.sh", shlex.quote(rel(src)), shlex.quote(rel(obj)),
                                shlex.quote(command), "2>" + shlex.quote(rel(obj)[:-2] + ".err")]))
     listing = os.path.join(batch, "jobs.txt")
     open(listing, "w", newline="\n").write("\n".join(lines) + "\n")

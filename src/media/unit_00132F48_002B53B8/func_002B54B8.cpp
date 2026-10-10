@@ -3,9 +3,15 @@ typedef int s32;
 extern void *D_005C6A30;
 extern "C" void *func_002C0EB0(void *);
 
-extern "C" void *func_002B54B8(void *arg0, s32 arg1) {
+struct func_002B54B8_arg0 {
+    char pad0[0x4];
+    void *unk4;
+    void *unk8;
+};
+
+extern "C" void *func_002B54B8(struct func_002B54B8_arg0 *arg0, s32 arg1) {
     void *r0 = func_002C0EB0(arg0);
-    *(void **)((char *)arg0 + 0x4) = &D_005C6A30;
-    *(void **)((char *)arg0 + 0x8) = (void *)(arg1);
+    arg0->unk4 = &D_005C6A30;
+    arg0->unk8 = (void *)(arg1);
     return r0;
 }

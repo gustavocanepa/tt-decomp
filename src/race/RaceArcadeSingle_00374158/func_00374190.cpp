@@ -1,6 +1,6 @@
-extern void RaceBase__virtual_78(void);
+extern void RaceBase__raceStart(void);
 
 void func_00374190(void)
 {
-    RaceBase__virtual_78();
+    RaceBase__raceStart();
 }

@@ -18,7 +18,7 @@ struct HeapName {
 };
 
 extern "C" int func_0056B960(const void *self, const void *other, unsigned int pos, unsigned int n);
-extern "C" char *func_00550D50(Rep *rep);
+extern "C" char *strobe__toUpper(Rep *rep);
 extern "C" void stl_unknown_release(void *p, int size);
 
 /* the game's string: libstdc++ v2 basic_string (knowledge/runtime-types.md) */
@@ -27,7 +27,7 @@ struct Str2 {
     Rep *rep() const { return (Rep *)p - 1; }
     static char *grab(Rep *r) {
         if (r->sel)
-            return func_00550D50(r);
+            return strobe__toUpper(r);
         ++r->ref;
         return (char *)(r + 1);
     }

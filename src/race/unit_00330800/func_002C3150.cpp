@@ -28,6 +28,11 @@ extern "C" void func_00470450(s32);
 extern "C" void func_00104C88(void *);
 extern "C" void func_00470E60(s32);
 
+struct func_002C3150_v_s0 {
+    char pad0[0x78];
+    s32 unk78;
+};
+
 extern "C" void func_002C3150(s32 *arg0) {
     char *v_s0;
     s32 v_s1;
@@ -35,11 +40,11 @@ extern "C" void func_002C3150(s32 *arg0) {
     func_00470B48(0);
     v_s1 = 0x1;
     func_00470450(-0x1);
-    func_00104C88((char *)v_s0 + (((*(s32 *)((char *)v_s0 + 0x78) << 4) - *(s32 *)((char *)v_s0 + 0x78)) << 2));
+    func_00104C88((char *)v_s0 + (((((struct func_002C3150_v_s0 *)v_s0)->unk78 << 4) - ((struct func_002C3150_v_s0 *)v_s0)->unk78) << 2));
     func_00470E60(0x1);
-    func_00104C88((char *)v_s0 + ((((v_s1 - *(s32 *)((char *)v_s0 + 0x78)) << 4) - (v_s1 - *(s32 *)((char *)v_s0 + 0x78))) << 2));
+    func_00104C88((char *)v_s0 + ((((v_s1 - ((struct func_002C3150_v_s0 *)v_s0)->unk78) << 4) - (v_s1 - ((struct func_002C3150_v_s0 *)v_s0)->unk78)) << 2));
     func_00470E60(0x1);
-    *(s32 *)((char *)v_s0 + (((*(s32 *)((char *)v_s0 + 0x78) << 4) - *(s32 *)((char *)v_s0 + 0x78)) << 2) + 0x30) = 0;
-    v_s1 = (v_s1 - *(s32 *)((char *)v_s0 + 0x78));
+    *(s32 *)((char *)v_s0 + (((((struct func_002C3150_v_s0 *)v_s0)->unk78 << 4) - ((struct func_002C3150_v_s0 *)v_s0)->unk78) << 2) + 0x30) = 0;
+    v_s1 = (v_s1 - ((struct func_002C3150_v_s0 *)v_s0)->unk78);
     *(s32 *)((char *)v_s0 + (((v_s1 << 4) - v_s1) << 2) + 0x30) = 0;
 }

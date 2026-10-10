@@ -1,6 +1,6 @@
-extern void func_0035E7B0(int);
+extern void Oscillator__update(int);
 
 void func_003735D0(int arg0)
 {
-    func_0035E7B0(arg0 + 0x48);
+    Oscillator__update(arg0 + 0x48);
 }

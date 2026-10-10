@@ -3,12 +3,23 @@ typedef int s32;
 extern void *D_005B5868;
 extern "C" void *func_00211C00(void *);
 
-extern "C" void *func_00535E60(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, float farg0, float farg1) {
+struct func_00535E60_arg0 {
+    char pad0[0x4];
+    void *unk4;
+    char pad8[0x18];
+    short unk20;
+    char pad22[0x2];
+    void *unk24;
+    float unk28;
+    float unk2C;
+};
+
+extern "C" void *func_00535E60(struct func_00535E60_arg0 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, float farg0, float farg1) {
     void *r0 = func_00211C00(arg0);
-    *(short *)((char *)arg0 + 0x20) = arg3;
-    *(void **)((char *)arg0 + 0x24) = (void *)(arg4);
-    *(float *)((char *)arg0 + 0x28) = farg0;
-    *(float *)((char *)arg0 + 0x2c) = farg1;
-    *(void **)((char *)arg0 + 0x4) = &D_005B5868;
+    arg0->unk20 = arg3;
+    arg0->unk24 = (void *)(arg4);
+    arg0->unk28 = farg0;
+    arg0->unk2C = farg1;
+    arg0->unk4 = &D_005B5868;
     return r0;
 }

@@ -11,7 +11,7 @@ struct Obj {
 };
 
 extern "C" s32 func_0040B980(Global *g, s64 id);
-extern "C" s32 func_0040B910(Global *g, s64 id, void *info);
+extern "C" s32 SPEC_DATABASE__DatabaseStorage__getRow(Global *g, s64 id, void *info);
 extern "C" void func_0040EC68(Obj *self);
 extern "C" s32 func_0040EDE0(Obj *self, s64 ref);
 
@@ -23,7 +23,7 @@ extern "C" s32 func_0040EC90(Obj *self, s64 id) {
         return 0;
     }
     func_0040EC68(self);
-    func_0040B910(&D_00585A30, id, self);
+    SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, id, self);
     self->cur = id;
     if (self->ref != -1 && func_0040EDE0(self, self->ref) == 0) {
         return 0;

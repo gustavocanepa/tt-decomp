@@ -1,5 +1,5 @@
-extern void func_0038F508(void);
+extern void RaceDisplayUtil__wideOffset(void);
 void func_0055E0A8(void)
 {
-    func_0038F508();
+    RaceDisplayUtil__wideOffset();
 }

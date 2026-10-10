@@ -48,7 +48,7 @@ struct Dst {
     Elem elems[3];
 };
 
-extern "C" s32 func_0040B910(Global *g, s64 id, void *info);
+extern "C" s32 SPEC_DATABASE__DatabaseStorage__getRow(Global *g, s64 id, void *info);
 extern "C" void func_00409EE8(void *ctx, Elem *e, RecA *a, RecB *b);
 
 extern "C" void func_00409C70(void *ctx, Dst *dst, Ids *ids) {
@@ -60,11 +60,11 @@ extern "C" void func_00409C70(void *ctx, Dst *dst, Ids *ids) {
     s32 i;
 
     for (i = 0; i < 3; i++) {
-        func_0040B910(&D_00585A30, a.v[i], &ra);
-        func_0040B910(&D_00585A30, b.v[i], &rb);
+        SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, a.v[i], &ra);
+        SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, b.v[i], &rb);
         func_00409EE8(ctx, &dst->elems[i], &ra, &rb);
     }
-    func_0040B910(&D_00585A30, ids->id, &rc);
+    SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, ids->id, &rc);
     dst->f1CA = rc.b2;
     dst->f1CC = rc.b0;
     dst->f1C8 = rc.b3;

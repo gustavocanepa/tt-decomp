@@ -9,8 +9,13 @@ static inline void vcall_0(char *o, s32 a0) {
     e->fn(o + e->delta, a0);
 }
 
+struct RaceABMonitor__structor_2_arg0 {
+    char pad0[0x14];
+    void *unk14;
+};
+
 extern "C" void RaceABMonitor__structor_2(void *arg0, s32 arg1) {
-    *(void **)((char *)arg0 + 0x14) = &D_005D0D78;
+    ((struct RaceABMonitor__structor_2_arg0 *)arg0)->unk14 = &D_005D0D78;
     if ((char *)arg0 + 0x20 != 0) {
         char *p0 = (char *)arg0 + 0x80;
         while ((char *)arg0 + 0x20 != p0) {

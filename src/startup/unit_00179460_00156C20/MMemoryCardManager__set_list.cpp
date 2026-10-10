@@ -28,6 +28,11 @@ extern "C" void func_001596F8(void *, s32);
 extern "C" void func_00198D50(s32);
 extern "C" void func_001564E0(void *, s32);
 
+struct MMemoryCardManager__set_list_v_s1 {
+    char pad0[0x678];
+    s32 unk678;
+};
+
 extern "C" void MMemoryCardManager__set_list(s32 *arg0, void *arg1, s32 arg2, char **arg3) {
     s32 buf0[4];
     s32 buf1[4];
@@ -38,7 +43,7 @@ extern "C" void MMemoryCardManager__set_list(s32 *arg0, void *arg1, s32 arg2, ch
         p_s0 = buf1;
         v_s1 = *(s32 *)((char *)buf0[0] + 0x20);
         func_00159750(p_s0, arg3);
-        *(s32 *)((char *)v_s1 + 0x678) = *(s32 *)((char *)(*p_s0) + 0x10);
+        ((struct MMemoryCardManager__set_list_v_s1 *)v_s1)->unk678 = *(s32 *)((char *)(*p_s0) + 0x10);
         func_001596F8(p_s0, 0x2);
         func_00198D50(*(s32 *)((char *)buf0[0] + 0x20));
         func_001564E0(buf0, 0x2);

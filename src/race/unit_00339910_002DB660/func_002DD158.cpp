@@ -25,18 +25,18 @@ struct S00659988 {
 extern char D_005F2AF8[];
 extern "C" void func_00424178(void *, void *, void *);
 extern "C" void func_00423BB0(void *, s32);
-extern "C" void func_00423D40(void *, void *, s32);
+extern "C" void GT4Model__BinStreamWriter__writeArray(void *, void *, s32);
 extern "C" void func_004241E8(void *, void *);
 
 extern "C" void func_002DD158(s32 *arg0, void *arg1) {
     s32 buf0[4];
     func_00424178(buf0, arg1, &D_005F2AF8);
     func_00423BB0(arg1, 0x1);
-    func_00423D40(arg1, arg0, 0x24);
-    func_00423D40(arg1, (char *)arg0 + 0x24, 0x10);
-    func_00423D40(arg1, (char *)arg0 + 0x34, 0x4);
-    func_00423D40(arg1, (char *)arg0 + 0x38, 0x4);
-    func_00423D40(arg1, (char *)arg0 + 0x3c, 0x4);
-    func_00423D40(arg1, (char *)arg0 + 0x40, 0x4);
+    GT4Model__BinStreamWriter__writeArray(arg1, arg0, 0x24);
+    GT4Model__BinStreamWriter__writeArray(arg1, (char *)arg0 + 0x24, 0x10);
+    GT4Model__BinStreamWriter__writeArray(arg1, (char *)arg0 + 0x34, 0x4);
+    GT4Model__BinStreamWriter__writeArray(arg1, (char *)arg0 + 0x38, 0x4);
+    GT4Model__BinStreamWriter__writeArray(arg1, (char *)arg0 + 0x3c, 0x4);
+    GT4Model__BinStreamWriter__writeArray(arg1, (char *)arg0 + 0x40, 0x4);
     func_004241E8(buf0, arg1);
 }

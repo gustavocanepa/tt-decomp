@@ -1,4 +1,4 @@
-/* dynamic_cast<T *>(self->obj) written out as gcc 2.96's __dynamic_cast call (func_0050DB48),
+/* dynamic_cast<T *>(self->obj) written out as gcc 2.96's __dynamic_cast call (GT4MC__FileGT4GameData__loadInstance),
    as in func_002F67E8: the type-info functions are func_0056E9E8 (target) and func_0056E9A8 (source). */
 struct VEntry {
     short delta;
@@ -18,7 +18,7 @@ struct Obj {
 
 extern "C" void func_0056E9E8(void);
 extern "C" void func_0056E9A8(void);
-extern "C" void *func_0050DB48(void *tf, void (*target)(void), int require_public, void *address,
+extern "C" void *GT4MC__FileGT4GameData__loadInstance(void *tf, void (*target)(void), int require_public, void *address,
                                void (*source)(void), void *subptr);
 extern "C" void func_0047F670(void *p);
 
@@ -27,7 +27,7 @@ extern "C" void func_0047C9F8(Obj *self) {
     Base *b = self->obj;
     if (b) {
         VEntry *e = b->vtbl;
-        p = func_0050DB48(e->tf, func_0056E9E8, 0, (char *)b + e->delta, func_0056E9A8, b);
+        p = GT4MC__FileGT4GameData__loadInstance(e->tf, func_0056E9E8, 0, (char *)b + e->delta, func_0056E9A8, b);
     }
     if (p)
         func_0047F670(p);

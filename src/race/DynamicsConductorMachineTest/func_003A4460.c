@@ -1,5 +1,5 @@
-extern void DynamicsConductorBattle2P__virtual_42(void);
+extern void DynamicsConductor__GetCheckPointVabs(void);
 void func_003A4460(void)
 {
-    DynamicsConductorBattle2P__virtual_42();
+    DynamicsConductor__GetCheckPointVabs();
 }

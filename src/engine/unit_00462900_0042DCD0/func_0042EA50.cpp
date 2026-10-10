@@ -1,6 +1,6 @@
-extern void func_0042DF80(void);
+extern void SePlayer__Stop(void);
 
 void func_0042EA50(void)
 {
-    func_0042DF80();
+    SePlayer__Stop();
 }

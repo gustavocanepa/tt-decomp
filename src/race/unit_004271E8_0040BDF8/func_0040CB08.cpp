@@ -22,7 +22,7 @@ struct Obj {
 };
 
 extern "C" s32 func_0040B980(Global *g, s64 id);
-extern "C" s32 func_0040B910(Global *g, s64 id, Info *info);
+extern "C" s32 SPEC_DATABASE__DatabaseStorage__getRow(Global *g, s64 id, Info *info);
 extern "C" u8 func_0040CDD0(Obj *self, s32 a, s32 b, s32 c);
 
 extern "C" s32 func_0040CB08(Obj *self) {
@@ -31,7 +31,7 @@ extern "C" s32 func_0040CB08(Obj *self) {
         return 0;
     }
     Info info;
-    func_0040B910(&D_00585A30, id, &info);
+    SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, id, &info);
     self->f150[0] = func_0040CDD0(self, info.t[1].a, info.t[1].c, info.t[1].b);
     self->f150[1] = func_0040CDD0(self, info.t[4].a, info.t[4].c, info.t[4].b);
     self->f150[2] = func_0040CDD0(self, info.t[2].a, info.t[2].c, info.t[2].b);

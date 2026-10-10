@@ -15,7 +15,7 @@ struct Val {
     Val(const Val &o) { func_0043D3B8(this, &o); }
     ~Val() { func_0043D510(this); }
 };
-extern "C" const char *func_0043DEF8(Val *);
+extern "C" const char *strobe__Any__toString(Val *);
 extern "C" u32 func_004A8368(const char *s);
 struct String2;
 extern "C" String2 *func_00550E18(String2 *str, u32 pos, u32 n1, const char *s, u32 n2);
@@ -31,5 +31,5 @@ struct Obj { char pad[0x60]; String2 str; };
 
 extern "C" void func_004402E0(Obj *o, const Val &v) {
     Val t(v);
-    o->str = func_0043DEF8(&t);
+    o->str = strobe__Any__toString(&t);
 }

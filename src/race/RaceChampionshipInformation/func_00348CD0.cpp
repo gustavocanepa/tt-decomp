@@ -5,8 +5,13 @@ extern "C" void func_0040BC48(void *, s32);
 extern "C" void func_00370300(void *, s32);
 extern "C" void func_0050E1A8(void *);
 
+struct func_00348CD0_arg0 {
+    char pad0[0x134];
+    void *unk134;
+};
+
 extern "C" void func_00348CD0(void *arg0, s32 arg1) {
-    *(void **)((char *)arg0 + 0x134) = &D_005CF580;
+    ((struct func_00348CD0_arg0 *)arg0)->unk134 = &D_005CF580;
     if ((char *)arg0 + 0x188 != 0) {
         char *p0 = (char *)arg0 + 0xB48;
         while ((char *)arg0 + 0x188 != p0) {

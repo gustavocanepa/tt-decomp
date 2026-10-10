@@ -1,6 +1,6 @@
-extern void func_0035E938(int);
+extern void AutomaticFader__update(int);
 
 void func_003591D8(int arg0)
 {
-    func_0035E938(arg0 + 0x24);
+    AutomaticFader__update(arg0 + 0x24);
 }

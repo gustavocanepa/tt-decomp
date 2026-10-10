@@ -19,7 +19,7 @@ struct HeapName {
 };
 
 extern "C" int func_0056B960(const void *self, const void *other, unsigned int pos, unsigned int n);
-extern "C" char *func_00550D50(Rep *rep);
+extern "C" char *strobe__toUpper(Rep *rep);
 extern "C" void stl_unknown_release(void *p, int size);
 
 /* the game's string: libstdc++ v2 basic_string (knowledge/runtime-types.md); the pointer is read and
@@ -31,7 +31,7 @@ struct Str2 {
         Rep *r = (Rep *)(q - 0x10);
         int d = q;
         if (r->sel != 0) {
-            d = (int)func_00550D50(r);
+            d = (int)strobe__toUpper(r);
         } else {
             r->ref = r->ref + 1;
         }

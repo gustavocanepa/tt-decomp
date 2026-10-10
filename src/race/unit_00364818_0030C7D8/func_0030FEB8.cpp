@@ -1,11 +1,11 @@
 typedef int s32;
 
-extern "C" s32 func_0030FE98(void *);
-extern "C" s32 func_0030FEA8(void *);
+extern "C" s32 TireWearParameters__isWearAvailable(void *);
+extern "C" s32 TireWearParameters__isHeatAvailable(void *);
 
 extern "C" s32 func_0030FEB8(void *o) {
     s32 r = 0;
-    if (func_0030FE98(o) || func_0030FEA8(o))
+    if (TireWearParameters__isWearAvailable(o) || TireWearParameters__isHeatAvailable(o))
         r = 1;
     return r;
 }

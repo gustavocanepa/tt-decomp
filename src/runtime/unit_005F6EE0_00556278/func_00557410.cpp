@@ -1,6 +1,6 @@
-extern void func_0035E868(int);
+extern void Oscillator__setCycle(int);
 
 void func_00557410(int arg0)
 {
-    func_0035E868(arg0 + 0x48);
+    Oscillator__setCycle(arg0 + 0x48);
 }

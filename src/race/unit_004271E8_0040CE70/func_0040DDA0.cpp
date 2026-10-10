@@ -15,13 +15,13 @@ struct Obj {
     s64 id;
 };
 
-extern "C" s32 func_0040B910(Global *g, s64 id, Info *info);
+extern "C" s32 SPEC_DATABASE__DatabaseStorage__getRow(Global *g, s64 id, Info *info);
 extern "C" s32 func_0040E3C8(Obj *self);
 
 extern "C" s32 func_0040DDA0(Obj *self) {
     s32 r = 0;
     Info info;
-    if (func_0040B910(&D_00585A30, self->id, &info) == 0) {
+    if (SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, self->id, &info) == 0) {
         return 0;
     }
     {

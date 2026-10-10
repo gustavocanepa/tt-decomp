@@ -1,9 +1,9 @@
 typedef int s32;
 
-extern "C" void func_0042DF80(void *, s32);
-extern "C" void func_0042DD18(void *, s32, s32);
+extern "C" void SePlayer__Stop(void *, s32);
+extern "C" void SePlayer__Initialize(void *, s32, s32);
 
 extern "C" void func_0042DD70(void *self, s32 a) {
-    func_0042DF80(self, 0);
-    func_0042DD18(self, a, 0);
+    SePlayer__Stop(self, 0);
+    SePlayer__Initialize(self, a, 0);
 }

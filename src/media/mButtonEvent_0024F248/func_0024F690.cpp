@@ -32,6 +32,15 @@ extern "C" void func_0024EE50(void *, void *, s32);
 extern "C" void func_0024F450(void *, void *);
 extern "C" void func_0024F3F8(void *, s32);
 
+struct func_0024F690_v_s0 {
+    char pad0[0x34];
+    s32 unk34;
+};
+struct func_0024F690_arg3 {
+    char pad0[0x18];
+    s32 unk18;
+};
+
 extern "C" void func_0024F690(s32 *arg0, void *arg1, s32 arg2, char **arg3) {
     s32 buf0[4];
     s32 v_s0;
@@ -39,7 +48,7 @@ extern "C" void func_0024F690(s32 *arg0, void *arg1, s32 arg2, char **arg3) {
         func_0024EE50(arg0, arg1, 0x6);
         func_0024F450(buf0, arg1);
         v_s0 = buf0[0];
-        *(s32 *)((char *)v_s0 + 0x34) = vcall_58((char *)(*(s32 *)((char *)arg3 + 0x18))) != 0;
+        ((struct func_0024F690_v_s0 *)v_s0)->unk34 = vcall_58((char *)(((struct func_0024F690_arg3 *)arg3)->unk18)) != 0;
         func_0024F3F8(buf0, 0x2);
     }
 }

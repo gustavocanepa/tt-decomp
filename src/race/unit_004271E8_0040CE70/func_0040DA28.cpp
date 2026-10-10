@@ -6,7 +6,7 @@ typedef unsigned char u8;
 typedef unsigned short u16;
 typedef float f32;
 
-/* the record func_0040B910 fills for an id */
+/* the record SPEC_DATABASE__DatabaseStorage__getRow fills for an id */
 struct Info {
     char pad0[0x6F];
     u8 f24;
@@ -22,10 +22,10 @@ struct Obj {
 
 extern Global D_00585A30;
 
-extern "C" void func_0040B910(Global *g, s64 id, Info *info);
+extern "C" void SPEC_DATABASE__DatabaseStorage__getRow(Global *g, s64 id, Info *info);
 
 extern "C" s32 func_0040DA28(Obj *self) {
     Info info;
-    func_0040B910(&D_00585A30, self->id, &info);
+    SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, self->id, &info);
     return info.f24;
 }

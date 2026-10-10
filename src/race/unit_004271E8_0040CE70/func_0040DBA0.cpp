@@ -12,11 +12,11 @@ struct Obj {
 };
 
 extern Mgr D_00585A30;
-extern "C" void func_0040B910(Mgr *, s64, s32 *);
+extern "C" void SPEC_DATABASE__DatabaseStorage__getRow(Mgr *, s64, s32 *);
 extern "C" void func_00411D78(s32, s32);
 
 extern "C" void func_0040DBA0(Obj *self) {
     s32 buf[32];
-    func_0040B910(&D_00585A30, self->key, buf);
+    SPEC_DATABASE__DatabaseStorage__getRow(&D_00585A30, self->key, buf);
     func_00411D78(D_00585A30.f1E0, buf[0]);
 }

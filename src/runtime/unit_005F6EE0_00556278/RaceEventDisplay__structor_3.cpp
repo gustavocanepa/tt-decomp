@@ -9,8 +9,13 @@ static inline void vcall_0(char *o, s32 a0) {
     e->fn(o + e->delta, a0);
 }
 
+struct RaceEventDisplay__structor_3_arg0 {
+    char pad0[0x14];
+    void *unk14;
+};
+
 extern "C" void RaceEventDisplay__structor_3(void *arg0, s32 arg1) {
-    *(void **)((char *)arg0 + 0x14) = &D_005D1230;
+    ((struct RaceEventDisplay__structor_3_arg0 *)arg0)->unk14 = &D_005D1230;
     if ((char *)arg0 + 0x50 != 0) {
         char *p0 = (char *)arg0 + 0xad0;
         while ((char *)arg0 + 0x50 != p0) {

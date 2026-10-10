@@ -9,7 +9,7 @@ struct Val {
 };
 extern "C" void func_0043D510(Val *);
 extern "C" Val *func_0043D3B8(Val *, const Val *);
-extern "C" const char *func_0043DEF8(Val *);
+extern "C" const char *strobe__Any__toString(Val *);
 extern "C" s32 func_0057F238(const char *, const char *);
 extern "C" f32 func_0043E0B0(const Val *);
 extern "C" void func_0043D7C8(Val *, f32);
@@ -25,8 +25,8 @@ extern "C" void func_0043EA30(Val *a, const Val *b) {
         u32 la, lb;
         func_0043D3B8(&ta, a);
         func_0043D3B8(&tb, b);
-        sa = func_0043DEF8(&ta);
-        sb = func_0043DEF8(&tb);
+        sa = strobe__Any__toString(&ta);
+        sb = strobe__Any__toString(&tb);
         la = func_004A8368(sa);
         lb = func_004A8368(sb);
         func_0043D510(a);

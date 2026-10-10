@@ -1,6 +1,6 @@
-extern void func_00360DF0(void);
+extern void RaceMTRMeter__render_buffer(void);
 
 void func_00360DD0(void)
 {
-    func_00360DF0();
+    RaceMTRMeter__render_buffer();
 }

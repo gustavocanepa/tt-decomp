@@ -5,8 +5,8 @@ struct Obj {
     s32 unk12C8;
 };
 
-extern "C" void func_004207A0(s32 arg0, s32 arg1);
+extern "C" void ModelSet2__begin(s32 arg0, s32 arg1);
 
 extern "C" void func_003D1138(struct Obj *arg0) {
-    func_004207A0(arg0->unk12C8, 0);
+    ModelSet2__begin(arg0->unk12C8, 0);
 }

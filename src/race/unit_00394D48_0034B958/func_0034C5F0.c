@@ -1,142 +1,172 @@
-typedef signed char s8; typedef unsigned char u8; typedef short s16; typedef unsigned short u16;
-typedef int s32; typedef unsigned int u32; typedef long long s64; typedef unsigned long long u64;
-typedef float f32; typedef double f64;
-typedef int s128 __attribute__((mode(TI))); typedef unsigned int u128 __attribute__((mode(TI)));
+#include "types.h"
 #define NULL 0
 void *memcpy(void *, const void *, unsigned int);
-/*
- * This header contains macros emitted by m2c in "valid syntax" mode,
- * which can be enabled by passing `--valid-syntax` on the command line.
- *
- * In this mode, unhandled types and expressions are emitted as macros so
- * that the output is compilable without human intervention.
- */
 
-#ifndef M2C_MACROS_H
-#define M2C_MACROS_H
+struct func_0034C5F0_arg0 {
+    char pad0[0x4];
+    void *unk4;
+    char pad8[0xC];
+    void *unk14;
+    char pad18[0xC];
+    void *unk24;
+    char pad28[0xC];
+    void *unk34;
+    char pad38[0xC];
+    void *unk44;
+    char pad48[0xC];
+    void *unk54;
+    void *unk58;
+    void *unk5C;
+    void *unk60;
+    char pad64[0x48];
+    void *unkAC;
+    char padB0[0x28];
+    void *unkD8;
+};
+struct func_0034C5F0_temp_v0_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_v0 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_v0_unk7C *unk7C;
+};
+struct func_0034C5F0_temp_v0_2_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_v0_2 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_v0_2_unk7C *unk7C;
+};
+struct func_0034C5F0_temp_v0_3_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_v0_3 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_v0_3_unk7C *unk7C;
+};
+struct func_0034C5F0_temp_v0_4_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_v0_4 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_v0_4_unk7C *unk7C;
+};
+struct func_0034C5F0_temp_v0_5_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_v0_5 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_v0_5_unk7C *unk7C;
+};
+struct func_0034C5F0_temp_v0_6_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_v0_6 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_v0_6_unk7C *unk7C;
+};
+struct func_0034C5F0_temp_v0_7_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_v0_7 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_v0_7_unk7C *unk7C;
+};
+struct func_0034C5F0_temp_v0_8_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_v0_8 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_v0_8_unk7C *unk7C;
+};
+struct func_0034C5F0_temp_v0_9_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_v0_9 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_v0_9_unk7C *unk7C;
+};
+struct func_0034C5F0_temp_v0_10_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_v0_10 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_v0_10_unk7C *unk7C;
+};
+struct func_0034C5F0_temp_a0_unk7C {
+    char pad0[0x14];
+    s32 unk14;
+};
+struct func_0034C5F0_temp_a0 {
+    char pad0[0x7C];
+    struct func_0034C5F0_temp_a0_unk7C *unk7C;
+};
 
-/* Unknown types */
-typedef s32 M2C_UNK;
-typedef s8  M2C_UNK8;
-typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32;
-typedef s64 M2C_UNK64;
+void func_0034C5F0(struct func_0034C5F0_arg0 *arg0, s32 arg1) {
+    struct func_0034C5F0_temp_a0 *temp_a0;
+    struct func_0034C5F0_temp_v0 *temp_v0;
+    struct func_0034C5F0_temp_v0_10 *temp_v0_10;
+    struct func_0034C5F0_temp_v0_2 *temp_v0_2;
+    struct func_0034C5F0_temp_v0_3 *temp_v0_3;
+    struct func_0034C5F0_temp_v0_4 *temp_v0_4;
+    struct func_0034C5F0_temp_v0_5 *temp_v0_5;
+    struct func_0034C5F0_temp_v0_6 *temp_v0_6;
+    struct func_0034C5F0_temp_v0_7 *temp_v0_7;
+    struct func_0034C5F0_temp_v0_8 *temp_v0_8;
+    struct func_0034C5F0_temp_v0_9 *temp_v0_9;
 
-/* Unknown field access, like `*(type_ptr) &expr->unk_offset` */
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-/* Bitwise (reinterpret) cast */
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-/* Unaligned reads */
-#define M2C_LWL(expr) (expr)
-#define M2C_FIRST3BYTES(expr) (expr)
-#define M2C_UNALIGNED32(expr) (expr)
-
-/* Unhandled instructions */
-#define M2C_ERROR(desc) (0)
-#define M2C_TRAP_IF(cond) (0)
-#define M2C_BREAK() (0)
-#define M2C_SYNC() (0)
-#define M2C_DCACHE_CLEAN(addr) (0)
-#define M2C_DCACHE_INVALIDATE(addr) (0)
-#define M2C_DCACHE_CLEAN_INVALIDATE(addr) (0)
-#define M2C_DCACHE_BLOCK_SETZERO(addr) (0)
-#define M2C_DCACHE_BLOCK_SETZERO_LOCKED(addr) (0)
-#define M2C_ICACHE_INVALIDATE(addr) (0)
-#define M2C_PREFETCH(addr) (0)
-#define M2C_PREFETCH_STORE(addr) (0)
-
-#define GLUE_F64(a, b) (0.0)
-#define MULT_HI(a, b) (0)
-#define MULTU_HI(a, b) (0)
-#define DMULT_HI(a, b) (0)
-#define DMULTU_HI(a, b) (0)
-#define CLZ(x) (0)
-#define REVERSE_BITS(x) (0)
-#define ROTATE_RIGHT(x, shift) (0)
-#define ARM_RRX(x, carry) (0)
-#define BSWAP32(x) (0)
-#define BSWAP16(x) (0)
-#define BSWAP16X2(x) (0)
-
-/* Carry/overflow bits from partially-implemented instructions */
-#define M2C_CARRY 0
-#define M2C_OVERFLOW(a) (0)
-
-/* Memcpy patterns */
-#define M2C_MEMCPY_ALIGNED memcpy
-#define M2C_MEMCPY_UNALIGNED memcpy
-#define M2C_STRUCT_COPY memcpy
-
-/* Sh2 control register loads/stores */
-#define M2C_LOAD_SR() (0)
-#define M2C_LOAD_GBR() (0)
-#define M2C_LOAD_VBR() (0)
-#define M2C_STORE_SR(a)
-#define M2C_STORE_GBR(a)
-#define M2C_STORE_VBR(a)
-
-#define M2C_CMP_STR(a, b) (0)
-#define M2C_TAS_B(a) (0)
-
-#endif
-
-void func_0034C5F0(void *arg0, s32 arg1) {
-    void *temp_a0;
-    void *temp_v0;
-    void *temp_v0_10;
-    void *temp_v0_2;
-    void *temp_v0_3;
-    void *temp_v0_4;
-    void *temp_v0_5;
-    void *temp_v0_6;
-    void *temp_v0_7;
-    void *temp_v0_8;
-    void *temp_v0_9;
-
-    temp_v0 = M2C_FIELD(arg0, void **, 4);
+    temp_v0 = arg0->unk4;
     if (temp_v0 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_v0, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_v0->unk7C->unk14 = arg1;
     }
-    temp_v0_2 = M2C_FIELD(arg0, void **, 0x14);
+    temp_v0_2 = arg0->unk14;
     if (temp_v0_2 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_v0_2, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_v0_2->unk7C->unk14 = arg1;
     }
-    temp_v0_3 = M2C_FIELD(arg0, void **, 0x24);
+    temp_v0_3 = arg0->unk24;
     if (temp_v0_3 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_v0_3, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_v0_3->unk7C->unk14 = arg1;
     }
-    temp_v0_4 = M2C_FIELD(arg0, void **, 0x34);
+    temp_v0_4 = arg0->unk34;
     if (temp_v0_4 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_v0_4, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_v0_4->unk7C->unk14 = arg1;
     }
-    temp_v0_5 = M2C_FIELD(arg0, void **, 0x44);
+    temp_v0_5 = arg0->unk44;
     if (temp_v0_5 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_v0_5, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_v0_5->unk7C->unk14 = arg1;
     }
-    temp_v0_6 = M2C_FIELD(arg0, void **, 0x54);
+    temp_v0_6 = arg0->unk54;
     if (temp_v0_6 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_v0_6, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_v0_6->unk7C->unk14 = arg1;
     }
-    temp_v0_7 = M2C_FIELD(arg0, void **, 0x58);
+    temp_v0_7 = arg0->unk58;
     if (temp_v0_7 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_v0_7, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_v0_7->unk7C->unk14 = arg1;
     }
-    temp_v0_8 = M2C_FIELD(arg0, void **, 0x5C);
+    temp_v0_8 = arg0->unk5C;
     if (temp_v0_8 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_v0_8, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_v0_8->unk7C->unk14 = arg1;
     }
-    temp_v0_9 = M2C_FIELD(arg0, void **, 0x60);
+    temp_v0_9 = arg0->unk60;
     if (temp_v0_9 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_v0_9, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_v0_9->unk7C->unk14 = arg1;
     }
-    temp_v0_10 = M2C_FIELD(arg0, void **, 0xAC);
+    temp_v0_10 = arg0->unkAC;
     if (temp_v0_10 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_v0_10, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_v0_10->unk7C->unk14 = arg1;
     }
-    temp_a0 = M2C_FIELD(arg0, void **, 0xD8);
+    temp_a0 = arg0->unkD8;
     if (temp_a0 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_a0, void **, 0x7C), s32 *, 0x14) = arg1;
+        temp_a0->unk7C->unk14 = arg1;
     }
 }

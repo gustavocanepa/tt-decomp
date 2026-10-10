@@ -36,6 +36,11 @@ extern "C" void func_002C1050(s32);
 extern "C" void func_00299AB0(void *, s32);
 extern "C" void func_001FCB00(void *, s32);
 
+struct MUpdateContext__getLastPadAnalogChannel_arg3 {
+    char pad0[0x4];
+    s32 unk4;
+};
+
 extern "C" void MUpdateContext__getLastPadAnalogChannel(s32 *arg0, void *arg1, s32 arg2, char **arg3) {
     s32 buf0[4];
     s32 buf1[4];
@@ -49,7 +54,7 @@ extern "C" void MUpdateContext__getLastPadAnalogChannel(s32 *arg0, void *arg1, s
         func_001FCB58(buf0);
         v_s1 = buf0[0];
         v_s0 = vcall_58((char *)(*(s32 *)(char *)arg3));
-        t1 = func_001FF2B0(v_s1, v_s0, vcall_58((char *)(*(s32 *)((char *)arg3 + 0x4))));
+        t1 = func_001FF2B0(v_s1, v_s0, vcall_58((char *)(((struct MUpdateContext__getLastPadAnalogChannel_arg3 *)arg3)->unk4)));
         p_s1 = buf1;
         func_0029B380(p_s1, t1);
         if (arg0 != p_s1) {

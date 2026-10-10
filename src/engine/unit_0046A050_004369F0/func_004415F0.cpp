@@ -31,7 +31,7 @@ struct Rep2 {
     }
 };
 
-extern "C" char *func_00550D50(Rep2 *r);
+extern "C" char *strobe__toUpper(Rep2 *r);
 extern "C" void func_004A45D0(void *p);
 extern Rep2 D_005A4C58;
 
@@ -39,7 +39,7 @@ inline void Rep2::operator delete(void *p, u32 n) { func_004A45D0(p); }
 
 inline char *Rep2::grab() {
     if (selfish)
-        return func_00550D50(this);
+        return strobe__toUpper(this);
     ++ref;
     return data();
 }
@@ -71,12 +71,12 @@ struct String2 {
     }
 };
 
-extern "C" const char *func_0043DEF8(Val *);
+extern "C" const char *strobe__Any__toString(Val *);
 
 struct Obj { char pad[0x54]; String2 str; };
 
 extern "C" void func_004415F0(Obj *o, const Val &v) {
     Val t(v);
-    const char *p = func_0043DEF8(&t);
+    const char *p = strobe__Any__toString(&t);
     o->str = String2(p);
 }

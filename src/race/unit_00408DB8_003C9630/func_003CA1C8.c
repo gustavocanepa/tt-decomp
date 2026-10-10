@@ -1,5 +1,5 @@
-extern void func_003CA1E0(void);
+extern void ConcourseLighting__Unit__clear(void);
 void func_003CA1C8(void)
 {
-    func_003CA1E0();
+    ConcourseLighting__Unit__clear();
 }

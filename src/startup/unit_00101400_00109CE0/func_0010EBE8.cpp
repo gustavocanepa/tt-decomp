@@ -9,20 +9,33 @@ struct VEntry {
     void (*fn)(void *);
 };
 
+struct func_0010EBE8_arg0 {
+    char pad0[0x64];
+    void *unk64;
+    char pad68[0x4];
+    void *unk6C;
+    char pad70[0xD9C];
+    int unkE0C;
+};
+struct func_0010EBE8_s1 {
+    char pad0[0xDC];
+    int unkDC;
+};
+
 extern "C" void func_0010EBE8(void *arg0) {
-    void *s1 = *(void **)((char *)arg0 + 0x6C);
-    *(int *)((char *)s1 + 0xDC) = 1;
-    *(int *)((char *)arg0 + 0xE0C) = 1;
+    void *s1 = ((struct func_0010EBE8_arg0 *)arg0)->unk6C;
+    ((struct func_0010EBE8_s1 *)s1)->unkDC = 1;
+    ((struct func_0010EBE8_arg0 *)arg0)->unkE0C = 1;
     func_0033A158(arg0, 4, 1);
     func_0011FAD0(arg0);
     func_0011FAE0(1);
     func_0010B458("quick-mt");
     func_0011FAD0(0);
 
-    void *vtbl = *(void **)((char *)arg0 + 0x64);
+    void *vtbl = ((struct func_0010EBE8_arg0 *)arg0)->unk64;
     VEntry *entry = (VEntry *)((char *)vtbl + 0x2D0);
     entry->fn((char *)arg0 + entry->delta);
 
-    *(int *)((char *)arg0 + 0xE0C) = 0;
-    *(int *)((char *)s1 + 0xDC) = 0;
+    ((struct func_0010EBE8_arg0 *)arg0)->unkE0C = 0;
+    ((struct func_0010EBE8_s1 *)s1)->unkDC = 0;
 }

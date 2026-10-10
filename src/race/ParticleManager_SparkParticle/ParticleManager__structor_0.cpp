@@ -7,8 +7,13 @@ extern "C" void *exception__structor_0(s32);
 extern "C" void func_00392F18(void *);
 extern "C" void func_003CD5D8(void *, s32, float, float, float);
 
+struct ParticleManager__structor_0_arg0 {
+    char pad0[0x3AC];
+    void *unk3AC;
+};
+
 extern "C" void ParticleManager__structor_0(void *arg0) {
-    *(void **)((char *)arg0 + 0x3ac) = &D_005D5D18;
+    ((struct ParticleManager__structor_0_arg0 *)arg0)->unk3AC = &D_005D5D18;
     void *r0 = func_003921B8(arg0);
     void *r1 = exception__structor_0(((s32)r0 << (s32)0x7));
     *(void **)(arg0) = r1;

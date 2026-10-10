@@ -5,9 +5,9 @@ struct Obj {
     s32 unk958;
 };
 
-extern "C" void RaceBase__virtual_54(void *arg0);
+extern "C" void RaceBase__createReplayInformation(void *arg0);
 
 extern "C" void func_00386D60(void *arg0, struct Obj *arg1) {
-    RaceBase__virtual_54(arg0);
+    RaceBase__createReplayInformation(arg0);
     arg1->unk958 = 1;
 }

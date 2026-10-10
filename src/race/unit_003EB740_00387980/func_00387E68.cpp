@@ -16,14 +16,14 @@ struct Key_003EBC88 {
     f32 t;
 };
 
-extern "C" s32 func_003F1450(Query_003EBC88 *q, void *ctx, s32 id, f32 t);
+extern "C" s32 GT4_Motion__MotionSetPlayer__getPlayListElementInformation(Query_003EBC88 *q, void *ctx, s32 id, f32 t);
 
 extern "C" s32 func_00387E68(Key_003EBC88 *k, void *ctx) {
     if (ctx == 0 || k->id < 0) {
         return 0;
     }
     Query_003EBC88 q;
-    if (func_003F1450(&q, ctx, k->id, k->t)) {
+    if (GT4_Motion__MotionSetPlayer__getPlayListElementInformation(&q, ctx, k->id, k->t)) {
         return q.mC;
     }
     return 0;

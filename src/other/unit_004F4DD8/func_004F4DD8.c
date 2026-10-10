@@ -1,4 +1,4 @@
-/* newlib 1.9.0: atoi from atoi.c, placed at 0x005a2f88 by
+/* newlib 1.9.0: atoi from atoi.c, placed at 0x004f4dd8 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define _Balloc func_005AC4D8
 #define _Bfree func_005AC580

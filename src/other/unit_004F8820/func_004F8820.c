@@ -1,4 +1,4 @@
-/* newlib 1.9.0: strspn from strspn.c, placed at 0x005a6d48 by
+/* newlib 1.9.0: strspn from strspn.c, placed at 0x004f8820 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define _Balloc func_005AC4D8
 #define _Bfree func_005AC580

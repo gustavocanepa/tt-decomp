@@ -1,4 +1,4 @@
-/* expat 1.95.7: notation1 from xmlrole.c, placed at 0x004d8008 by
+/* expat 1.95.7: notation1 from xmlrole.c, placed at 0x00495658 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

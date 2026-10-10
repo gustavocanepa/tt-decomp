@@ -1,4 +1,4 @@
-/* newlib 1.9.0: __sflags from flags.c, placed at 0x005ac2a0 by
+/* newlib 1.9.0: __sflags from flags.c, placed at 0x004fa010 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define _Balloc func_005AC4D8
 #define _Bfree func_005AC580

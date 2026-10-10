@@ -1,4 +1,4 @@
-/* expat 1.95.7: big2_scanDecl from xmltok.c, placed at 0x004e1748 by
+/* expat 1.95.7: big2_scanDecl from xmltok.c, placed at 0x0049ed98 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

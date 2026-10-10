@@ -1,4 +1,4 @@
-/* expat 1.95.7: XmlUtf8Encode from xmltok.c, placed at 0x004e5c88 by
+/* expat 1.95.7: XmlUtf8Encode from xmltok.c, placed at 0x004a32d8 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

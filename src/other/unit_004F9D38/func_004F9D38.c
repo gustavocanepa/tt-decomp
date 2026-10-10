@@ -1,4 +1,4 @@
-/* newlib 1.9.0: __swbuf from wbuf.c, placed at 0x005aab30 by
+/* newlib 1.9.0: __swbuf from wbuf.c, placed at 0x004f9d38 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define _Balloc func_005AC4D8
 #define _Bfree func_005AC580

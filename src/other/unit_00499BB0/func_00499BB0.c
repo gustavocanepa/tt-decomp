@@ -1,4 +1,4 @@
-/* expat 1.95.7: normal_getAtts, normal_charRefNumber from xmltok.c, placed at 0x004dc560 by
+/* expat 1.95.7: normal_getAtts, normal_charRefNumber from xmltok.c, placed at 0x00499bb0 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

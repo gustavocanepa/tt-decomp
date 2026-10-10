@@ -1,4 +1,4 @@
-/* newlib 1.9.0: strtoul from strtoul.c, placed at 0x005a73d0 by
+/* newlib 1.9.0: strtoul from strtoul.c, placed at 0x004f8ea8 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define _Balloc func_005AC4D8
 #define _Bfree func_005AC580

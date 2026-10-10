@@ -1,5 +1,5 @@
 /* compiler: ee-gcc2.96-no-strict-aliasing */
-/* expat 1.95.7: dtdReset from xmlparse.c, placed at 0x004d5918 by
+/* expat 1.95.7: dtdReset from xmlparse.c, placed at 0x00492f68 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

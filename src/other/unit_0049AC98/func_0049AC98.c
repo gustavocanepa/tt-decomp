@@ -1,4 +1,4 @@
-/* expat 1.95.7: little2_scanComment from xmltok.c, placed at 0x004dd648 by
+/* expat 1.95.7: little2_scanComment from xmltok.c, placed at 0x0049ac98 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

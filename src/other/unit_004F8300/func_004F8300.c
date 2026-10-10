@@ -1,4 +1,4 @@
-/* newlib 1.9.0: strncasecmp from strncasecmp.c, placed at 0x005a6828 by
+/* newlib 1.9.0: strncasecmp from strncasecmp.c, placed at 0x004f8300 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define _Balloc func_005AC4D8
 #define _Bfree func_005AC580

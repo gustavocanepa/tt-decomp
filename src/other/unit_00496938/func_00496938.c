@@ -1,4 +1,4 @@
-/* expat 1.95.7: utf8_isName2 from xmltok.c, placed at 0x004d9218 by
+/* expat 1.95.7: utf8_isName2 from xmltok.c, placed at 0x00496938 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

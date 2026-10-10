@@ -1,4 +1,4 @@
-/* expat 1.95.7: XML_UseForeignDTD from xmlparse.c, placed at 0x004cf2a0 by
+/* expat 1.95.7: XML_UseForeignDTD from xmlparse.c, placed at 0x0048c8f0 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

@@ -1,4 +1,4 @@
-/* expat 1.95.7: XML_DefaultCurrent from xmlparse.c, placed at 0x004cfab0 by
+/* expat 1.95.7: XML_DefaultCurrent from xmlparse.c, placed at 0x0048d100 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

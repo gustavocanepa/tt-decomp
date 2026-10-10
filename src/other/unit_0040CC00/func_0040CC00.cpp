@@ -1,0 +1,55 @@
+typedef int s32;
+typedef long long s64;
+typedef signed char s8;
+typedef unsigned char u8;
+
+struct Global;
+extern Global D_00585A30;
+
+struct Info {
+    char pad0[0x4];
+    u8 f4;
+    char pad5[0x2];
+    u8 f7;
+    char pad8[0x2];
+    u8 fA;
+    char padB[0x2];
+    u8 fD;
+    char padE[0x1];
+    u8 fF;
+    char pad10[0x2];
+    u8 f12;
+    char pad13[0x2];
+    u8 f15;
+    char pad16[0x2];
+    u8 f18;
+    char pad19[0x7];
+};
+
+struct Obj {
+    char pad0[0xE0];
+    s64 id;
+    char padE8[0x6F];
+    u8 f157;
+    u8 f158;
+    u8 f159;
+    u8 f15A;
+};
+
+extern "C" s32 func_0040B980(Global *g, s64 id);
+extern "C" s32 func_0040B910(Global *g, s64 id, Info *info);
+extern "C" u8 func_0040CDD0(Obj *self, s32 a, s32 b, s32 c);
+
+extern "C" s32 func_0040CC00(Obj *self) {
+    s64 id = self->id;
+    if (func_0040B980(&D_00585A30, id) == 0) {
+        return 0;
+    }
+    Info info;
+    func_0040B910(&D_00585A30, id, &info);
+    self->f157 = func_0040CDD0(self, 1, info.f7, info.f4);
+    self->f158 = func_0040CDD0(self, 1, info.fD, info.fA);
+    self->f159 = func_0040CDD0(self, 1, info.f12, info.fF);
+    self->f15A = func_0040CDD0(self, 1, info.f18, info.f15);
+    return 1;
+}

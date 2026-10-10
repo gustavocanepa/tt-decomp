@@ -1,5 +1,8 @@
 # Tourist Trophy decompilation
 
+[![Code](https://decomp.dev/gustavocanepa/tt-decomp.svg?mode=shield&measure=code&label=Code)](https://decomp.dev/gustavocanepa/tt-decomp)
+[![Functions](https://decomp.dev/gustavocanepa/tt-decomp.svg?mode=shield&measure=functions&label=Functions)](https://decomp.dev/gustavocanepa/tt-decomp)
+
 A work-in-progress matching decompilation of Polyphony Digital's Tourist Trophy (PS2, `CORE.TT`,
 NTSC-U SCUS-97502 v1.00): C++ source that compiles, with the original compiler, to the exact same
 instructions as the game. The long-term goal is a native port.

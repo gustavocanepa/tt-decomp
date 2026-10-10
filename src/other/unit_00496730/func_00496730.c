@@ -1,4 +1,4 @@
-/* expat 1.95.7: condSect2 from xmlrole.c, placed at 0x004d90e0 by
+/* expat 1.95.7: condSect2 from xmlrole.c, placed at 0x00496730 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

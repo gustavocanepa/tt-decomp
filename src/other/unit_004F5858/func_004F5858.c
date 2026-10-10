@@ -1,4 +1,4 @@
-/* newlib 1.9.0: fseek from fseek.c, placed at 0x005a3ab8 by
+/* newlib 1.9.0: fseek from fseek.c, placed at 0x004f5858 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define _Balloc func_005AC4D8
 #define _Bfree func_005AC580

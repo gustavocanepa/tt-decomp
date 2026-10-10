@@ -1,4 +1,4 @@
-/* expat 1.95.7: common from xmlrole.c, placed at 0x004d91a8 by
+/* expat 1.95.7: common from xmlrole.c, placed at 0x004967f8 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

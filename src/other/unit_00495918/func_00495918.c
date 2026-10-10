@@ -1,4 +1,4 @@
-/* expat 1.95.7: attlist1 from xmlrole.c, placed at 0x004d82c8 by
+/* expat 1.95.7: attlist1 from xmlrole.c, placed at 0x00495918 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

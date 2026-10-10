@@ -1,4 +1,4 @@
-/* expat 1.95.7: XML_SetNamespaceDeclHandler from xmlparse.c, placed at 0x004cf498 by
+/* expat 1.95.7: XML_SetNamespaceDeclHandler from xmlparse.c, placed at 0x0056e7a8 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

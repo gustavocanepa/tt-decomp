@@ -1,4 +1,4 @@
-/* newlib 1.9.0: fread from fread.c, placed at 0x005a3998 by
+/* newlib 1.9.0: fread from fread.c, placed at 0x004f5738 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define _Balloc func_005AC4D8
 #define _Bfree func_005AC580

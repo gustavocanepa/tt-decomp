@@ -1,4 +1,4 @@
-/* expat 1.95.7: normal_scanComment from xmltok.c, placed at 0x004d9580 by
+/* expat 1.95.7: normal_scanComment from xmltok.c, placed at 0x00496bd0 by
  * tools/libmatch.py. Third-party code, see THIRD_PARTY.md for its license and origin. */
 #define XMLCALL 
 #define BYTEORDER 1234

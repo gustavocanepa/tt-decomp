@@ -131,6 +131,8 @@ stable objects `diff` reads only after every file compiled.
 | `cc_wsl.sh` | runs the project's compiler on Linux/WSL from a temporary directory |
 | `find_functions.py` | function inventory from call targets |
 | `dedup.py` | finds identical functions and propagates matches to them |
+| `crossgame.py` | takes the matched sources of a sister game (same code base, e.g. GT4 and Tourist Trophy) for functions identical in both: calls and globals moved to this game's addresses, kept on MATCH (`apply --from ../OTHER`) |
+| `cpu_cycle.sh` | one CPU-only cycle (m2c drafts, fragments, near_fix, copies, permuter, full build); log in build/auto/cpu_cycle.out |
 | `autoloop.py` | the automated loop above |
 | `permute.py` | decomp-permuter bridge for near misses |
 | `setup_linux.sh` | one-time Linux/WSL setup: compiler, MIPS binutils, permuter |

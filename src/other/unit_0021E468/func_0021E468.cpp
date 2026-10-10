@@ -1,0 +1,5 @@
+extern int D_0057B350;
+
+int func_0021E468(void) {
+    return D_0057B350;
+}

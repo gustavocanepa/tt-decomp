@@ -1,0 +1,46 @@
+typedef int s32;
+
+struct Obj {
+    char pad0[4];
+};
+
+typedef void *(Obj::*PM)(void);
+
+struct Handle {
+    Obj *p;
+    char pad[0xC];
+};
+
+extern "C" void func_0017C448(void *arg0, int arg1);
+extern "C" void func_0017C4A0(void *arg0, void *arg1);
+extern "C" void func_0029CEF0(void *arg0, int arg1);
+extern "C" void func_0029EA18(void *arg0, void *arg1);
+extern "C" void func_002C0FE8(void *p);
+extern "C" void func_002C1050(void *p);
+
+static inline Obj *hget(Handle *h) { return h->p; }
+
+extern "C" void func_0051CC80(void **arg0, void *arg1, s32 arg2, s32 arg3, PM pmf) {
+    Handle h;
+    Handle o;
+    Handle *po = &o;
+
+    func_0017C4A0(po, arg1);
+    {
+        void *r = (hget(po)->*pmf)();
+        Handle *ph = &h;
+        func_0029EA18(ph, r);
+        if ((void *)arg0 != (void *)ph) {
+            void *p = ph->p;
+            if (p != 0) {
+                func_002C0FE8(p);
+            }
+            if (*arg0 != 0) {
+                func_002C1050(*arg0);
+            }
+            *arg0 = p;
+        }
+        func_0029CEF0(ph, 2);
+    }
+    func_0017C448(po, 2);
+}

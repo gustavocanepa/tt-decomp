@@ -1,0 +1,16 @@
+typedef unsigned int u32;
+
+extern "C" void func_0055B000();
+extern "C" void func_0050C6E8(void *a0, void *a1, void *a2);
+
+extern int D_0061B7C0;
+
+extern int D_007953B0;
+
+extern "C" void *func_0055B040(void) {
+    if (D_007953B0 == 0) {
+        func_0055B000();
+        func_0050C6E8(&D_007953B0, ((char *)"Q212GranTurismo413UpdateManager"), &D_0061B7C0);
+    }
+    return &D_007953B0;
+}

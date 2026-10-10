@@ -1,0 +1,12 @@
+typedef int s32;
+
+struct Obj {
+    char pad0[0xC8];
+    s32 unkC8;
+};
+
+extern "C" s32 func_004C9B68(s32 arg0);
+
+extern "C" s32 func_00574EC8(Obj *arg0) {
+    return func_004C9B68(arg0->unkC8);
+}

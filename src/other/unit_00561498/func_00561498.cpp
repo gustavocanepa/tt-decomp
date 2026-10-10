@@ -1,0 +1,15 @@
+typedef int s32;
+
+struct S {
+    s32 unk0;
+    void *unk4;
+    s32 unk8;
+};
+
+extern char D_005D87E8;
+
+void func_00561498(struct S *arg0) {
+    arg0->unk8 = 0;
+    arg0->unk0 = 0;
+    arg0->unk4 = &D_005D87E8;
+}

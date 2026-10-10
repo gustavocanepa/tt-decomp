@@ -1,0 +1,13 @@
+typedef int s32;
+
+struct Obj {
+    char pad[0x68];
+    s32 unk68;
+};
+
+extern "C" void func_00108978(Obj *arg0);
+
+extern "C" void func_001009D8(Obj *arg0) {
+    arg0->unk68 = 0;
+    func_00108978(arg0);
+}

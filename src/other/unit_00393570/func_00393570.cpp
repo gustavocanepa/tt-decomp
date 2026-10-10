@@ -1,0 +1,14 @@
+typedef int s32;
+
+extern void *D_005D5D30;
+extern "C" void *func_00393550(void *);
+
+extern "C" void *func_00393570(void *arg0) {
+    void *r0 = func_00393550(arg0);
+    if (r0 != 0) {
+        *(void **)((char *)r0 + 0x4) = &D_005D5D30;
+        *(void **)(r0) = *(void **)((char *)arg0 + 0x4);
+        *(void **)((char *)arg0 + 0x4) = r0;
+    }
+    return r0;
+}

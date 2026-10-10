@@ -1,0 +1,5 @@
+extern void func_002A7590(void);
+void func_0027F6C0(void)
+{
+    func_002A7590();
+}

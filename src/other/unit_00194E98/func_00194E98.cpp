@@ -1,0 +1,5 @@
+typedef float f32;
+
+f32 func_00194E98(void) {
+    return 0.0f;
+}

@@ -50,6 +50,11 @@ function counts only when the judge says MATCH and the full build still hashes l
   `types_db.py` (prototypes/globals/layouts context), `fragments.py` (learned statement edits),
   `near_fix.py` (diff rules), `permute_cpu.py` (decomp-permuter), `region_compiler.py` (a range
   with another compiler).
+- Sister game (E:\PROJECTS\GT4, same tools): `crossgame.py apply --from ../GT4` copies the sources
+  of identical functions; `neartwin.py scan|apply --from ../GT4` adapts the sources of near twins
+  (offsets, constants, callees, globals, call order, store order, profile; `try ADDR OTHER` shows
+  the steps; 41% of a random sample matched). Every shared match counts for both games: run
+  these before hand work, and `near_fix.py` (now with store permutation and a profile sweep).
 - Families/generators: `families.py`, `static_init.py`, `registration.py`, `accessors.py`,
   `siblings.py`, `stl.py`, `libmatch.py` (third-party code from public source, THIRD_PARTY.md).
 - Planning: `work_queue.py` (ranked work items), `attempts.py` (show/log/summary of the diary).

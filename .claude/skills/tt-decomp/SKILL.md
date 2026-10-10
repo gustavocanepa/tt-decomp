@@ -1,12 +1,12 @@
 ---
 name: tt-decomp
-description: Compact orientation for working on the Tourist Trophy matching decompilation in E:\PROJECTS\TT — the judge, compilers, source layout, tools by purpose, the rules, and which knowledge file answers which question. Load this first in any Tourist Trophy decomp task instead of reading all of TOOLS.md and knowledge/.
+description: Compact orientation for working on the Tourist Trophy matching decompilation in ../TT — the judge, compilers, source layout, tools by purpose, the rules, and which knowledge file answers which question. Load this first in any Tourist Trophy decomp task instead of reading all of TOOLS.md and knowledge/.
 ---
 
 # Tourist Trophy decomp in five minutes
 
 Tourist Trophy is built on Gran Turismo 4's code base, same compiler; the tools are GT4's
-(E:\PROJECTS\GT4). Before writing a function from scratch, look for its GT4 counterpart: an
+(github.com/gustavocanepa/gt4-decomp, cloned next to this repository as ../GT4). Before writing a function from scratch, look for its GT4 counterpart: an
 identical or near-identical GT4 source usually matches after renaming callees and globals.
 
 **Goal:** C/C++ in `src/` that compiles, with the original compiler, to byte-identical code. A
@@ -50,7 +50,7 @@ function counts only when the judge says MATCH and the full build still hashes l
   `types_db.py` (prototypes/globals/layouts context), `fragments.py` (learned statement edits),
   `near_fix.py` (diff rules), `permute_cpu.py` (decomp-permuter), `region_compiler.py` (a range
   with another compiler).
-- Sister game (E:\PROJECTS\GT4, same tools): `crossgame.py apply --from ../GT4` copies the sources
+- Sister game (../GT4, same tools): `crossgame.py apply --from ../GT4` copies the sources
   of identical functions; `neartwin.py scan|apply --from ../GT4` adapts the sources of near twins
   (offsets, constants, callees, globals, call order, store order, profile; `try ADDR OTHER` shows
   the steps; 41% of a random sample matched). Every shared match counts for both games: run
@@ -63,7 +63,7 @@ function counts only when the judge says MATCH and the full build still hashes l
 ## Recipes that worked (read the knowledge section before re-deriving)
 - Repeated code → understand one member, write a generator (static_init, registration, accessors).
 - Library code → find the exact public source of the era (GCC 2000-10-03 tree at
-  E:\PROJECTS\gcc-20001003: libstdc++/std/bastring.*, libstdc++/stl/), keep the library's own
+  the gcc 2000-10-03 snapshot (../gcc-20001003, outside the repository): libstdc++/std/bastring.*, libstdc++/stl/), keep the library's own
   inline helpers nested as in its headers (each inline level shows in the register choice), and
   compile with -fno-strict-aliasing.
 - Near misses → group failures by diff kind (census.py), turn the biggest group into a rule.
@@ -71,7 +71,7 @@ function counts only when the judge says MATCH and the full build still hashes l
 
 ## Knowledge map (read only the part you need)
 - knowledge/ee-gcc-2.96.md — compiler rules (how C shapes compile).
-- knowledge/tt.md — this executable and its overlap with GT4; E:\PROJECTS\GT4\knowledge/gt4.md — project rules: C++/STL/string/handles/registration, open problems.
+- knowledge/tt.md — this executable and its overlap with GT4; ../GT4/knowledge/gt4.md — project rules: C++/STL/string/handles/registration, open problems.
 - knowledge/architecture.md, classes.md, script-engine.md, runtime-types.md — what the game code is.
 - knowledge/coverage-map.md — what is matched and missing, by unit.
 - knowledge/attempts.jsonl — every attempt per function (read it with tools/attempts.py show ADDR).

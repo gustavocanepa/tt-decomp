@@ -1,0 +1,19 @@
+typedef short s16;
+typedef int s32;
+
+struct VEntry { s16 delta; s16 index; void (*fn)(void *); };
+struct VObj { s32 m0; VEntry *vtbl; };
+struct Guard { VObj *p; s32 pad[3]; };
+extern "C" void func_001B3470(Guard *);
+extern "C" void func_001B3418(Guard *, s32);
+
+extern "C" void func_001B36D0(void) {
+    Guard g;
+    func_001B3470(&g);
+    {
+        VObj *o = g.p;
+        VEntry *e = (VEntry *)((char *)o->vtbl + 0x268);
+        e->fn((char *)o + e->delta);
+    }
+    func_001B3418(&g, 2);
+}

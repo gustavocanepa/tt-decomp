@@ -1,0 +1,14 @@
+typedef int s32;
+
+struct Obj00233E18 {
+    char pad[0xF0];
+    s32 unkE8;
+};
+
+extern "C" void func_001E70D0(struct Obj00233E18 *arg0, s32 arg1) {
+    s32 temp = (s32)(arg1 != 0);
+    s32 v = arg0->unkE8;
+    v = v & ~0x4;
+    v = v | (temp << 2);
+    arg0->unkE8 = v;
+}

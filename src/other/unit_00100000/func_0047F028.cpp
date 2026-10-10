@@ -1,0 +1,18 @@
+struct S {
+    char pad_near0[32];
+    int unk0;
+};
+
+extern void func_0050E1A8(S *);
+extern int D_005DA788;
+
+void func_0047F028(S *arg0, int arg1)
+{
+    arg1 = arg1 & 1;
+    arg0->unk0 = (int)&D_005DA788;
+    if (arg1)
+    {
+        func_0050E1A8(arg0);
+        return;
+    }
+}

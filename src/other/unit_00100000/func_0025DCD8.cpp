@@ -1,0 +1,24 @@
+typedef float f32;
+typedef int s32;
+
+struct C;
+
+struct Obj002BA278 {
+    char pad0[0x4C];
+    struct C *unk14;
+    char pad1[0x54 - 0x4C - 4];
+    f32 unk1C;
+    f32 unk20;
+    f32 unk24;
+    f32 unk28;
+};
+
+extern "C" void func_00206008(struct C *c, f32 fparg0, f32 fparg1, f32 fparg2, f32 fparg3);
+
+extern "C" void func_0025DCD8(struct Obj002BA278 *arg0) {
+    struct C *temp_v0 = arg0->unk14;
+
+    if (temp_v0 != 0) {
+        func_00206008(temp_v0, arg0->unk1C, arg0->unk20, arg0->unk24, arg0->unk28);
+    }
+}

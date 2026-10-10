@@ -37,6 +37,6 @@ large function with one inserted statement counts as new. No Adhoc script VM was
 - `python tools/neartwin.py scan --from ../GT4` then `apply --from ../GT4 --jobs 2`: 3,252 open TT
   functions have a matched GT4 twin at >= 75% masked-word similarity; 41% of a random sample matched
   by rules (offsets, constants, callees per site, store order, no-sibcall profile). The rules and
-  the residuals are in E:\PROJECTS\GT4\knowledge\gt4.md ("Near twins between the games").
+  the residuals are in ../GT4\knowledge\gt4.md ("Near twins between the games").
 - tools/near_fix.py had never run here: 11 of a random 60 near misses (<= 6 off) matched, 4 by the
   store permutation and 5 by the profile sweep (`ee-gcc2.96-nosib` for the call wrappers).

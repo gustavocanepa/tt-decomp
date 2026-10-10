@@ -1,0 +1,17 @@
+typedef int s32;
+typedef float f32;
+
+struct Obj {
+    char pad[0xE4];
+    s32 unkC8;
+    char pad2[0xF4 - 0xE4 - 4];
+    f32 unkD8;
+    f32 unkDC;
+};
+
+extern "C" void func_0011CED8(struct Obj *arg0, f32 fparg0, f32 fparg1) {
+    if (arg0->unkC8 != 0) {
+        arg0->unkD8 = fparg0;
+        arg0->unkDC = fparg1;
+    }
+}

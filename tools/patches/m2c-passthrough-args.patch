@@ -1,0 +1,35 @@
+# Fix for matt-kempster/m2c (GPL-3.0, like m2c itself), EE ABI only: an untouched integer argument
+# register before one that is set at a call is the caller's own argument passed through; m2c skipped
+# it and shifted the later arguments down (f(0x800, 0x2000, 0x20) for a call setting a3, a4, a5).
+# Apply with: git -C tools/ext/m2c apply ../../patches/m2c-passthrough-args.patch
+diff --git a/m2c/arch_mips.py b/m2c/arch_mips.py
+index 9bb83b9..a147640 100644
+--- a/m2c/arch_mips.py
++++ b/m2c/arch_mips.py
+@@ -2147,6 +2147,7 @@ class MipseeArch(MipsArch):
+             candidate_slots = self.default_function_abi_candidate_slots()
+ 
+         possible_slots: List[AbiArgSlot] = []
++        untouched: List[AbiArgSlot] = []
+         valid_extra_regs: Set[Register] = {
+             slot.loc.reg for slot in known_slots if slot.loc.reg is not None
+         }
+@@ -2176,10 +2177,17 @@ class MipseeArch(MipsArch):
+             # without access to function signatures, or when dealing with
+             # varargs functions. Decompiling multiple functions at once
+             # would help.
+-            # TODO: don't do this in the middle of the argument list
++            # EE ABI: an untouched integer register before one that is set is
++            # the caller's own argument passed through (gcc sets no later
++            # argument register otherwise): pass it, so the later ones keep
++            # their place in the list.
+             if not likely_regs[reg]:
++                if not reg.is_float():
++                    untouched.append(slot)
+                 continue
+ 
++            possible_slots.extend(untouched)
++            untouched.clear()
+             possible_slots.append(slot)
+ 
+         return Abi(

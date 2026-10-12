@@ -324,21 +324,101 @@ def _byte_arithmetic(line, op):
     return None
 
 
-def differs_by(res):
-    """(0 for a match, else the number of differing instructions, 10**6 if it did not compile)."""
+_full = {}
+
+
+def full_length(addr):
+    """The original function's instructions, padding aside (the judge's width for a complete draft)."""
+    if addr not in _full:
+        text_addr, text = match.load_text()
+        _full[addr] = len(match.trim_padding(match.words_at(text_addr, text, addr, match.function_span(addr))))
+    return _full[addr]
+
+
+def differs_by(res, addr=None):
+    """0 for a match, else the number of differing instructions, 10**6 if it did not compile.
+    With addr, the instructions of the original the judge left out are added: when a draft
+    returns where the original goes on, the judge trims the original to the draft's length
+    (a glued function may follow), so a draft that lost its tail (`--void`, a callee's result
+    or argument dropped, dead stores) scored better than a complete one and was kept: that is
+    what made 3.3 K of GT4's kept drafts shorter than their function."""
     if res.returncode == 0 and "could not be checked" not in res.stdout:
         return 0
     m = re.search(r"(\d+) of (\d+) instructions differ", res.stdout)
-    return int(m.group(1)) if m else 10 ** 6
+    if not m:
+        return 10 ** 6
+    n = int(m.group(1))
+    if addr is not None:
+        # twice per missing instruction: a draft that lost code is wrong, a complete draft
+        # with as many differing instructions still has everything the later tools work on
+        n += 2 * max(0, full_length(addr) - int(m.group(2)))
+    return n
+
+
+SIZES = {"s8": 1, "u8": 1, "s16": 2, "u16": 2, "s64": 8, "u64": 8, "f64": 8, "s128": 16, "u128": 16}
+UNK_TYPES = {"M2C_UNK": "s32", "M2C_UNK32": "s32", "M2C_UNK16": "s16", "M2C_UNK8": "s8", "M2C_UNK64": "s64"}
+
+
+def frame_extent(addr):
+    """The bytes of the stack frame below the callee-saved registers: the local area. The whole
+    frame when nothing is saved; None without a frame."""
+    words = match.m2c_asm(addr).splitlines()
+    frame, saved = None, []
+    for line in words[:40]:
+        m = re.search(r"\*/\s+addiu\s+\$sp, \$sp, (-?0x[0-9A-Fa-f]+|-?\d+)", line)
+        if m and frame is None:
+            frame = -int(m.group(1), 0)
+            continue
+        m = re.search(r"\*/\s+(?:sd|sq|sw)\s+\$(s[0-7]|ra|fp|gp)\s*,\s*(0x[0-9A-Fa-f]+|\d+)\(\$sp\)", line)
+        if m:
+            saved.append(int(m.group(2), 0))
+    if frame is None or frame <= 0:
+        return None
+    return min(saved) if saved else frame
+
+
+def stack_frame(addr, body):
+    """m2c's stack locals as one struct when the draft uses the frame's address (`sp`): the frame
+    is an object there (a class instance passed to callees, an array), and as separate scalars
+    the stores the callees read were dead and gcc dropped them, so the draft lost code (1.1 K of
+    GT4's 3.3 K short drafts). `sp` becomes `(s8 *)&sp_`, `spNN` becomes `sp_.spNN` at offset NN
+    (m2c's type; unknowns s32), the struct spans the local area (frame_extent)."""
+    if not re.search(r"\bsp\b", body.split("{", 1)[-1]):
+        return body
+    fields = {}
+
+    def take(m):
+        t = m.group(2).strip()
+        name = m.group(3)
+        fields[int(name[2:], 16)] = (UNK_TYPES.get(t, t), name)
+        return ""
+    body = re.sub(r"^( {4})(?!return\b)([A-Za-z_][\w ]*?\s*\**)\s*(sp[0-9A-F]+);[ \t]*\n", take, body, flags=re.M)
+    extent = frame_extent(addr) or 0x10
+    lines, pos, pad = [], 0, 0
+    for off in sorted(fields):
+        t, name = fields[off]
+        if off < pos:
+            continue  # overlaps the field before (m2c read the slot with two widths): keep the first
+        if off > pos:
+            lines.append(f"s8 pad{pad}[0x{off - pos:X}];")
+            pad += 1
+        lines.append(f"{t} {name};")
+        pos = off + SIZES.get(t.rstrip("* "), 4)
+    if pos < extent:
+        lines.append(f"s8 pad{pad}[0x{extent - pos:X}];")
+    decl = "    struct StackFrame_%08X { " % addr + " ".join(lines) + " } sp_;\n"
+    body = re.sub(r"(^\w[^\n]*\bfunc_%08X\([^)]*\)\s*\{\n)" % addr, lambda m: m.group(1) + decl, body, count=1, flags=re.M)
+    head, _, rest = body.partition(decl)
+    names = {name for _, name in fields.values()}
+    rest = re.sub(r"\b(sp[0-9A-F]+)\b", lambda m: f"sp_.{m.group(1)}" if m.group(1) in names else m.group(1), rest)
+    rest = re.sub(r"\bsp\b", "((s8 *)&sp_)", rest)
+    return head + decl + rest
 
 
 def prepared(addr, body, path):
-    """m2c's draft made compilable: local buffer for `sp`, exact floats, compiler errors fixed."""
-    # m2c names the address of a stack local `sp` when it cannot name the local itself: give it
-    # a local buffer so the draft compiles (the judge or the permuter takes it from there).
-    if re.search(r"\bsp\b", body.split("{", 1)[-1]):
-        body = re.sub(r"(^\w[^\n]*\bfunc_%08X\([^)]*\)\s*\{\n)" % addr,
-                      lambda m: m.group(1) + "    s8 sp[0x10];\n", body, count=1, flags=re.M)
+    """m2c's draft made compilable: the stack frame as one struct when its address is used,
+    exact floats, compiler errors fixed."""
+    body = stack_frame(addr, body)
     body = exact_floats(body)
     for _ in range(4):  # ee-gcc's error messages, fixed by rule until it compiles
         open(path, "w", newline="\n").write(PRELUDE + body)
@@ -368,7 +448,7 @@ def attempt(addr, context=None, out=OUT, plain=True):
         old = strip_prelude(old)
         if old:
             res = judge(addr, path)
-            best = (differs_by(res), old, res, "kept")
+            best = (differs_by(res, addr), old, res, "kept")
     gave_up = True
     for ee in namings:
         try:
@@ -392,8 +472,8 @@ def attempt(addr, context=None, out=OUT, plain=True):
             for how, text in variants(addr, text0, ee, ctx, context if ctx else None, out):
                 open(path, "w", newline="\n").write(PRELUDE + text)
                 res = judge(addr, path)
-                if best is None or differs_by(res) < best[0]:
-                    best = (differs_by(res), text, res, how)
+                if best is None or differs_by(res, addr) < best[0]:
+                    best = (differs_by(res, addr), text, res, how)
                 if best[0] == 0:
                     break
             if best and best[0] == 0:
@@ -416,7 +496,7 @@ def attempt(addr, context=None, out=OUT, plain=True):
     m = re.search(r"(\d+) of (\d+) instructions differ \(original (\d+), mine (\d+)\)", res.stdout)
     if m:
         return dict(row, result="differs", differ=int(m.group(1)), of=int(m.group(2)),
-                    same_length=m.group(3) == m.group(4))
+                    same_length=m.group(3) == m.group(4), full=full_length(addr))
     return dict(row, result="does not compile")
 
 

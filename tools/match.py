@@ -233,6 +233,17 @@ def apply_renames(text, renames):
     return pattern.sub(lambda m: renames[m.group(1)], text)
 
 
+def mnemonic_text(ins):
+    """The instruction as assembler text m2c can read. rabbitizer prints a few instructions it
+    knows and the EE has (every `cvt.w.s`: 736 sites in GT4; the `vclipw` forms) as `.word X
+    # mnemonic ops # ...`; m2c silently skips a `.word`, so a draft kept the register's old value
+    (e.g. a float-to-int conversion lost, the literal passed instead). Those get the mnemonic."""
+    text = ins.disassemble()
+    if text.startswith(".word") and ins.isValid() and "#" in text:
+        return text.split("#", 2)[1].strip()
+    return text
+
+
 def gnu_asm(addr, count=None):
     """The original function as GNU assembler text with labels, the input m2c expects.
     count: keep only the first count instructions (a function glued to the next one)."""
@@ -253,7 +264,7 @@ def gnu_asm(addr, count=None):
         elif ins.isJumpWithAddress():
             text = ins.disassemble(immOverride=f"func_{ins.getInstrIndexAsVram():08X}")
         else:
-            text = ins.disassemble()
+            text = mnemonic_text(ins)
         lines.append(f"/* {pc:08X} {ins.getRaw():08X} */  {text}")
     return "\n".join(lines) + "\n"
 

@@ -401,8 +401,12 @@ def judge(addr, src, obj=None, sources=None):
         return False, f"REFUSED by tools/asm_policy.py: {'; '.join(bad)}"
     # A file-scope `int D_X;` without extern is a tentative definition: the object then defines the
     # game's global itself (a common symbol), which the full build's link rejects.
+    # A function pointer `s32 (*D_X)();` is the same mistake.
+    src_text = open(src, encoding="utf-8", errors="replace").read()
     tentative = re.findall(r"(?m)^(?!extern\b|static\b|typedef\b|struct\b|class\b|union\b|enum\b)[A-Za-z_][\w \t*]*?\b((?:D|func)_[0-9A-Fa-f]{8})\s*(?:\[[^\]]*\])?\s*;",
-                           open(src, encoding="utf-8", errors="replace").read())
+                           src_text)
+    tentative += re.findall(r"(?m)^(?!extern\b|static\b|typedef\b)[A-Za-z_][\w \t*]*\(\s*\*\s*((?:D|func)_[0-9A-Fa-f]{8})\s*\)\s*\([^;{]*\)\s*;",
+                            src_text)
     if tentative:
         if obj:
             os.remove(obj)

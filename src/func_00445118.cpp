@@ -1,0 +1,3 @@
+extern "C" float func_004A5C50(float),func_004A5D18(float);
+struct Vec{float x,y,z,w;void set(float a,float b,float c,float d){x=a;y=b;z=c;w=d;}};struct Matrix{Vec v[4];};struct Transform{float angle,a,b,c,x,y;};
+extern "C" void func_00445118(Transform* self,Matrix* out){float cosine=func_004A5C50(self->angle);float sine=func_004A5D18(self->angle);out->v[0].x=self->b*cosine;out->v[0].y=self->b*sine;out->v[0].z=0;out->v[0].w=0;Vec* b=&out->v[1];b->x=-self->c*sine+self->a*out->v[0].x;b->y=self->c*cosine+self->a*out->v[0].y;b->z=0;b->w=0;Vec* c=&out->v[2];c->x=0;c->y=0;c->z=1;c->w=0;Vec* d=&out->v[3];d->x=self->x;d->y=self->y;d->z=0;d->w=1;}

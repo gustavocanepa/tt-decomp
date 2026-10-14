@@ -1,0 +1,3 @@
+extern char D_00579534[];extern int D_00579728;
+extern "C" void func_4A23F0(int);extern "C" void func_4AA4A0();extern "C" void func_4A1C98();extern "C" void func_105510(void*,int);extern "C" void func_4A20C8();extern "C" void func_105608(void*);extern "C" void func_4A11F8(int);extern "C" void func_1077F8();
+extern "C" void func_00107090(int update,int swap){func_4A23F0(update);func_4AA4A0();func_4A1C98();char* p=D_00579534;if(update||swap){func_105510(p+*(int*)(p+120)*60,D_00579728^1);func_4A20C8();func_105608(p+(1-*(int*)(p+120))*60);if(swap){char* q=p+124;int a=1-*(int*)(p+120);int b=1-*(int*)(q+120);*(int*)(q+120)=b;*(int*)(p+120)=a;}}func_4A11F8(0);func_1077F8();}

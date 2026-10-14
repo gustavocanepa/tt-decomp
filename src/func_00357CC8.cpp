@@ -1,0 +1,2 @@
+struct V{short delta,pad;void(*fn)(void*,int,int);};struct O{int flags;char pad[16];V*v; V& entry(int i){return v[i];}};struct E{int offset,child,a,b,c,d;unsigned char x,pad1[3],y,pad2[7];};
+extern "C" void RaceDisplay__init_display_objects(char*s,E*e){while(e){if(e->child){RaceDisplay__init_display_objects(s,e);return;}if(!e->offset)return;O*o=(O*)(s+(unsigned)(e->offset-1));V*v=&o->entry(9);v->fn((char*)o+v->delta,e->x,e->y);v=&o->entry(8);v->fn((char*)o+v->delta,e->c,e->d);v=&o->entry(7);int a=e->a,b=e->b;++e;v->fn((char*)o+v->delta,a,b);o->flags=(o->flags&~255)|1;}}

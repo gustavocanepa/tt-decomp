@@ -1,0 +1,25 @@
+extern "C" void func_00404310(signed char *o, int a) {
+    int m1 = -1, two = 2, three = 3;
+    int x = 1;
+    o[0x1A] = m1;
+    o[0x1E] = two;
+    if (a) x = a;
+    o[0x1B] = m1;
+    o[0x20] = two;
+    o[0x10] = x;
+    o[0x13] = 4;
+    o[0x14] = 0xD;
+    o[0x15] = 0xE;
+    o[0x16] = 0x10;
+    o[0x17] = 0xC;
+    o[0x18] = 7;
+    o[0x19] = 6;
+    o[0x1C] = 0xA;
+    o[0x1D] = 8;
+    o[0x11] = 0;
+    o[0x12] = three;
+    o[0x1F] = three;
+    o[0x21] = three;
+    o[0x22] = 0x11;
+    o[0x23] = 9;
+}

@@ -1,0 +1,3 @@
+struct Curve{int mode;float offset,base,coefficient;};
+inline float root(float x){float y;__asm__("sqrt.s %0,%1":"=f"(y):"f"(x));return y;}
+extern "C" float func_002FFEA0(Curve* self,float* derivative,float input){float x=input;if(input<0)x=-input;float y;switch(self->mode){case 1:{x-=self->offset;float c=self->coefficient;y=c*x*x+self->base;if(derivative)*derivative=(c+c)*x;break;}case 2:{x-=self->offset;float c=self->coefficient;float r=root(x);y=c*r+self->base;if(derivative){if(r<0.01f)r=0.01f;*derivative=c/(r+r);}break;}case 3:{float x2=x*x;float c=self->coefficient,b=self->base;float linear=b*x;float x4=x2*x2;float x3=x*x2;y=c*x4*x4+linear;if(derivative)*derivative=c*8.0f*x4*x3+b;break;}default:y=x;if(derivative)*derivative=1.0f;break;}if(input<0)y=-y;return y;}

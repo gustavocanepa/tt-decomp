@@ -1,0 +1,1 @@
+struct V{float a[9];};struct S{char p[16];V v;};static inline void init(V*v,float z,float o){v->a[0]=o;v->a[3]=z;v->a[6]=z;v->a[1]=z;v->a[4]=o;v->a[7]=z;v->a[2]=z;v->a[5]=z;v->a[8]=o;}void func_001FBCD8(S*s){init(&s->v,0,1);}

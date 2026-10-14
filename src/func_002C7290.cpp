@@ -1,0 +1,7 @@
+struct Owner;struct World;
+extern "C" World *func_002C6298(Owner*);extern "C" unsigned func_0031CA98(World*);extern "C" float func_0031CB00(World*);extern "C" void func_00473178(int);extern "C" void func_004751FC();extern "C" void func_004738A0(float,float,float,float,float,float);extern "C" void func_00475780(float);extern "C" void func_00477E30(float,float,float,float);extern "C" void func_0046F0F8(int);extern "C" void func_004702D8(int,float);extern "C" void func_00473050();extern "C" void func_004730A8();extern "C" void func_004755EC(float,float,float);extern "C" void func_00475638(float,float,float);extern "C" void func_002C7218();
+extern "C" void func_002C7290(Owner*self){unsigned mask=func_0031CA98(func_002C6298(self));func_00473178(1);func_004751FC();func_004738A0(-1.1f,1.1f,-1.1f,1.1f,-1.0f,1.0f);func_00473178(0);func_004751FC();func_00475780(func_0031CB00(func_002C6298(self)));func_00477E30(0.8f,0.0f,0.0f,0.5f);func_0046F0F8(6);func_004702D8(68,1.0f);
+ if(mask&1){func_00473050();func_004755EC(-1.0f,0.0f,0.0f);func_00475780(0.0f);func_00475638(0.05f,0.05f,1.0f);func_002C7218();func_004730A8();}
+ if(mask&2){func_00473050();func_004755EC(1.0f,0.0f,0.0f);func_00475780(180.0f);func_00475638(0.05f,0.05f,1.0f);func_002C7218();func_004730A8();}
+ if(mask&4){func_00473050();func_004755EC(0.0f,1.0f,0.0f);func_00475780(-90.0f);func_00475638(0.05f,0.05f,1.0f);func_002C7218();func_004730A8();}
+ if(mask&8){func_00473050();func_004755EC(0.0f,-1.0f,0.0f);func_00475780(90.0f);func_00475638(0.05f,0.05f,1.0f);func_002C7218();func_004730A8();}}

@@ -1,0 +1,2 @@
+struct S{char pad[0x1c];unsigned short cols,rows;char p[0x24];void***grid;};extern "C" void func_004672F8(void*,int);
+extern "C" void func_00420288(S*self,int arg){int rows=self->rows;int row=0;if(rows){do{unsigned off=row*4;if(*(void***)(off+(unsigned)self->grid)){int col=0;if(self->cols){do{unsigned inner=col*4;++col;func_004672F8(*(void**)(inner+(unsigned)*(void***)(off+(unsigned)self->grid)),arg);}while(col<self->cols);rows=self->rows;}}++row;}while(row<rows);}}

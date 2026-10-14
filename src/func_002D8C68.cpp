@@ -1,0 +1,3 @@
+extern "C" void func_002D90B0(void*,int);
+inline float absolute(float x){float y;__asm__("abs.s %0,%1":"=f"(y):"f"(x));return y;}
+extern "C" void func_002D8C68(unsigned char* self,int target){int mode=*(int*)(self+0x28);if(target==mode||target==*(int*)(self+0x2c))return;switch(target){case 0:*(int*)(self+0x2c)=0;*(int*)(self+0x44)=0;if(mode!=2)*(float*)(self+0x80)=absolute(*(float*)(self+0x80));func_002D90B0(self,1);break;case 2:*(int*)(self+0x2c)=target;*(int*)(self+0x44)=1;if(mode!=0)*(float*)(self+0x80)=absolute(*(float*)(self+0x80));func_002D90B0(self,1);break;case 1:*(int*)(self+0x2c)=target;*(float*)(self+0x80)=absolute(*(float*)(self+0x80));break;}*(int*)(self+0x58)=*(int*)(self+0x4c);}

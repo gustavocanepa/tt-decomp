@@ -1,0 +1,19 @@
+#include "types.h"
+#define NULL 0
+void *memcpy(void *, const void *, unsigned int);
+
+s32 func_001B3F20();                            /* extern */
+
+struct func_001B3EC8_arg0 {
+    char pad0[0x10];
+    s32 unk10;
+    s32 unk14;
+    s32 unk18;
+};
+
+void func_001B3EC8(struct func_001B3EC8_arg0 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    func_001B3F20();
+    arg0->unk10 = arg1;
+    arg0->unk14 = arg2;
+    arg0->unk18 = arg3;
+}

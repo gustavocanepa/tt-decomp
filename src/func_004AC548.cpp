@@ -1,0 +1,21 @@
+typedef int s32;
+
+struct Range {
+    char pad0[4];
+    s32 lo;
+    s32 hi;
+};
+
+extern "C" void func_004AC488(Range *r);
+
+extern "C" void func_004AC548(Range *arg0, s32 arg1) {
+    s32 next = arg1 - 1;
+    s32 lt;
+
+    arg0->hi = arg1;
+    lt = arg0->lo < arg1;
+    if (lt == 0) {
+        arg0->lo = next;
+    }
+    func_004AC488(arg0);
+}

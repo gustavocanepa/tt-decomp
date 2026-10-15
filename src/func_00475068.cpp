@@ -1,0 +1,1 @@
+struct S;union Q{unsigned long value;S*ptr;int words[2];};struct S{char p[0x40];unsigned int value;char q[0x1b4];Q*ptr;};void func_00475068(S*s,unsigned int n){Q*p=s->ptr;p[0].value=0x10000000;p[1].value=((unsigned long)n<<32)|0x20000000;s->value=n;s->ptr+=2;}

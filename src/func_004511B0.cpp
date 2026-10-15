@@ -1,0 +1,33 @@
+struct Quat { float x, y, z, w; };
+struct Mat4 { float m[16]; };
+extern "C" void func_004511B0(const Quat *q, Mat4 *out, float tx, float ty, float tz) {
+    float x2 = q->x + q->x;
+    float y2 = q->y + q->y;
+    float z2 = q->z + q->z;
+    float xx = x2 * q->x;
+    float xy = x2 * q->y;
+    float xz = x2 * q->z;
+    float yy = y2 * q->y;
+    float yz = y2 * q->z;
+    float zz = z2 * q->z;
+    float wx = x2 * q->w;
+    float wy = y2 * q->w;
+    float wz = z2 * q->w;
+    out->m[0] = 1.0f - yy - zz;
+    out->m[4] = xy - wz;
+    out->m[8] = xz + wy;
+    out->m[1] = xy + wz;
+    out->m[5] = 1.0f - zz - xx;
+    out->m[9] = yz - wx;
+    out->m[2] = xz - wy;
+    out->m[6] = yz + wx;
+    out->m[10] = 1.0f - xx - yy;
+    out->m[12] = tx;
+    out->m[13] = ty;
+    out->m[14] = tz;
+    out->m[15] = 1.0f;
+    float zero = 0.0f;
+    out->m[3] = zero;
+    out->m[7] = zero;
+    out->m[11] = zero;
+}

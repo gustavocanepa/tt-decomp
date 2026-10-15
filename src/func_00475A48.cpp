@@ -1,0 +1,1 @@
+struct H{unsigned short n;unsigned char p,v;};union Q{int packed;H h;};struct S{char p[0x260];Q q;int a,b;};void func_00475A48(int*a,int*b,int*c,int*d){S*s=(S*)0x70002000;*c=s->a;*d=s->b;*a=s->q.h.n<<6;*b=s->q.h.v;}

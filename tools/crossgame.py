@@ -178,7 +178,13 @@ def apply_one(addr, other):
     for _ in range(2):  # globals: each round moves the symbols whose delta the judge can see
         if res.returncode == 0:
             break
-        moved = match.suggest_renames(addr, path)
+        try:
+            moved = match.suggest_renames(addr, path)
+        except (SystemExit, OSError) as exc:
+            # Some copied sources cannot compile in this game (for example, a callee
+            # that does not exist here). Treat that candidate as a miss and continue
+            # the batch instead of letting ThreadPoolExecutor abort all later work.
+            return addr, False, f"rename analysis failed: {exc}"
         if not moved:
             break
         text = match.apply_renames(text, moved)

@@ -1,0 +1,2 @@
+struct Entry{short delta,index;char*(*fn)(void*);};struct Obj{char pad[0x64];Entry*vt;char pad68[0x327A4-0x68];float a,b,c;};extern "C" Obj*func_0017C870(void*);
+extern "C" void func_0017EC18(void*,void*arg1){Obj*o=func_0017C870(arg1);Entry*e=(Entry*)((char*)o->vt+0x4E8);char*p=e->fn((char*)o+e->delta)+0xF48;float half=0.5f;float f=o->a;float low=0x1.47ae14p-7f;o->b=half;o->c=half;if(f<=low)f=low;*(float*)(p+8)=f;}

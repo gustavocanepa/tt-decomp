@@ -24,16 +24,16 @@ tools, and many functions that are identical in both games. Format documentation
   more are identical to GT4 functions still open: one match settles both games. See
   [`knowledge/tt.md`](knowledge/tt.md).
 <!-- progress:start -->
-- **Progress (October 2026, commit `970e72b7f58b`): 24,359 of 31,593 functions match (77.1%), 41.8% of the code bytes; 85.7% of the sources are clean.**
-  Clean source: 85.7% of the 24,359 function sources are free of m2c
+- **Progress (October 2026, commit `2ad59395bc2d`): 24,647 of 31,593 functions match (78.0%), 44.0% of the code bytes; 86.6% of the sources are clean.**
+  Clean source: 86.6% of the 24,647 function sources are free of m2c
   macros, raw offset casts, temp_/var_ names and pasted headers (`tools/clean_report.py`).
   The live numbers are on the `progress` branch (objdiff report format); this paragraph is written by
   `tools/update_readme.py` from `progress/report.json`, never by hand.
 - **The full build reproduces the original executable** (both loaded segments, SHA-1 checked):
-  23,211 functions, 37.7% of the code bytes, are linked from C/C++
+  23,448 functions, 39.1% of the code bytes, are linked from C/C++
   source at their original addresses, and the rest is assembled from splat's disassembly of your own
-  executable. 1,281 of 2,284,744 data bytes (0.06%; `.data` plus `.bss`)
-  are the constants of 55 functions, placed from source at their original addresses.
+  executable. 1,931 of 2,284,744 data bytes (0.08%; `.data` plus `.bss`)
+  are the constants of 67 functions, placed from source at their original addresses.
   0 functions that were hand-written assembly in the original are listed in
   [`config/asm_functions.txt`](config/asm_functions.txt) and not counted.
 <!-- progress:end -->

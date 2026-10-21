@@ -1,4 +1,4 @@
-typedef unsigned long long u64;
+#include "types.h"
 struct Scissor { u64 x0:11; u64 p0:5; u64 x1:11; u64 p1:5; u64 y0:11; u64 p2:5; u64 y1:11; u64 p3:5; };
 struct Obj {
  char p0[10]; unsigned char clip; char p1[0x190-11];

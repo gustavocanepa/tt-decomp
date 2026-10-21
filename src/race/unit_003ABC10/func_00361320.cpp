@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 struct Obj { char pad[0x18]; void *p18; };
 struct V24 { f32 a, b, c, d, e, f; };

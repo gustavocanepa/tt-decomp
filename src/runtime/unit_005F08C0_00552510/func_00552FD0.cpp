@@ -1,4 +1,4 @@
-typedef unsigned long long u64;
+#include "types.h"
 
 struct Obj {
     char pad[0x168];

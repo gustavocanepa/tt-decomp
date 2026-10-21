@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 extern "C" void func_002E45F8(void *p);
 extern "C" void func_002F35C0(void *a, void *b, s32 c, s32 d);

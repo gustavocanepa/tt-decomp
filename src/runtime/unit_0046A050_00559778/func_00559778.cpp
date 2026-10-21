@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern "C" int func_00559838(int lo, int hi, const float *keys, float t);
 

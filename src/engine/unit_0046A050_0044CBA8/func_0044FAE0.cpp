@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 struct V2 {
     f32 x, y;
     f32 &operator[](int i) { return (&x)[i]; }

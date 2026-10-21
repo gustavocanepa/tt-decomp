@@ -1,4 +1,4 @@
-typedef unsigned short u16;
+#include "types.h"
 struct El { u16 id; short x; };
 struct Vec { El *begin; int size; };
 struct Tab { char pad0[0x50]; char *f50; };

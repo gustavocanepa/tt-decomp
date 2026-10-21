@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Tmp { s32 field0; char pad[0xC]; };
 

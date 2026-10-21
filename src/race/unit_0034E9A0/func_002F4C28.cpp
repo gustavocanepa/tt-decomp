@@ -1,6 +1,4 @@
-typedef int s32;
-typedef float f32;
-typedef signed char s8;
+#include "types.h"
 
 struct Inner {
     char pad0[0x624];

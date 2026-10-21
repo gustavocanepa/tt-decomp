@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct VEntry_428 {
     short delta;

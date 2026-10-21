@@ -1,4 +1,4 @@
-typedef short s16;
+#include "types.h"
 struct Blob { char d[0xAE]; } __attribute__((packed, aligned(2)));
 struct VEntry { s16 delta; s16 pad; int (*fn)(void *); };
 struct Source { VEntry *vtable; };

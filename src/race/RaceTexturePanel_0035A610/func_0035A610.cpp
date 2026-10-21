@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 /* The base class RaceDisplayObjectBase, named after its constructor (RaceDisplayObjectBase__structor_0) so that
    __13func_003AEBA8 resolves. The vptr sits after its 0x14 bytes of data. */

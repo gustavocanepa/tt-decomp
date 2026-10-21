@@ -881,7 +881,6 @@ extern "C" {
 #define __need_ptrdiff_t
 #include <stddef.h>
 
-extern char **environ;
 
 void	_EXFUN(_exit, (int __status ) _ATTRIBUTE ((noreturn)));
 
@@ -1321,9 +1320,6 @@ struct tm *_EXFUN(localtime_r,	(const time_t *, struct tm *));
 
 #ifdef __CYGWIN__
 #ifndef __STRICT_ANSI__
-extern __IMPORT time_t _timezone;
-extern __IMPORT int _daylight;
-extern __IMPORT char *_tzname[2];
 
 char *_EXFUN(timezone, (void));
 void _EXFUN(tzset, (void));
@@ -1879,8 +1875,6 @@ void _reclaim_reent _PARAMS ((struct _reent *));
 extern int *func_005A3130 _PARAMS ((void));
 #endif
 
-extern __IMPORT _CONST char * _CONST _sys_errlist[];
-extern __IMPORT int _sys_nerr;
 
 #define __errno_r(ptr) ((ptr)->_errno)
 
@@ -2725,10 +2719,6 @@ extern _IO_off_t func_00595680 __P ((_IO_FILE *, _IO_off_t, int));
 extern int func_00595000 __P ((_IO_FILE *));
 #define _IO_default_close ((_IO_close_t) func_00595000)
 
-extern struct _IO_jump_t _IO_file_jumps;
-extern struct _IO_jump_t _IO_streambuf_jumps;
-extern struct _IO_jump_t _IO_proc_jumps;
-extern struct _IO_jump_t _IO_str_jumps;
 extern int func_0059B038 __P ((_IO_FILE *, const char *, _IO_size_t));
 extern int func_005951E8 __P ((void));
 extern void func_00595338 __P ((void));

@@ -1,6 +1,4 @@
-typedef float f32;
-typedef int s32;
-typedef unsigned char u8;
+#include "types.h"
 
 struct func_0039F8A0_p;
 

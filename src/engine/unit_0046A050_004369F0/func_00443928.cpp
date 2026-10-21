@@ -22,7 +22,6 @@ extern "C" int func_004A8368(const char *) throw();
 extern "C" void *func_004F6574(void *, const void *, u32) throw();
 extern "C" void *func_004F8588(void *, const void *, int) throw();
 extern char D_00601BF0[], D_00601BF8[];
-extern void *D_00659E2C[];
 struct Val {
  int type, value;
  Val():type(1) {}

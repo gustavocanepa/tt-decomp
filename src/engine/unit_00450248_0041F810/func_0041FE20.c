@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
+#include "types.h"
 
 typedef struct Self { char pad[0x28]; u16 m28; char pad2[0x2A]; void *m54; } Self;
 s32 func_005671D0(void *, void *, u16);

@@ -1,7 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef float f32;
-typedef signed char s8;
+#include "types.h"
 
 struct RPHD_arg0 {
     char pad0[0x1C];

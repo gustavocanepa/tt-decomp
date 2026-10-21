@@ -1,4 +1,4 @@
-typedef unsigned short u16;
+#include "types.h"
 
 struct Struct_001CF2B8 {
     char pad0[0x48];

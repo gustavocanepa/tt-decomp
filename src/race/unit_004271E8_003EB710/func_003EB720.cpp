@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern "C" f32 func_003EB720(f32 fparg0) {
     f32 x = fparg0;

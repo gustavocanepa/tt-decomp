@@ -1,4 +1,4 @@
-typedef long long s64;
+#include "types.h"
 struct RaceSpec;
 extern "C" int func_0040EFA8(RaceSpec *, int);
 extern "C" int func_0040C0E0(void *, int);

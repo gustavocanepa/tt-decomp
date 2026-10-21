@@ -1,5 +1,4 @@
-typedef long long s64;
-typedef int s32;
+#include "types.h"
 struct Self { s64 q[0x1F]; };
 struct Info { s64 q[0x1A]; };
 extern char D_00585A30[];

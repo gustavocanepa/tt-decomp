@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct NameValue {
     const char *name;
     s32 value;

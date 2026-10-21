@@ -1,5 +1,4 @@
-typedef int s32;
-typedef signed char s8;
+#include "types.h"
 
 struct Text5 { char c[5]; };
 struct func_00439200_Obj;

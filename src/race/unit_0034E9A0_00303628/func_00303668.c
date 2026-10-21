@@ -1,5 +1,4 @@
-typedef float f32;
-typedef unsigned char u8;
+#include "types.h"
 void func_00303110(void);
 void func_00303548(void *a);
 f32 func_002F5040(char *a, void *b);

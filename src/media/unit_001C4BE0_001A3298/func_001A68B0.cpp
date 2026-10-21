@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Self1CA7B0 {
     char pad0[0x3C];

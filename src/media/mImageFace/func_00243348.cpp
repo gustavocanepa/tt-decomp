@@ -1,5 +1,4 @@
-typedef float f32;
-typedef short s16;
+#include "types.h"
 
 struct Widget;
 

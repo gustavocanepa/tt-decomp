@@ -1,4 +1,4 @@
-typedef unsigned long u64;
+#include "types.h"
 extern "C" void func_003F6238(int unused, u64 x, u64 *arr, int n) {
     int pos = -1;
     int i;

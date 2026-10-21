@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void func_002E8AB0(char *arg0, char *arg1) {
     if (*(s32 *)(arg0 + 4) != 0 && *(s32 *)(arg1 + 4) != 0) {

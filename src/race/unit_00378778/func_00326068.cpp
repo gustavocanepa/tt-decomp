@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
+#include "types.h"
 
 extern char D_005CA040[];
 /* Returns this, so the next temporary avoids $v0 as in the original. */

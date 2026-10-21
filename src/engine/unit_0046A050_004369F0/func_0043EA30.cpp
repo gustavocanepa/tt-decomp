@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef float f32;
+#include "types.h"
 
 struct Val {
     s32 type;
@@ -10,7 +8,6 @@ struct Val {
 extern "C" void func_0043D510(Val *);
 extern "C" Val *func_0043D3B8(Val *, const Val *);
 extern "C" const char *strobe__Any__toString(Val *);
-extern "C" s32 func_0057F238(const char *, const char *);
 extern "C" f32 func_0043E0B0(const Val *);
 extern "C" void func_0043D7C8(Val *, f32);
 extern "C" u32 func_004A8368(const char *);

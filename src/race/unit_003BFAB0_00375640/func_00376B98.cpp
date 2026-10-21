@@ -1,5 +1,4 @@
-typedef short s16;
-typedef int s32;
+#include "types.h"
 
 struct VEntry {
     s16 delta;
@@ -20,7 +19,7 @@ struct Self {
 extern "C" s32 func_00376B98(Self *self, s32 a1, s32 a2) {
     VObj *o = self->m84;
     if (o != 0) {
-        VEntry *e = (VEntry *)((char *)o->vtbl + 0x2B0);
+        VEntry *e = &o->vtbl[86];
         return e->fn((char *)o + e->delta, a1, a2);
     }
     return 0;

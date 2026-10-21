@@ -1,5 +1,4 @@
-typedef short s16;
-typedef int s32;
+#include "types.h"
 
 struct VEntry_001D2810 {
     s16 delta;
@@ -17,7 +16,7 @@ struct Outer_001D2810 {
 };
 
 static inline s32 vcall_001D2810(struct Obj_001D2810 *o) {
-    VEntry_001D2810 *e = (VEntry_001D2810 *)((char *)o->vtbl + 0x30);
+    VEntry_001D2810 *e = &o->vtbl[6];
     return e->fn((char *)o + e->delta);
 }
 

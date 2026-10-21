@@ -1,4 +1,4 @@
-typedef long long s64;
+#include "types.h"
 struct O { char pad[0xB0]; char *tab; };
 extern "C" int SPEC_DATABASE__RaceSpec__getEnemyCount(void *);
 extern "C" s64 func_0040EFA8(O *self, int i) {

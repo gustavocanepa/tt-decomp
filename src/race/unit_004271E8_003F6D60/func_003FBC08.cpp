@@ -1,4 +1,4 @@
-typedef long s64;
+#include "types.h"
 struct R { char pad[0x18]; s64 f; };
 struct T { char pad[8]; R r[1000]; };
 extern "C" void func_003FBC08(T *t, int idx) {

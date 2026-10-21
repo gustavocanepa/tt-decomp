@@ -1,5 +1,4 @@
-typedef unsigned char u8;
-typedef short s16;
+#include "types.h"
 struct In {
     char pad[0x113];
     u8 b113, b114, b115, b116, b117, b118, b119, b11A, b11B;

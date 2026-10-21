@@ -1,6 +1,4 @@
-typedef int s32;
-typedef short s16;
-typedef unsigned char u8;
+#include "types.h"
 
 struct Local { s32 key; void *base; u8 flag; };
 struct Vec { void *data; s32 count; };

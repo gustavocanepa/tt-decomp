@@ -37,8 +37,6 @@ struct Obj {
     char pad0[4];
 };
 
-extern "C" u8 *func_0021A850(u8 *arg0);
-extern "C" void func_0021A858(char *arg0, struct Vec3 *arg1);
 extern "C" void func_0025E6C0(void *arg0, int arg1) throw();
 extern "C" void func_0025E718(void *arg0, void *arg1) throw();
 extern "C" void func_002931C8(void *arg0, int arg1);

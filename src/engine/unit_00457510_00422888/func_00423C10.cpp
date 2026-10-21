@@ -1,5 +1,4 @@
-typedef short s16;
-typedef int s32;
+#include "types.h"
 
 extern "C" void GT4Model__BinStreamWriter__writeArray(void *arg0, s16 *arg1, s32 arg2);
 

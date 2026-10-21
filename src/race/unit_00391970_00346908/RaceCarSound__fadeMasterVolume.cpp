@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct G { f32 m0, m4, m8; };
 extern G D_00794E70;

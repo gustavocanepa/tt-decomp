@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern "C" void AutomaticFader__fadein(char *o, f32 t);
 

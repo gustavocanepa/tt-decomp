@@ -43,7 +43,7 @@ extern "C" void func_0033ECC0(Self *self, void *arg1) {
     func_002CF610(self);
     VEntryR *e = (VEntryR *)(self->tbl + 0x500);
     VObj *o = e->fn((char *)self + e->delta);
-    VEntry *e2 = (VEntry *)((char *)o->vtbl + 0x48);
+    VEntry *e2 = &o->vtbl[9];
     e2->fn((char *)o + e2->delta);
     func_0034E948((char *)self + 0xE220);
 }

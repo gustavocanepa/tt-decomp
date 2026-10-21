@@ -1,5 +1,4 @@
-typedef long long s64;
-typedef int s32;
+#include "types.h"
 union Item { s64 v; char c; };
 struct T { char pad[8]; s32 cap; s32 cnt; Item items[1]; };
 extern "C" s32 func_003F7B10(T *, s64);

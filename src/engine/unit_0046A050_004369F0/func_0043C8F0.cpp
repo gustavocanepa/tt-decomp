@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 struct Blk8 { s32 a; s32 b; };
 struct P2 { s32 a; s32 b; };

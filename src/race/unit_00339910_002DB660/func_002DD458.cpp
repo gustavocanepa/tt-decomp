@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Slot { s32 b[0x11]; };
 struct Dbl {

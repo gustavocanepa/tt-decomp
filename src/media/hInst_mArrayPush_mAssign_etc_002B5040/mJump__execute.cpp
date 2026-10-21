@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 #define NULL 0
 
 struct func_002B5040_temp {

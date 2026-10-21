@@ -18,6 +18,6 @@ struct VEntry { short delta; short index; int (*fn)(void *, const char *, unsign
 struct Obj { int field0; VEntry *vtbl; };
 extern "C" void func_0029F640(Obj *self, Str *s) {
     const char *text = s->c_str();
-    VEntry *e = (VEntry *)((char *)self->vtbl + 0x1B8);
+    VEntry *e = &self->vtbl[55];
     e->fn((char *)self + e->delta, text, s->length());
 }

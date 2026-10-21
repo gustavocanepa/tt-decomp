@@ -1,6 +1,4 @@
-typedef int s32;
-typedef float f32;
-typedef unsigned char u8;
+#include "types.h"
 
 struct Profile_003E0530 {
     char pad0[0x134];

@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 func_00346940(s32 arg0, s32 arg1) {
     char *dst = (char *)arg0;

@@ -19,7 +19,6 @@ extern "C" void ModelSet2___render(void *, int, void *);
 extern "C" void func_00473EF0(float, float, float, float);
 extern "C" void func_00473F10(float, float, float, float);
 
-extern float D_008465B0[4];
 
 extern "C" void func_0041C670(int arg0, float t)
 {

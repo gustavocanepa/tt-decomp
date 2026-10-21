@@ -738,9 +738,6 @@ extern unsigned get_mode_alignment PARAMS ((enum machine_mode));
 extern const enum machine_mode class_narrowest_mode[];
 #define GET_CLASS_NARROWEST_MODE(CLASS) class_narrowest_mode[(int) (CLASS)]
 
-extern enum machine_mode byte_mode;
-extern enum machine_mode word_mode;
-extern enum machine_mode ptr_mode;
 
 #endif 
 
@@ -948,9 +945,6 @@ Boston, MA 02111-1307, USA.  */
 #define __LIBGCC2_H__
 
 extern int __gcc_bcmp (const unsigned char *, const unsigned char *, size_t);
-extern void *__builtin_saveregs (void);
-extern void __dummy (void);
-extern void __clear_cache (char *, char *);
 extern void __pure_virtual (void) __attribute__ ((__noreturn__));
 extern void __terminate (void) __attribute__ ((__noreturn__));
 extern void __default_terminate (void) __attribute__ ((__noreturn__));
@@ -971,12 +965,6 @@ extern void *func_005BCA88 (size_t);
 extern void func_005BCB68 (void *);
 
 struct bb;
-extern void __bb_exit_func (void);
-extern void __bb_init_func (struct bb *);
-extern void __bb_fork_func (void);
-extern void __bb_trace_func (void);
-extern void __bb_trace_ret (void);
-extern void __bb_init_trace_func (struct bb *, unsigned long);
 
 struct exception_descriptor;
 extern short int __get_eh_table_language (struct exception_descriptor *);

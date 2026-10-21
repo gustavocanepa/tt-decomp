@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern void func_0033E130(s32 a0, s32 a1);
 

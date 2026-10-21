@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Self { s32 m0; s32 m4; s32 m8; s32 a[9]; s32 m30; };
 

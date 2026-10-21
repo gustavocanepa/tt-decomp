@@ -29,7 +29,7 @@ extern "C" void func_00343990(Obj *o, s32 arg) {
     s32 y = d->y;
     s32 x = d->x;
     if (y && x) {
-        VEntry *e = (VEntry *)((char *)o->vtbl + 0x40);
+        VEntry *e = &o->vtbl[8];
         func_0041ED48(y, x, e->fn((char *)o + e->delta));
     }
     func_0041D1E8((char *)o + 0x18, x);

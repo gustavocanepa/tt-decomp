@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 
 extern "C" void func_002F8F28(s32 n, s16 *in, s16 *out, s16 *out2) {
     s32 x1 = in[1];

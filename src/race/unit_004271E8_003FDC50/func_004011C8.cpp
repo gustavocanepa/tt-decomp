@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 
 struct VEntry43 {
     s16 delta;
@@ -28,7 +27,7 @@ extern "C" s32 func_004011C8(void *arg0, void *arg1) {
 
     if (p->magic == 0xFF60BAD3 && func_00400CA0((s32)p + 0x10, -p->a, p->b) != 0) {
         neg = -p->a;
-        e = (VEntry43 *)((char *)o->vtbl + 0x10);
+        e = &o->vtbl[2];
         r = e->fn((char *)o + e->delta);
         if (neg == r - 0x10) {
             return 1;

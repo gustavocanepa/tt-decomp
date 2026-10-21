@@ -9,7 +9,6 @@ typedef unsigned char u8;
 
 extern "C" void *func_00575E60(int heap, int size);
 
-extern "C" void *func_005C1498(int);
 
 template <class T>
 class GameAlloc {

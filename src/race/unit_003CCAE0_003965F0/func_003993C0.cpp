@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 func_003993C0(s32 a, s32 b, s32 c) {
     if (a == 0)

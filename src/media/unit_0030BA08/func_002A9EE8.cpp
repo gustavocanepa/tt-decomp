@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 typedef void (*FnVoid)(void);
 
 extern "C" void func_002A9EE0(void);

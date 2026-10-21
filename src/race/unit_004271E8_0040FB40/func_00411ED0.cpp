@@ -1,5 +1,4 @@
-typedef int s32;
-typedef long s64;
+#include "types.h"
 struct Obj { s64 f0; s32 f8; s32 fC; };
 struct Tmp { s32 f0; s32 f4; s32 f8; s32 fC; s32 f10; char pad[0xC]; };
 extern "C" void func_00412368(void *);

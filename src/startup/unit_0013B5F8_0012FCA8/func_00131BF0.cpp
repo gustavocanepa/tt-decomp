@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct Text5 { char bytes[5]; };
 struct CarRef { char pad[0x14]; s32 id; };
 struct Manager;

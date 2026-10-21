@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct S;
 extern "C" void func_0026AB58(S *arg0, s32 arg1);
 extern "C" s32 func_0026C100(S *arg0, s32 arg1);

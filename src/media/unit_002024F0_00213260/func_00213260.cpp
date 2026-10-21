@@ -1,6 +1,4 @@
-typedef float f32;
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 struct Color4f {
     f32 r;

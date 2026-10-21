@@ -1,6 +1,4 @@
-typedef unsigned int u32;
-typedef unsigned short u16;
-typedef unsigned char u8;
+#include "types.h"
 struct Rep { int len; int cap; int ref; int sel; };
 struct Str { char *p; };
 struct Obj { char pad0[0xA]; u16 hA; const u8 *sC; };

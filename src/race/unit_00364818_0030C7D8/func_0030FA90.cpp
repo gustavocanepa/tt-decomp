@@ -1,7 +1,4 @@
-typedef unsigned char u8;
-typedef unsigned int u32;
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 union func_0030FA90_f {
     f32 f;

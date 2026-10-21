@@ -1,5 +1,4 @@
-typedef unsigned int u32;
-typedef unsigned long long u64;
+#include "types.h"
 struct HashCtx {
     u64 bits;
     char state[16];

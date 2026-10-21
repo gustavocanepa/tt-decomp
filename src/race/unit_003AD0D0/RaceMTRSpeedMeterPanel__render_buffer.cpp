@@ -12,7 +12,6 @@ extern "C" void func_004738A0(float,float,float,float,float,float),func_004AA1D8
 extern "C" void func_00416010(Font*,float,float),func_004155A8(Font*,const char*),func_00415540(Font*),func_00415578(Font*),func_00415B10(Font*,unsigned),func_00415D18(Font*,const char*,...);
 extern "C" int func_00416030(Font*,int,int);
 extern "C" float func_00415C58(Font*,const char*);
-extern "C" unsigned func_003AFEC8(unsigned,float);
 extern char D_005F55C0[],D_005F5998[];
 extern "C" void RaceMTRSpeedMeterPanel__init_texset(Self*);
 extern "C" int func_00416078(Font*);

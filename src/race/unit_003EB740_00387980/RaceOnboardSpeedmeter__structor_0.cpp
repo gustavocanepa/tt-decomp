@@ -5,7 +5,6 @@ struct Self {
 };
 extern char D_005D4D68[];
 extern "C" void *RaceRoundMeterBase__structor_0(Self *);
-extern "C" void func_003BE228(Self *, float, float);
 extern "C" void func_00391E68(Self *, float, float);
 extern "C" void func_00391E78(Self *, float, float);
 extern "C" void func_00391E88(Self *, float, float);

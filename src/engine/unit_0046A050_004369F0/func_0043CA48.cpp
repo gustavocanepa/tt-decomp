@@ -1,9 +1,7 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 struct Val { s32 type; s32 v; };
 extern "C" void func_0043D510(Val *);
-extern "C" Val *func_00476790(Val *, const Val *);
 extern "C" u32 func_004A8368(const char *s);
 struct String2;
 extern "C" String2 *func_00550E18(String2 *str, u32 pos, u32 n1, const char *s, u32 n2);

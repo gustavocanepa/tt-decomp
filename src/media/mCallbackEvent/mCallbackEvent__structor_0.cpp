@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern void *D_005B5BF8;
 extern "C" void *mEvent__structor_0(void *);

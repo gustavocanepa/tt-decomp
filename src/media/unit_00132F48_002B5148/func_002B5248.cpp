@@ -10,7 +10,7 @@ struct Self { char pad0[0x24]; Rhs *rhs; s32 *out; Items *items; };
 
 static inline s32 vcall(void *o) {
     VObj *ob = (VObj *)o;
-    VEntry *e = (VEntry *)((char *)ob->vtbl + 0x68);
+    VEntry *e = &ob->vtbl[13];
     return e->fn((char *)o + e->delta);
 }
 

@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 extern char D_005F55F8[];
 

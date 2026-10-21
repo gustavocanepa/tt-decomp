@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct VEntry { short delta; short index; float (*fn)(void *); };
 struct VObj { char pad0[4]; char *vtbl; };
 static inline float vcall(char *o) {

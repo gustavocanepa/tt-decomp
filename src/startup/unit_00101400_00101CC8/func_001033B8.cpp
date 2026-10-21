@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct Base {
     char pad[0x64];
     virtual void v0(s32);

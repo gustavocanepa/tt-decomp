@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Big {
     s32 d[0x96];

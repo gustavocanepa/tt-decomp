@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct Node { Node *next; char pad[4]; };
 struct Obj { char p0[8]; Node *head; };
 extern "C" void func_002E0C60(void);

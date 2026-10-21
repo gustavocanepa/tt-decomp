@@ -1,5 +1,4 @@
-typedef unsigned int u32;
-typedef unsigned char u8;
+#include "types.h"
 
 struct Bits_0044BFE8 {
     u8 *data;

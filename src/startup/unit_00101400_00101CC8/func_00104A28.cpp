@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void func_00104A28(void *arg0, s32 arg1) {
     *(volatile s32 *)((char *)arg0 + 0x18) = arg1;

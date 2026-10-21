@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void AutomaticFader__reset(void *arg0);
 

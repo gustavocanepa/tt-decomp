@@ -1,4 +1,4 @@
-typedef unsigned long u64;
+#include "types.h"
 struct Entry { short delta, index; int (*fn)(void *, int); };
 struct Entry5 { short delta, index; void (*fn)(void *, char *, int, int, int); };
 struct Obj { char *vtbl; };

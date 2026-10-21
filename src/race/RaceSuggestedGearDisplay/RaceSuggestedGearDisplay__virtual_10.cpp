@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
-typedef signed char s8;
+#include "types.h"
 struct Gear {
     char pad0[0x18];
     char osc[0x20];

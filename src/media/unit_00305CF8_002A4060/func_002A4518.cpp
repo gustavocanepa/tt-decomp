@@ -9,7 +9,6 @@ extern "C" N **func_0054BE40(N **, Tree *, u32 *);
 extern "C" void func_0054BE88(void *, Tree *, It *, Pair *);
 extern "C" void func_002BC0C8(void *, void *);
 extern "C" void func_002BC0E0(void *, int);
-extern "C" s32 func_00323BF8(s32);
 extern "C" void func_002C0FE8(s32);
 extern "C" void func_002C1050(s32);
 extern "C" void func_002A4318(void *, u32 *, s32 *) throw();

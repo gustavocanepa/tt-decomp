@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Encoder;
 struct func_00457568_arg1;

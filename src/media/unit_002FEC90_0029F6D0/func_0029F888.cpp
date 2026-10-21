@@ -1,4 +1,4 @@
-typedef signed int s32;
+#include "types.h"
 
 extern "C" s32 HIO__read32();
 

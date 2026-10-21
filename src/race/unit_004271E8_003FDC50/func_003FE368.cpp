@@ -1,5 +1,4 @@
-typedef unsigned char u8;
-typedef long long s64;
+#include "types.h"
 struct E { s64 v; u8 b8; u8 b9; u8 a; u8 b; };
 struct S { int n; int pad4; short id; short pad; E e[128]; };
 struct It { int p0; const char *name; int p8; int pc; int p10; int p14; };

@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Obj {
     volatile s32 unk0;

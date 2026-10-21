@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct S0039A4F8 { char pad[0x1C]; void *unk1C; };
 

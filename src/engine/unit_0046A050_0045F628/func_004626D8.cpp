@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 /* the ELF (PJW) string hash */
 extern "C" u32 func_004626D8(const unsigned char *name) {

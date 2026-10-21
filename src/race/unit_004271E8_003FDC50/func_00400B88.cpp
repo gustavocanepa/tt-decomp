@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct Obj { char pad[0x40]; char buf[0x40]; };
 extern "C" void func_004F8588(void *, const void *, s32);
 extern "C" void func_004F83D8(void *, const void *, s32);

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 extern "C" void RaceCarSound__fadeMasterVolume(f32 arg0, f32 arg1);
 

@@ -1,6 +1,4 @@
-typedef int s32;
-typedef short s16;
-typedef unsigned int u32;
+#include "types.h"
 
 struct Blk {
     s32 a;

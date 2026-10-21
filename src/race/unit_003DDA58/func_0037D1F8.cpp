@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct func_0042F440_arg0 { s32 v; };
 

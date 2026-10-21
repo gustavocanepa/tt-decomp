@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 /* The base class; its constructor is func_004AE9C0. */
 struct func_004AE9C0 {

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 struct Blk { f32 f0; f32 f4; s32 f8; f32 fC; f32 f10; s32 f14; f32 f18; f32 f1C; s32 f20; };
 extern "C" void func_0046D810(s32, void *, s32, s32, s32, s32);
 extern "C" Blk *func_00473980(s32);

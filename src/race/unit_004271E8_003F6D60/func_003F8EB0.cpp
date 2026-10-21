@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct Obj { s32 v; };
 extern "C" char D_00769558[];
 extern "C" char D_00769560[];

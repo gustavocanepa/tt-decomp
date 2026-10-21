@@ -1,6 +1,4 @@
-typedef int s32;
-typedef long s64;
-typedef unsigned long u64;
+#include "types.h"
 
 extern "C" int func_00411790(int, s64);
 

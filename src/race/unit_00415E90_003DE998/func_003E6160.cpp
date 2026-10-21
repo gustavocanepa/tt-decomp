@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 typedef unsigned int u128 __attribute__((mode(TI)));
 
 struct M3 { u128 r[3]; };

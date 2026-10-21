@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 /* GTSOUNDINSTRUMENT, named after its constructor so that __13func_00462500 resolves */
 struct func_0042D838 {

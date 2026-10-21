@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void RaceEventDisplay__addEvent(s32 arg0);
 

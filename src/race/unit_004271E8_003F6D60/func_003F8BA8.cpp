@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
+#include "types.h"
 
 extern "C" s32 func_003F8A40(s32 a0, s32 a1, const char *a2, u8 a3, s32 t0, s32 t1);
 

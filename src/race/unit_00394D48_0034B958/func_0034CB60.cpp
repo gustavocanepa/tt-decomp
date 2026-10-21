@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef float f32;
+#include "types.h"
 
 extern "C" void func_0034DC08(void *self, f32 f);
 extern "C" void ModelSet2__render(s32 a0, s32 a1);

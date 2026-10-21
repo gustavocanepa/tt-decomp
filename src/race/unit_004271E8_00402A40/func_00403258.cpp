@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 extern char D_005FA5A0[];
 extern char D_005FA5B0[];

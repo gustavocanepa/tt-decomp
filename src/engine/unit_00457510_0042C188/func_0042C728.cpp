@@ -2,7 +2,6 @@
 extern "C" int func_004A8268(const char *, const char *) throw();
 extern "C" unsigned int func_004A8368(const char *) throw();
 extern "C" void func_004F8588(void *, const void *, int) throw();
-extern unsigned char D_006D0E79[];
 struct Entry { const char *name; int a,b; };
 extern Entry D_00585E98[];
 extern "C" int func_0042C728(const char *arg0) {

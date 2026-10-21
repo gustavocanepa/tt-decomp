@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 *HOutput__operator_inc(s32 *arg0) {
     *arg0 += 1;

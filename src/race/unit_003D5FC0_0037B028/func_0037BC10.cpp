@@ -1,6 +1,4 @@
-typedef int s32;
-typedef float f32;
-typedef signed char s8;
+#include "types.h"
 
 struct Obj003D7648 {
     char pad[4];

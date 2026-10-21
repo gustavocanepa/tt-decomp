@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
-typedef float f32;
+#include "types.h"
 void func_0039FEC0(char *arg0, f32 fparg0) {
     char *a1 = *(char **)(arg0 + 0x10);
     char *a0 = arg0 + 0x104;

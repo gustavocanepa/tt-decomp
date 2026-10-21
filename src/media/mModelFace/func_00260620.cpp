@@ -1,4 +1,4 @@
-typedef unsigned char u8;
+#include "types.h"
 extern "C" u8 *func_001CDAA0(u8 *);
 extern "C" float func_004AFED0(float, float, float, float, float);
 extern "C" void func_00260620(u8 *self) {

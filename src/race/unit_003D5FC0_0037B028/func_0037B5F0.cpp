@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct V3 {
     f32 x;

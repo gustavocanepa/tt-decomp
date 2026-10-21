@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
-typedef signed char s8;
+#include "types.h"
 
 struct func_0037B140_arg0 {
     char pad0[0x160];

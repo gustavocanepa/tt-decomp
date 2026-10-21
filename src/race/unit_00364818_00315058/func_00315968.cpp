@@ -1,5 +1,4 @@
-typedef int s32;
-typedef char s8;
+#include "types.h"
 
 struct Obj00353EB8;
 

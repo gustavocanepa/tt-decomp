@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 extern "C" s32 func_0020B998(void *self, s32 arg1, void *arg2);
 extern "C" s32 mListBox__is_left(void *self, s32 key);

@@ -1,5 +1,4 @@
-typedef unsigned long long u64;
-typedef signed char s8;
+#include "types.h"
 
 union Entry {
     struct {

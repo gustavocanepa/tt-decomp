@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 struct Entry { short delta, index; s32 (*fn)(void *, s32); };
 struct Out {

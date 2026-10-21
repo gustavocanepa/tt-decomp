@@ -1,6 +1,4 @@
-typedef short s16;
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 struct VEntry {
     s16 delta;
@@ -23,11 +21,11 @@ typedef f32 (*FFn)(void *self, f32 arg);
 
 f32 func_0031C178(Owner *arg0, f32 fparg0) {
     f32 var_f0;
-    VEntry *e = (VEntry *)((char *)arg0->vtbl + 0xE0);
+    VEntry *e = &arg0->vtbl[28];
     Obj *obj = ((ObjFn)e->fn)((char *)arg0 + e->delta, arg0->unk9BC);
     var_f0 = 0.0f;
     if (obj != 0) {
-        VEntry *f = (VEntry *)((char *)obj->vtbl + 0x28);
+        VEntry *f = &obj->vtbl[5];
         var_f0 = ((FFn)f->fn)((char *)obj + f->delta, fparg0);
     }
     return var_f0;

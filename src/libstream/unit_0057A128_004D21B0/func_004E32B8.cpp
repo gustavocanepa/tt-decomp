@@ -1162,7 +1162,6 @@ public:
     { return operator= (static_cast<ostream&> (rhs)); }
 };
 
-extern _IO_istream_withassign D_00657BF8;
 
 extern _IO_ostream_withassign D_00657B78, D_00657BB8;
 
@@ -2507,9 +2506,6 @@ struct tm *_EXFUN(localtime_r,	(const time_t *, struct tm *));
 
 #ifdef __CYGWIN__
 #ifndef __STRICT_ANSI__
-extern __IMPORT time_t _timezone;
-extern __IMPORT int _daylight;
-extern __IMPORT char *_tzname[2];
 
 char *_EXFUN(timezone, (void));
 void _EXFUN(tzset, (void));
@@ -3127,8 +3123,6 @@ void _reclaim_reent _PARAMS ((struct _reent *));
 extern int *func_005A3130 _PARAMS ((void));
 #endif
 
-extern __IMPORT _CONST char * _CONST _sys_errlist[];
-extern __IMPORT int _sys_nerr;
 
 #define __errno_r(ptr) ((ptr)->_errno)
 
@@ -3540,10 +3534,6 @@ extern _IO_off_t func_00595680 __P ((_IO_FILE *, _IO_off_t, int));
 extern int func_00595000 __P ((_IO_FILE *));
 #define _IO_default_close ((_IO_close_t) func_00595000)
 
-extern struct _IO_jump_t _IO_file_jumps;
-extern struct _IO_jump_t _IO_streambuf_jumps;
-extern struct _IO_jump_t _IO_proc_jumps;
-extern struct _IO_jump_t _IO_str_jumps;
 extern int func_0059B038 __P ((_IO_FILE *, const char *, _IO_size_t));
 extern int func_005951E8 __P ((void));
 extern void func_00595338 __P ((void));
@@ -3630,7 +3620,6 @@ extern int func_005968F0 __P ((double __value, _IO_FILE *__sb, int __type,
 			      int __width, int __precision, int __flags,
 			      int __sign_mode, int __fill));
 
-extern _IO_FILE *D_00657ED8;
 extern void (*D_00657F90) __PMT ((void));
 
 #ifndef EOF

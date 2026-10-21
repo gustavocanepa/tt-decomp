@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Block {
     char data[0x28];

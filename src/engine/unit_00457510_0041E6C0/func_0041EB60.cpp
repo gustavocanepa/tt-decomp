@@ -1,4 +1,4 @@
-typedef short s16;
+#include "types.h"
 
 struct Vec3 {
     float x, y, z;

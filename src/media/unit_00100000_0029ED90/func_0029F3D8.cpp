@@ -3,7 +3,7 @@ struct ReadEntry { short delta; short index; bool (*fn)(void *, void *, int); };
 struct Obj { int field0; VEntry *vtbl; };
 extern "C" int func_0029F3D8(Obj *self) {
     unsigned char c;
-    VEntry *e = (VEntry *)((char *)self->vtbl + 0x1C0);
+    VEntry *e = &self->vtbl[56];
     if (e->fn((char *)self + e->delta) != 0) return -1;
     ReadEntry *r = (ReadEntry *)((char *)self->vtbl + 0x1B0);
     c = 0;

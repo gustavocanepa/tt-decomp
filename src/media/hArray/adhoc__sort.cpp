@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct H { s32 p; s32 pad[3]; };
 struct W { char *vp; char sub[4]; int pad[2]; };
 extern char D_005C3A80[], D_005A65B0[], D_005C38A8[];

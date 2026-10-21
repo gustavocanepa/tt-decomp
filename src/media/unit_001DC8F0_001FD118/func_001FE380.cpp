@@ -1,6 +1,4 @@
-typedef int s32;
-typedef short s16;
-typedef float f32;
+#include "types.h"
 
 extern "C" void func_001C7410(s32 v);
 

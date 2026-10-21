@@ -1,4 +1,4 @@
-typedef unsigned char u8;
+#include "types.h"
 struct Item { char pad[0x14]; };
 struct Vec { Item *begin; int size; };
 struct A { short f0; u8 f2; u8 pad3; Vec v; };

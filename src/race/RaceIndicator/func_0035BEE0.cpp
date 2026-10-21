@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
-typedef float f32;
+#include "types.h"
 
 extern "C" void AutomaticFader__update(void *self, f32 a);
 extern "C" void AutomaticFader__oneshot(void *self, f32 a, f32 b, f32 c, f32 d);

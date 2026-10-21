@@ -1,4 +1,4 @@
-typedef unsigned char u8;
+#include "types.h"
 extern "C" void *func_004F6678(void *, int, unsigned);
 static inline u8 rol(u8 x, int n) { return (x << n) | (x >> (8 - n)); }
 extern "C" void func_00413F08(u8 *key, u8 *tbl, u8 *uk1, u8 *uk2, unsigned rounds) {

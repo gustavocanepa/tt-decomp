@@ -20,7 +20,7 @@ static inline void assign(Tmp *dst,Tmp *src) {
  }
 }
 static inline int vcall(VObj *o) {
- VEntry *e = (VEntry *)((char *)o->vtbl+0x68);
+ VEntry *e = &o->vtbl[13];
  return e->fn((char *)o+e->delta);
 }
 extern "C" void func_001F1888(Tmp *dst,void *arg1,int n,VObj **reader) {

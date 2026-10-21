@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void DynamicsConductorTraining__structor_0();
 

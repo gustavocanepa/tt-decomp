@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct S00480F78 {
     char pad0[8];

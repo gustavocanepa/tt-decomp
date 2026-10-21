@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Buf0029D998 {
     void *unk0;

@@ -1,6 +1,4 @@
-typedef int s32;
-typedef short s16;
-typedef float f32;
+#include "types.h"
 
 struct VE3784B8 { s16 delta; s16 index; void *fn; };
 

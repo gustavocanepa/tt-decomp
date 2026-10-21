@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 struct Ent00480100 {
     char p0[2];
     s16 lo;

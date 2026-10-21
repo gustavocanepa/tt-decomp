@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct Item { Item *next; int a, b; };
 struct Pool { char hdr[0x3C]; Item *func_00575DA0; Item items[40]; };
 extern Pool D_0076CED0;

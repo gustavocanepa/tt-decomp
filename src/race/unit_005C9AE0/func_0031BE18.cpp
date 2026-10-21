@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 
 struct Obj_00396B20;
 extern "C" void func_0034C940(Obj_00396B20 *o, s32 b);

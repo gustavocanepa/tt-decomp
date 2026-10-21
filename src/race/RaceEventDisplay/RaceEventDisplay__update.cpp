@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct VEnt_003A4FC8 {
     short delta;

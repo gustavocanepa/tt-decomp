@@ -1,10 +1,9 @@
-typedef short s16;
-typedef float f32;
+#include "types.h"
 
 struct VEntry { s16 delta; s16 index; void (*fn)(void *, f32); };
 struct VObj { char pad[0x64]; VEntry *vtbl; };
 
 extern "C" void func_001009F8(VObj *self) {
-    VEntry *e = (VEntry *)((char *)self->vtbl + 0x70);
+    VEntry *e = &self->vtbl[14];
     e->fn((char *)self + e->delta, 0x1.111110p-6f);
 }

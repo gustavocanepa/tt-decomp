@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void DynamicsConductor__structor_1(void *arg0, void *arg1);
 extern "C" void func_0050E1A8(void *arg0);

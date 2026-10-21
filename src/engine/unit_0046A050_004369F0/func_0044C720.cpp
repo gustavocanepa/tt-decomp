@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned long long u64;
+#include "types.h"
 
 struct Item { u64 key; u64 value; };
 struct Table { char pad[0x30]; Item *items; char pad34[4]; s32 count; };

@@ -1,4 +1,4 @@
-typedef unsigned short u16;
+#include "types.h"
 struct Rec { char p0[4]; short s4; short s6; short s8; char pa[6]; };
 struct Blk { char p0[8]; char *data; char pc[4]; };
 struct O { char p0[0x10]; Blk *blks; char p14[8]; Rec *recs; };

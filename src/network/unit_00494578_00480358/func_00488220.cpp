@@ -1,5 +1,4 @@
 /* compiler: ee-gcc2.96-no-strict-aliasing */
-extern unsigned char D_006D0E79[];
 static inline int upper(int c) { return ((*(unsigned char *)(0x616779+c))&2)?c-32:c; }
 extern "C" void func_00488220(char *out,const char *src) {
  int i=0;

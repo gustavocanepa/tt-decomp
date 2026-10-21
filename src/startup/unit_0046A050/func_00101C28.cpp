@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct Mtx { f32 m[16]; };
 

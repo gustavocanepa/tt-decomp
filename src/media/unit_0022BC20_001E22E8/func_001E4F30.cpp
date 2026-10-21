@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 struct Rect {
     float x, y, w, h;
     Rect() {}

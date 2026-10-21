@@ -1,5 +1,4 @@
-typedef unsigned int u32;
-typedef unsigned short u16;
+#include "types.h"
 struct Node { int next; int key; int val; };
 struct HT { Node *b[15]; int freelist; };
 struct Item { const char *name; };

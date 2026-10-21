@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void RaceMessageDisplay__show(char *arg0, float fparg0);
 extern "C" s32 func_00357310(char *p, char *q);

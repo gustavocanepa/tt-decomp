@@ -1,4 +1,4 @@
-typedef unsigned long long u64;
+#include "types.h"
 
 extern "C" u64 func_004B2CE0(void *bits, int count);
 

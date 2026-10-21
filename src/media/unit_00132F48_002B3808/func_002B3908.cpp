@@ -9,7 +9,7 @@ struct Self { char pad[8]; s32 count; };
 extern "C" void func_002B1548(void *, Outer **) throw();
 extern "C" void func_002B1578(void *, s32) throw();
 static inline void vcall(VObj *o, void *result, s32 n, s32 *args) {
-    VEntry *e = (VEntry *)((char *)o->vtbl + 0xB8);
+    VEntry *e = &o->vtbl[23];
     e->fn((char *)o + e->delta, result, n, args);
 }
 static inline s32 *pop(Items *it, s32 n) {

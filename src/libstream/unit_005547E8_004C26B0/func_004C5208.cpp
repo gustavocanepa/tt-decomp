@@ -1,6 +1,4 @@
-typedef int s32;
-typedef long long s64;
-typedef unsigned char u8;
+#include "types.h"
 
 struct Self { char pad[0x58]; u8 *p; };
 

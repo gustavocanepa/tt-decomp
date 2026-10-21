@@ -52,7 +52,7 @@ extern "C" void func_00398488(char *self, int idx, Owner *owner)
     case 3: {
 
         VObj *o = owner->world->list->items[idx]->obj;
-        VEntry *e = (VEntry *)((char *)o->vtbl + 0x58);
+        VEntry *e = &o->vtbl[11];
         Res *r = (Res *)e->fn((char *)o + e->delta);
         f32 v = r->p50 ? *(f32 *)(r->p50 + 0xAC) : 0.0f;
         f32 zero = 0.0f;

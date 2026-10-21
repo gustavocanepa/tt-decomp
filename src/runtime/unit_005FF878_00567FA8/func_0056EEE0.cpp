@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 struct Pool { u32 base; u32 size; u32 itemSize; u32 freeList; u32 unused10; u32 count; };
 /* Threads 16-byte aligned items of itemSize bytes from the arena into a singly linked free list. */
 extern "C" void func_0056EEE0(Pool *pool) {

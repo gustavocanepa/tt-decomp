@@ -1,6 +1,4 @@
-typedef int s32;
-typedef long s64;
-typedef float f32;
+#include "types.h"
 struct S { char pad[0x10]; void *f10; };
 extern "C" s32 func_004A8268(s32, const char *);
 extern "C" s32 dpdiv(s64, s32);

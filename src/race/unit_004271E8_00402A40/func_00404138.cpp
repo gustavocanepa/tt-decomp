@@ -1,5 +1,4 @@
-typedef signed char s8;
-typedef int s32;
+#include "types.h"
 
 struct Obj { char pad[0x1A]; s8 unk1A; };
 

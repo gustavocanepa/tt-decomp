@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct VEntry { short delta, index; void (*fn)(void *, int); };
 struct Obj { void *vtable; };
 struct CarGarage { char pad[0x10]; s32 has; void *obj; };

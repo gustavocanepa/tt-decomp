@@ -1,4 +1,4 @@
-typedef short s16;
+#include "types.h"
 
 struct VEntry {
     s16 delta;
@@ -11,7 +11,7 @@ struct Obj {
 };
 
 extern "C" void SpecialCarGeometry__GetOppositeSeatPosition_Z(struct Obj *arg0) {
-    VEntry *e = (VEntry *)((char *)arg0->vtbl + 0x20);
+    VEntry *e = &arg0->vtbl[4];
 
     e->fn((char *)arg0 + e->delta);
 }

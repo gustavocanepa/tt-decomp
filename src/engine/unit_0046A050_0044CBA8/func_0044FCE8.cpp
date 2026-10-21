@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 inline const f32 inline_fn(const f32 *arg0)
 {

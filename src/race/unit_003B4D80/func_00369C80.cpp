@@ -1,5 +1,4 @@
-typedef int s32;
-typedef long s64;
+#include "types.h"
 
 struct Ent { short delta; short pad; void (*fn)(char *, char *); };
 

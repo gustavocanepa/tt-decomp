@@ -1,7 +1,6 @@
 /* compiler: ee-gcc2.96-no-strict-aliasing */
 extern "C" void AutomobileControlRecord__Recorder__finish(void *) throw();
 extern "C" void func_002E88B0(void *, int) throw();
-extern "C" void *memcpy(void *, const void *, unsigned);
 struct Block { char data[0x10000]; };
 struct Obj { int kind, state; char pad[0x58]; char *data; int index, count; };
 extern "C" int func_002E88E8(Obj *o) {

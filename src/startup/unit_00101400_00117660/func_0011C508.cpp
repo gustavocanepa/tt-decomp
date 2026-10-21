@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 struct Rec { char pad[0x1D0]; s32 f1D0; };
 struct Self { char pad[0x2E8]; f32 f2E8; char pad1[0x308 - 0x2EC]; f32 f308; };
 extern "C" Rec *func_0011C628(s32);

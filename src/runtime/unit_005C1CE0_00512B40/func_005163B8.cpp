@@ -1,5 +1,4 @@
-typedef unsigned char u8;
-typedef int s32;
+#include "types.h"
 
 /* 8-byte element: the first word is copied by func_00128400, the float at +4 is func_005AE2E8 directly. */
 struct Node {

@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void RaceDisplayObjectBase__selectTexture(void *arg0, const char *arg1);
 

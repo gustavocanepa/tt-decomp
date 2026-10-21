@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
-typedef float f32;
+#include "types.h"
 
 struct Inner {
     char pad[0x1768];

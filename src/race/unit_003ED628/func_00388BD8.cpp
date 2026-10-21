@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 extern "C" void func_0042FA28(void *arg0, s32 arg1, s32 arg2, u32 arg3);
 extern "C" char D_00584758[];

@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
-typedef signed char s8;
+#include "types.h"
 
 static inline s32 avg3(u8 *p) {
     s32 x = p[0];

@@ -11,9 +11,6 @@
 #undef protected
 #undef private
 extern "C" void *func_00575E60(int,int);
-extern "C" void *func_00578CF0(int,int);
-extern "C" void *func_005A48D8(void *,int,unsigned);
-extern "C" void *func_005C1498(unsigned);
 template<class T> struct A {
  typedef unsigned size_type; typedef int difference_type;
  typedef T* pointer; typedef const T* const_pointer;

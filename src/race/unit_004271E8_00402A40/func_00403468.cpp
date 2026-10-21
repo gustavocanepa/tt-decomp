@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Self { char *vtbl; char m4[0xB8]; char mBC[4]; };
 extern char D_005D94A0[];

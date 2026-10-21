@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Item { char pad[0x74]; };
 extern "C" void PitmenTiny__Entity__clear(Item *);

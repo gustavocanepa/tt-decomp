@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 enum PictureType { PredictivePicture = 2, BidirectionalPicture = 3 };
 

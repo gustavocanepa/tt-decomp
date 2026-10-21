@@ -1,4 +1,4 @@
-typedef long long s64;
+#include "types.h"
 
 struct __attribute__((aligned(8))) Obj {
     char pad[0x8];

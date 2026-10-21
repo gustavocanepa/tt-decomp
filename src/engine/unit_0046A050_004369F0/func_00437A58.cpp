@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 struct S0 { s32 unk0; char pad4[8]; s16 unkC; };
 struct Src { char pad[0xA4]; s32 unk9C; };
 extern "C" s32 func_004369F0(void *, s32);

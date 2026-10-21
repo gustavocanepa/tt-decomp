@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Item { char pad[0x1D80]; };
 extern "C" void func_0032EF58(Item *);

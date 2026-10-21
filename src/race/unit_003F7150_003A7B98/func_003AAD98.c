@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 extern char D_005D6E30[];
 void func_003AAE28(char *a);
 void func_003AAD98(char *arg0) {

@@ -1,4 +1,4 @@
-typedef short s16;
+#include "types.h"
 
 struct VEntry_0038E008 {
     s16 delta;
@@ -17,7 +17,7 @@ struct Obj_0038E008 {
 
 extern "C" void func_002C8F40(struct Obj_0038E008 *arg0) {
     Inner_0038E008 *a1 = arg0->unk1C;
-    VEntry_0038E008 *e = (VEntry_0038E008 *)((char *)a1->vtbl + 0x90);
+    VEntry_0038E008 *e = &a1->vtbl[18];
 
     e->fn((char *)a1 + e->delta);
 }

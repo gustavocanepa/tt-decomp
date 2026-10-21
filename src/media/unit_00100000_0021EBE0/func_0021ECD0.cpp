@@ -6,7 +6,6 @@ extern "C" void func_00526860(const char *,...);
 extern "C" const char *func_002A39C0(void *);
 extern "C" int func_0022F7B8(void *);
 extern "C" int func_0022F7C8(void *);
-extern "C" int func_0028E858(void *,int,int);
 static inline void *vcall(O *o) {
     E *e = (E *)(o->vt+0x58);
     return e->fn((char *)o+e->delta);

@@ -1,5 +1,4 @@
-typedef unsigned char u8;
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 func_0056DDC0(u8 *arg0, s32 arg1) {
     u8 *p = arg0 + arg1;

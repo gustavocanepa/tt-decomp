@@ -1,5 +1,4 @@
-typedef short s16;
-typedef int s32;
+#include "types.h"
 
 struct VEntry {
     s16 delta;
@@ -20,7 +19,7 @@ struct ObjA {
 extern ObjA *D_005846B4;
 
 static inline s32 vcall(ObjInner *o) {
-    VEntry *e = (VEntry *)((char *)o->vtbl + 0x1E0);
+    VEntry *e = &o->vtbl[60];
     return e->fn((char *)o + e->delta);
 }
 

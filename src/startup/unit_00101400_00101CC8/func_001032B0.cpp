@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 struct Result { s32 err; s32 p4; u32 size; s32 pc; s32 pad[4]; };
 extern "C" {
 void *func_00103248(void *, void *);

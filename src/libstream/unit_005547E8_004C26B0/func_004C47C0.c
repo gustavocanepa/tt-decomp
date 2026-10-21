@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 void func_004C47F0(char *a);
 void func_004C47C0(char *arg0) {
     char *t = arg0 + 0x1C;

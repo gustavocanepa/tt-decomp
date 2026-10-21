@@ -1,6 +1,4 @@
-typedef int s32;
-typedef float f32;
-typedef unsigned char u8;
+#include "types.h"
 
 extern "C" f32 func_0039F5A8(char *arg0, s32 arg1);
 extern "C" void func_002E79D8(void *arg0);

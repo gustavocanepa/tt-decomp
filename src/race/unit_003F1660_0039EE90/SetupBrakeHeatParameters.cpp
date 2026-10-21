@@ -1,6 +1,4 @@
-typedef float f32;
-typedef int s32;
-typedef short s16;
+#include "types.h"
 extern char D_00584BD8[];
 extern "C" void func_003A0B20(s32 a, s32 b, f32 c);
 

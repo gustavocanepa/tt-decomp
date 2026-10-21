@@ -1,4 +1,4 @@
-typedef unsigned long u64;
+#include "types.h"
 struct Regs {
     char pad[0x158];
     union {

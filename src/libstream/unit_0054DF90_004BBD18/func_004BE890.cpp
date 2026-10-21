@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 /* The base class; its constructor is func_004F44B8 (named after it so __13func_00578048
    resolves). Its vptr sits at 0x38. */

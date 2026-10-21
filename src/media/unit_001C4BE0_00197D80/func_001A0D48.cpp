@@ -1,5 +1,4 @@
-typedef short s16;
-typedef int s32;
+#include "types.h"
 
 extern char D_005E6C98[];
 extern char D_005E6CB0[];

@@ -48,7 +48,7 @@ extern "C" void func_001D5F18(s32 *arg0, void *arg1, s32 arg2, void *arg3) {
         p_s5 = buf3;
         func_002ADC48(p_s5, (char *)arg3 + 8);
         obj = (char *)buf0[0];
-        e = (VEntry *)((char *)((VObj *)obj)->vtbl + 0x310);
+        e = &((VObj *)obj)->vtbl[98];
         obj = obj + e->delta;
         r0 = func_0029E9F0((void *)p_s7[0]);
         r1 = func_002AFE68((u8 *)p_s6[0]);

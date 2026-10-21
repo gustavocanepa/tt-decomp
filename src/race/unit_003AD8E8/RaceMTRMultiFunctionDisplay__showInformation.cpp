@@ -1,7 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef unsigned char u8;
-typedef float f32;
+#include "types.h"
 
 extern "C" s32 func_00357310(s32 arg0);
 extern "C" void AutomaticFader__fadein(void *o, f32 t);

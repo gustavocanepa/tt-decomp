@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef unsigned short u16;
+#include "types.h"
 
 struct Obj0042A408 {
     u16 unk0;

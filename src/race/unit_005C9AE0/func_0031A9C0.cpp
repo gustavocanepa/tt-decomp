@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct Blk { long w[8]; } __attribute__((aligned(8)));
 struct G { float f0; char p4[0x10]; float f14; char p18[0x28]; };
 extern G D_00583B68;

@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef short s16;
+#include "types.h"
 
 struct VEntry {
     s16 delta;
@@ -18,7 +16,7 @@ extern "C" void func_0047DFB0(void *arg0, s32 arg1);
 extern "C" s32 func_0019BF50(Obj *self) {
     s32 sum = 0;
     s32 buf[8];
-    VEntry *e = (VEntry *)((char *)self->vtbl + 0xA0);
+    VEntry *e = &self->vtbl[20];
     void *cur = e->fn((char *)self + e->delta);
     s32 *p = (s32 *)cur;
     while (*p != 0) {

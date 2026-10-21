@@ -1,4 +1,4 @@
-typedef long s64;
+#include "types.h"
 struct Item { char pad[0x166]; char flag; char pad2[0x190 - 0x167]; };
 struct Obj { char pad[8]; Item items[3]; char pad2[0x4E8 - 8 - 3 * 0x190]; char sub[1]; };
 extern "C" void func_002E4588(void *, int);

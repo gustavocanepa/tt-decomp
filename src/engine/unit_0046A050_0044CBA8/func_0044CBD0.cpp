@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct A { char p[4]; s32 f4; };
 struct T { s32 a; s32 b; s32 c; s32 d[5]; };
 extern "C" void func_0044CBA8(void *, s32);

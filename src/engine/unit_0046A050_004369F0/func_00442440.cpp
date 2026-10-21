@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 struct String {
     struct Rep { u32 len, res, ref, selfish; char *data() { return (char *)(this + 1); } };

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 extern "C" f32 SpecialCarGeometry__GetStepPosition_X(void *arg0, s32 arg1) {
     f32 var_f0 = -0.225f;

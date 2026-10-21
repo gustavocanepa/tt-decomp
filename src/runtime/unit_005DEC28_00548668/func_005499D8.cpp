@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 
 extern "C" void func_002A7A30(void *h);
 extern "C" void func_002A75A8(void *h, s32 flags);

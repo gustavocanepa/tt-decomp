@@ -291,7 +291,6 @@ typedef struct
   long rem;
 } ldiv_t;
 
-extern int __mb_cur_max;
 
 void abort (void) __attribute__ ((noreturn));
 int abs (int);

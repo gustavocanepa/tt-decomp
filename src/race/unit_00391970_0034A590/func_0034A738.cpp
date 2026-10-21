@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void RaceCourse__clearData(char *arg0);
 extern "C" void PitmenData__structor_1(char *arg0, s32 arg1);

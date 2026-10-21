@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Quad { s32 a, b, c, d; };
 struct Info { char pad[0x24]; Quad q; char pad34[0xC]; };

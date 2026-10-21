@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 
 struct Elem { char pad0[4]; s16 val4; char pad6[10]; };
 struct Inner { char pad0[0x1C]; Elem *arr; };

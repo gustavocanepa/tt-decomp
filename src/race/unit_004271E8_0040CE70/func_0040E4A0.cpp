@@ -1,4 +1,4 @@
-typedef long long s64;
+#include "types.h"
 
 struct func_0040E4A0_Obj {
     s64 r[0x168 / 8];

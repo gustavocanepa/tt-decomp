@@ -6,7 +6,6 @@ extern "C" void func_002ADC48(void*,void*);
 extern "C" void func_002ADBF0(void*,int);
 extern "C" Str*func_002AFE68(int);
 extern "C" void func_00117080(void*,const char*);
-extern "C" void func_00127A90(void*,const char*);
 static inline const char*c_str(Str*s){int len=((Rep*)s->p)[-1].len;if(len==0)return D_005DF6D0;s->p[len]=0;return s->p;}
 extern "C" void func_001155D8(void*,void*arg1,int,void*args){
   int buf0[4],buf1[4];int*ps;int self;

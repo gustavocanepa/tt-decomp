@@ -1,6 +1,4 @@
-typedef int s32;
-typedef float f32;
-typedef unsigned char s8;
+#include "types.h"
 
 extern char D_005F5A08[];
 

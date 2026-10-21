@@ -176,7 +176,6 @@ extern void *malloc (size_t);
 
 extern void free (void *);
 
-extern int atexit (void (*)(void));
 
 # 60 "tsystem.h"
 
@@ -303,7 +302,6 @@ CCmode,
 # 31 "machmode.h" 2
 MAX_MACHINE_MODE };
 
-extern const char * const mode_name[];
 
 enum mode_class { MODE_RANDOM, MODE_INT, MODE_FLOAT, MODE_PARTIAL_INT, MODE_CC,
                   MODE_COMPLEX_INT, MODE_COMPLEX_FLOAT,
@@ -312,15 +310,11 @@ enum mode_class { MODE_RANDOM, MODE_INT, MODE_FLOAT, MODE_PARTIAL_INT, MODE_CC,
 
 extern const enum mode_class mode_class[];
 
-extern const unsigned int mode_size[];
 
-extern const unsigned int mode_unit_size[];
 
-extern const unsigned int mode_bitsize[];
 
 # 108 "machmode.h"
 
-extern const unsigned char mode_wider_mode[];
 
 extern enum machine_mode mode_for_size (unsigned int,
                                                 enum mode_class, int);
@@ -328,18 +322,12 @@ extern enum machine_mode mode_for_size (unsigned int,
 extern enum machine_mode smallest_mode_for_size
                                 (unsigned int, enum mode_class);
 
-extern enum machine_mode int_mode_for_mode (enum machine_mode);
 
 extern enum machine_mode get_best_mode (int, int, unsigned int,
                                                 enum machine_mode, int);
 
-extern unsigned get_mode_alignment (enum machine_mode);
 
-extern const enum machine_mode class_narrowest_mode[];
 
-extern enum machine_mode byte_mode;
-extern enum machine_mode word_mode;
-extern enum machine_mode ptr_mode;
 
 # 40 "libgcc2.c" 2
 # 1 "defaults.h" 1
@@ -399,11 +387,6 @@ the Free Software Foundation, 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 # 22 "libgcc2.h"
 
-extern int __gcc_bcmp (const unsigned char *, const unsigned char *, size_t);
-extern void *__builtin_saveregs (void);
-extern void __dummy (void);
-extern void __clear_cache (char *, char *);
-extern void __pure_virtual (void) __attribute__ ((__noreturn__));
 extern void func_00509170 (void) __attribute__ ((__noreturn__));
 extern void func_005BC5D8 (void) __attribute__ ((__noreturn__));
 extern void *func_005BC608 (void *, void *, void *);
@@ -423,12 +406,6 @@ extern void *func_00509608 (size_t);
 extern void func_005BCB68 (void *);
 
 struct bb;
-extern void __bb_exit_func (void);
-extern void __bb_init_func (struct bb *);
-extern void __bb_fork_func (void);
-extern void __bb_trace_func (void);
-extern void __bb_trace_ret (void);
-extern void __bb_init_trace_func (struct bb *, unsigned long);
 
 struct exception_descriptor;
 extern short int func_005BCEF8 (struct exception_descriptor *);
@@ -460,34 +437,12 @@ typedef int word_type __attribute__ ((mode (__word__)));
 # 186 "libgcc2.h"
 # 196 "libgcc2.h"
 
-extern TItype __multi3 (TItype, TItype);
-extern TItype __divti3 (TItype, TItype);
-extern UTItype __udivti3 (UTItype, UTItype);
-extern UTItype __umodti3 (UTItype, UTItype);
-extern TItype __modti3 (TItype, TItype);
 
-extern UTItype __udivmodti4 (UTItype, UTItype, UTItype *);
 
-extern TItype __negti2 (TItype);
 
-extern TItype __lshrti3 (TItype, word_type);
-extern TItype __ashlti3 (TItype, word_type);
-extern TItype __ashrti3 (TItype, word_type);
-extern TItype __ffsti2 (TItype);
 
-extern UDItype __udiv_w_sdiv (UDItype *, UDItype, UDItype, UDItype);
 
-extern word_type __cmpti2 (TItype, TItype);
-extern word_type __ucmpti2 (TItype, TItype);
 
-extern TItype __fixdfti (DFtype);
-extern TItype __fixsfti (SFtype);
-extern DFtype __floattidf (TItype);
-extern SFtype __floattisf (TItype);
-extern UDItype __fixunsdfdi (DFtype);
-extern UDItype __fixunssfdi (SFtype);
-extern TItype __fixunsdfti (DFtype);
-extern TItype __fixunssfti (SFtype);
 
   struct DWstruct {DItype low, high;};
 

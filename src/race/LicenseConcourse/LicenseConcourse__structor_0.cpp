@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 /* The base class (Concourse); its constructor is Concourse__structor_0. Its vptr sits at 0x10. */
 struct Concourse__structor_0 {

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
+#include "types.h"
 
 extern s32 GT4Model__BinStreamBase__get(void);
 

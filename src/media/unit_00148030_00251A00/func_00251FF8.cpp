@@ -1,6 +1,4 @@
-typedef int s32;
-typedef short s16;
-typedef float f32;
+#include "types.h"
 
 struct VEntry_60 { s16 delta; s16 index; f32 (*fn)(void *); };
 struct VObj { char pad0[4]; char *vtbl; };

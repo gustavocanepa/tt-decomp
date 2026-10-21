@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 f32 func_002F6D00(f32 *arg0, f32 fparg0) {
     f32 var_f1;

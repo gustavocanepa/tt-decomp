@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct HOutput {
     s32 count;

@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Listener_004295B0 {
     virtual void v01(void *e);

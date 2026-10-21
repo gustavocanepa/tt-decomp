@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 void func_002F5540(void *arg0) {
     f32 k = 0x1.111110p-6f;

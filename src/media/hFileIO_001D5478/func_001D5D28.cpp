@@ -1,10 +1,4 @@
-typedef int s32;
-typedef short s16;
-typedef unsigned short u16;
-typedef signed char s8;
-typedef unsigned char u8;
-typedef long s64;
-typedef float f32;
+#include "types.h"
 
 struct RefCounter;
 
@@ -37,7 +31,7 @@ extern "C" void func_001D5D28(s32 *arg0, void *arg1, s32 arg2, void *arg3) {
         p_s3 = buf2;
         func_001D35A0(p_s3, arg1);
         obj = (char *)*p_s3;
-        e = (VEntry_2E0 *)((char *)((VObj_2E0 *)obj)->vtbl + 0x300);
+        e = &((VObj_2E0 *)obj)->vtbl[96];
         obj = obj + e->delta;
         {
             u8 *r = func_002AFE68((u8 *)buf0[0]);

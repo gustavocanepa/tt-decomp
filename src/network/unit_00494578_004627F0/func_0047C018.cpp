@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef unsigned char u8;
+#include "types.h"
 struct Obj { s32 f0; u8 *data; };
 extern "C" u32 func_0047C018(Obj *o, s32 i) {
     u32 off = i * 4 + 0x40;

@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct func_0047ED98_blk {
     s32 (*fn)(s32, void *);

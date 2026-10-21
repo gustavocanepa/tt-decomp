@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 void func_00303450(void *arg0) {
     char *v = (char *)arg0 + 0x104;

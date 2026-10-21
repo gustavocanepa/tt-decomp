@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 AutomobileControlRecord__Manager__load(s32 arg0);
 

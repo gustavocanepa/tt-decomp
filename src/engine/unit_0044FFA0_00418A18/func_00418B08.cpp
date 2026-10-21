@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 typedef struct S16 { char data[16]; } S16;
 

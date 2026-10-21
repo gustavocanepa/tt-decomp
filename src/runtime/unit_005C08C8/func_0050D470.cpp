@@ -864,7 +864,6 @@ inline void *operator new[](size_t, void *place) throw() { return place; }
 
 #endif
 
-extern "C" void abort ();
 
 using std::type_info;
 
@@ -1514,70 +1513,53 @@ extern "C" const type_info &__tf##mangled (void) {		\
 
 extern unsigned char D_00659988 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_0050DBD8 (void);
 
 extern unsigned char D_00659990 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C1090 (void);
 
 extern unsigned char D_00659998 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C10C8 (void);
 
 extern unsigned char D_006599A0 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C1100 (void);
 
 extern unsigned char D_006599A8 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C1138 (void);
 
 extern unsigned char D_006599B0 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C1170 (void);
 
 extern unsigned char D_006599B8 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C11A8 (void);
 
 extern unsigned char D_006599C0 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C11E0 (void);
 
 extern unsigned char D_006599C8 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C1218 (void);
 
 extern unsigned char D_006599D0 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C1250 (void);
 
 extern unsigned char D_006599D8 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C1288 (void);
 
 extern unsigned char D_006599E0 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C12C0 (void);
 
 extern unsigned char D_006599E8 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C12F8 (void);
 
 extern unsigned char D_006599F0 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C1330 (void);
 
 extern unsigned char D_006599F8 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C1368 (void);
 
 extern unsigned char D_00659A00 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C13A0 (void);
 
 extern unsigned char D_00659A08 [sizeof (__builtin_type_info)]
   __attribute__ ((aligned (__alignof__ (void *))));
-extern "C" const type_info &func_005C13D8 (void);
 
 #endif

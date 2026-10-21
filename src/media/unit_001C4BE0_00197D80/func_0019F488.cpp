@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
-typedef long long s64;
+#include "types.h"
 
 extern "C" s64 func_0019CC58(s32 arg0);
 

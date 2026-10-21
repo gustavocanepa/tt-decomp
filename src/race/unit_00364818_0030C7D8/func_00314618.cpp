@@ -1,5 +1,4 @@
-typedef unsigned char u8;
-typedef signed char s8;
+#include "types.h"
 
 struct Inner {
     char pad[0x32];

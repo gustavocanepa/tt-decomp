@@ -1,5 +1,4 @@
-typedef float f32;
-typedef int s32;
+#include "types.h"
 struct Arr0047F380 {
     char *base;
     s32 count;

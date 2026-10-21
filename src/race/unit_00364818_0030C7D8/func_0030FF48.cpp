@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern "C" f32 func_0030FF48(f32 x) {
     if (x < 400.0f)

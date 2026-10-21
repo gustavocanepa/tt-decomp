@@ -1,4 +1,4 @@
-typedef unsigned char u8;
+#include "types.h"
 
 struct Rec {
     u8 m0, m1, m2, m3, m4, m5, m6, m7, m8, m9;

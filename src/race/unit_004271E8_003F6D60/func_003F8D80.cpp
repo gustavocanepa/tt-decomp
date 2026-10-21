@@ -1,5 +1,4 @@
-typedef short s16;
-typedef int s32;
+#include "types.h"
 
 struct VEntry { s16 delta; s16 index; s32 (*fn)(void *, s32); };
 struct Obj { struct VEntry *vtbl; s32 elems[0x300]; };

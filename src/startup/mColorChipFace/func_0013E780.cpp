@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct RefCounter;
 struct Owner { char pad0[0xBC]; s32 *slots[2]; };
 extern "C" void func_0020B408(Owner *self);

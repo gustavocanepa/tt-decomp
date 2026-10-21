@@ -1,5 +1,4 @@
-typedef int s32;
-typedef long long s64;
+#include "types.h"
 
 extern "C" char *func_0041D9C0(s64 arg0);
 extern "C" void func_004F7A30(char *arg0, char *arg1);

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 extern "C" s32 func_004A8368(const char *s);
 extern "C" void func_004F7A30(char *dst, const char *src);
 extern "C" int func_004A8E90(char *buf, s32 arg1, s32 arg2);

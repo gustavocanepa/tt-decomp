@@ -1,4 +1,4 @@
-typedef unsigned char u8;
+#include "types.h"
 struct Input;
 extern float func_003BCC90(Input*);
 extern float func_003BCC50(Input*);

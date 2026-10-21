@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
-typedef unsigned short u16;
+#include "types.h"
 
 struct Obj { char pad[0x30]; u16 f30; u8 f32; u8 f33; };
 extern u8 D_005834C3;

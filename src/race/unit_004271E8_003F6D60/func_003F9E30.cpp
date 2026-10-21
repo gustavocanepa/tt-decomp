@@ -1,7 +1,4 @@
-typedef int s32;
-typedef long s64;
-typedef unsigned char u8;
-typedef unsigned short u16;
+#include "types.h"
 struct B32 { char x[32]; };
 struct Rec { s32 a; u16 b; u8 c; u8 d; s64 e; B32 data; };
 struct Tmp { u16 h; u8 c; u8 d; };

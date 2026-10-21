@@ -8,7 +8,7 @@ struct Self { char pad[0x2c]; Items *items; };
 extern "C" void func_002C0FE8(s32 p);
 extern "C" void func_002C1050(s32 p);
 static inline void vcall(VObj *o, s32 *value) {
-    VEntry *e = (VEntry *)((char *)o->vtbl + 0xA8);
+    VEntry *e = &o->vtbl[21];
     e->fn((char *)o + e->delta, value);
 }
 extern "C" void func_002B26E8(void *arg0, Self *self) {

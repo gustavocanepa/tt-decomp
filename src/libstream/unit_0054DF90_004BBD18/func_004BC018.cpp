@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Frame {
     char obj[0xD0];

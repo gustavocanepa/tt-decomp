@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Id { char b[8]; };
 extern struct Id D_005981E0;

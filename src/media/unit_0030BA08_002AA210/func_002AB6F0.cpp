@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Str { char *p; };
 extern char D_005F14D8[];

@@ -1,4 +1,4 @@
-typedef long long s64;
+#include "types.h"
 
 struct S005F55D0 {
     char pad0[0x168];

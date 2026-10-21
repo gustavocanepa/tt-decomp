@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 extern "C" void FlareClass__updateFlare(char *arg0, f32 fparg0) {
     char *a0p = arg0 + 0x10;

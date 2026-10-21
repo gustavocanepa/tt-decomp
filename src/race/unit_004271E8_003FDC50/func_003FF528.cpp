@@ -1,7 +1,6 @@
 /* compiler: ee-gcc2.96-no-strict-aliasing */
 typedef int s32;
 struct Name { char c[8]; };
-extern Name D_006A6110;
 struct Obj {
     s32 pad0;
     Name n4;

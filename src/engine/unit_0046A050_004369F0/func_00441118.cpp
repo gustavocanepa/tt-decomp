@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
-typedef unsigned char u8;
+#include "types.h"
 struct Node { Node *a; Node *b; Node *c; Node *d; };
 struct Tree { char pad0[4]; Node *head; Node *size; u8 flag; Node *key; char padz[0x1c]; };
 struct Obj { char pad0[4]; s32 f4; u16 f8; char padA[6]; s32 f10; char pad14[8]; s32 f1C; };

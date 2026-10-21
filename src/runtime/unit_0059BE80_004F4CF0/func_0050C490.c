@@ -176,7 +176,6 @@ extern void *malloc (size_t);
 
 extern void free (void *);
 
-extern int atexit (void (*)(void));
 
 # 60 "tsystem.h"
 

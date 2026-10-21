@@ -1,5 +1,4 @@
-typedef unsigned char u8;
-typedef signed char s8;
+#include "types.h"
 
 extern "C" void func_0029F9A8(void *arg0, u8 arg1);
 

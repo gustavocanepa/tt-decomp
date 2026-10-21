@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 typedef unsigned int u128 __attribute__((mode(TI)));
 
 union Vec4 {

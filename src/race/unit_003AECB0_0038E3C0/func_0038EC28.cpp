@@ -5,7 +5,6 @@ struct Texture { char physicalPrefix[24];TextureState*state; };
 extern "C" int func_00467728(Texture*);
 extern "C" void func_0046AC48(TextureState*);
 extern "C" void func_00472268(unsigned,int);
-extern "C" float func_003AFD18(float,float,unsigned);
 extern "C" void func_0038EE10(float,float,float,float,float,float,float,float);
 // PLZCW is the EE packed leading-sign-count hardware operation.
 inline unsigned leadingSigns(unsigned x){unsigned r;asm("plzcw %0, %1":"=r"(r):"r"(x));return r;}

@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void SePlayer__Stop(void *, s32);
 extern "C" void SePlayer__Initialize(void *, s32, s32);

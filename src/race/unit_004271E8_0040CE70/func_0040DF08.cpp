@@ -1,6 +1,4 @@
-typedef int s32;
-typedef long long s64;
-typedef unsigned char u8;
+#include "types.h"
 
 /* Looks up a record by its 64-bit id through SPEC_DATABASE__DatabaseStorage__getRow (the manager D_00585A30) and returns
    one byte of it, or -1 when the id is unset. */

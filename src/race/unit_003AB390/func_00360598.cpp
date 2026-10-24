@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Self { char pad[0x18]; s32 m18; };
 extern char D_005F5870[];

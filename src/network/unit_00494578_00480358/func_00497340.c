@@ -2284,11 +2284,9 @@ extern const struct normal_encoding big2_encoding;
 
 #ifdef XML_NS
 
-extern const struct normal_encoding internal_big2_encoding_ns;
 
 #endif
 
-extern const struct normal_encoding internal_big2_encoding;
 
 #endif
 

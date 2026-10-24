@@ -1,4 +1,4 @@
-typedef short s16;
+#include "types.h"
 
 struct VEntry003A01F0 {
     s16 delta;
@@ -20,7 +20,7 @@ extern "C" void RaceDisplay__DMAsafe(struct Obj003A01F0 *arg0) {
     Sub003A01F0 *a1 = arg0->unk14;
 
     if (a1 != 0) {
-        VEntry003A01F0 *e = (VEntry003A01F0 *)((char *)a1->vtbl + 0x58);
+        VEntry003A01F0 *e = &a1->vtbl[11];
         e->fn((char *)a1 + e->delta);
     }
 }

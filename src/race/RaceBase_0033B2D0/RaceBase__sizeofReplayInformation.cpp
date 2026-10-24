@@ -1,5 +1,4 @@
-typedef short s16;
-typedef int s32;
+#include "types.h"
 
 struct VEntry_00389388 {
     s16 delta;
@@ -13,7 +12,7 @@ struct Obj_00389388 {
 };
 
 extern "C" s32 RaceBase__sizeofReplayInformation(struct Obj_00389388 *arg0) {
-    VEntry_00389388 *e = (VEntry_00389388 *)((char *)arg0->vtbl + 0x210);
+    VEntry_00389388 *e = &arg0->vtbl[66];
 
     return e->fn((char *)arg0 + e->delta) + 0x1A24;
 }

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
+#include "types.h"
 
 extern "C" void *func_004F6678(void *, s32, s32);
 extern "C" void *func_004F64C4(void *, const void *, s32);

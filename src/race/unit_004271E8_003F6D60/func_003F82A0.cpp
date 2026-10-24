@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 struct Obj { u32 unk0; };
 

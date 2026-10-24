@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
-typedef float f32;
+#include "types.h"
 
 struct Struct_003A4A78 {
     u8 unk0;

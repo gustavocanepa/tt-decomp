@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 extern char D_005DCFA0[];
 extern char D_005F9628[];
 s32 func_004A8268(char *a, char *b);

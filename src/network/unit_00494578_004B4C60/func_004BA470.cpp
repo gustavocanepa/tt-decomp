@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern volatile s32 D_00598358;
 extern "C" s32 func_005038D8(void);

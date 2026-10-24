@@ -1,4 +1,4 @@
-typedef long s64;
+#include "types.h"
 
 extern "C" s64 func_004B65E8(void);
 

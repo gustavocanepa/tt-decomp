@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Sub {
     s32 unk0;

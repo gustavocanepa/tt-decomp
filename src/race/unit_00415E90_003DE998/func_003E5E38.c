@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 f32 *func_003E5C78(f32 *a, f32 b);
 f32 *func_003E5E38(f32 *arg0, f32 *arg1) {
     f32 pad[4];

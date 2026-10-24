@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
-typedef short s16;
+#include "types.h"
 
 struct Arr { u16 n; u16 data[1]; };
 struct Self { char pad[0x14]; Arr *m14; };

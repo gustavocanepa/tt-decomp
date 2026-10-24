@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 /* A member class, named after its constructor (func_002E7AA0). */
 struct func_002E7AA0 {

@@ -1,5 +1,4 @@
-typedef unsigned short u16;
-typedef float f32;
+#include "types.h"
 
 struct Key {
     f32 pos;

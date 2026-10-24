@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void func_0039CFB0(char *arg0) {
     s32 *p = (s32 *)(arg0 + 0x92C0);

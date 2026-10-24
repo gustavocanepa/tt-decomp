@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void func_003CD860(float (*m)[4], const float *v, float *out) {
     for (s32 i = 0; i < 3; i++)

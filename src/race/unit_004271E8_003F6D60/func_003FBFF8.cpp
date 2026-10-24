@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned long long u64;
+#include "types.h"
 
 struct Seed_00435A10 {
     u64 a;

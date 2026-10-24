@@ -1,4 +1,4 @@
-typedef unsigned char u8;
+#include "types.h"
 
 struct File { void *fd; char pad[0x16]; u8 flags; };
 int func_004E7B20(void *, int, int);

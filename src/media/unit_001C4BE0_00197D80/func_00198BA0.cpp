@@ -1,4 +1,4 @@
-typedef short s16;
+#include "types.h"
 
 typedef int s32;
 
@@ -19,7 +19,7 @@ struct Obj {
 
 extern "C" void func_00198BA0(Obj *arg0) {
     ObjInner *a1 = arg0->unk30;
-    VEntry *e = (VEntry *)((char *)a1->vtbl + 0x20);
+    VEntry *e = &a1->vtbl[4];
 
     e->fn((char *)a1 + e->delta);
 }

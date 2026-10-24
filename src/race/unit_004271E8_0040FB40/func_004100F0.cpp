@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Loc {
     s32 unk0;

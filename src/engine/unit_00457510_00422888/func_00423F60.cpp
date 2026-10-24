@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 func_00423F60(const char *s) {
     s32 r = 0;

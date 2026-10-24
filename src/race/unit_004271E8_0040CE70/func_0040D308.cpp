@@ -1,6 +1,4 @@
-typedef unsigned int u32;
-typedef long long s64;
-typedef unsigned long long u64;
+#include "types.h"
 
 struct Rec {
     s64 value;

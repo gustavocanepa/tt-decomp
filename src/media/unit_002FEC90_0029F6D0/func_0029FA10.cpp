@@ -1,5 +1,4 @@
-typedef unsigned int u32;
-typedef unsigned short u16;
+#include "types.h"
 
 extern "C" void func_0029F9D0(void *stream, u16 v);
 

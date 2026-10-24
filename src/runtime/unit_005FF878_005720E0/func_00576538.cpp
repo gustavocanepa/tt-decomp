@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void func_00576538(s32 *arg0, s32 arg1, s32 arg2) {
     *arg0 = (*arg0 & ~arg2) | (arg1 & arg2);

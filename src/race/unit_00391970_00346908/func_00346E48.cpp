@@ -1,5 +1,4 @@
-typedef unsigned char u8;
-typedef float f32;
+#include "types.h"
 
 struct Obj {
     u8 unk0;

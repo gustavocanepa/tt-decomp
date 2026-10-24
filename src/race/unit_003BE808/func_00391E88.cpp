@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct S003BE828 {
     char pad0[0x48];

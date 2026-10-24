@@ -1,6 +1,4 @@
-typedef int s32;
-typedef short s16;
-typedef float f32;
+#include "types.h"
 
 struct Obj003A8380 {
     char pad0[0x72];

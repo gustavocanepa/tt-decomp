@@ -1,5 +1,4 @@
-typedef float f32;
-typedef int s32;
+#include "types.h"
 void func_003D04F0(char *arg0, s32 arg1, f32 *arg2, f32 *arg3) {
     if (arg1 == 0) {
         *arg2 = *(f32 *)(arg0 + 0x34);

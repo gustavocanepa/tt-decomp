@@ -1,7 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef unsigned long u64;
-typedef float f32;
+#include "types.h"
 
 struct Elem {
     s32 a;

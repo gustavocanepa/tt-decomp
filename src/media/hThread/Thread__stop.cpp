@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Obj { char pad[0x34]; s32 m34; char pad2[8]; s32 m40; s32 m44; s32 m48; };
 struct Guard { Obj *p; s32 pad[3]; };

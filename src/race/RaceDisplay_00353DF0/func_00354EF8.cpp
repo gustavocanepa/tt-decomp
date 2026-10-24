@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
+#include "types.h"
 
 struct Inner0039FC50 {
     char pad0[0xDC];

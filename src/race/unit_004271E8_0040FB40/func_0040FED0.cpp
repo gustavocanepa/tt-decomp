@@ -1,5 +1,4 @@
-typedef long long s64;
-typedef unsigned long long u64;
+#include "types.h"
 struct Rec { char b[24]; };
 extern char D_00585A30[];
 extern "C" bool func_0040B940(void *db, int key, int type, Rec *out);

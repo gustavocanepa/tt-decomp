@@ -1,5 +1,4 @@
-typedef int s32;
-typedef long long s64;
+#include "types.h"
 
 extern char D_005D9848[];
 

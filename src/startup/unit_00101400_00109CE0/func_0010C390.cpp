@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 struct C_00110BC0 { char pad[0x18]; void *m18; };
 struct B_00110BC0 { C_00110BC0 *m0; };

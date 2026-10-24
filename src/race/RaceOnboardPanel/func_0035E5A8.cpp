@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void RaceOnboardSpeedmeter__setSpeedScale(void *arg0);
 

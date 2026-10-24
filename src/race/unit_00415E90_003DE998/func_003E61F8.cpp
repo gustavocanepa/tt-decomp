@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct R { s32 w[9]; };
 extern "C" void func_003E6160(R *, void *);

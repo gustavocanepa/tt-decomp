@@ -1,4 +1,4 @@
-typedef unsigned long long u64;
+#include "types.h"
 
 struct func_004727C0_Obj {
     char pad0[0x1C0];

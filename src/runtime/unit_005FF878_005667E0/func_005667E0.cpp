@@ -1,4 +1,4 @@
-typedef unsigned short u16;
+#include "types.h"
 
 struct Obj00603F38 {
     char pad0[0x8];

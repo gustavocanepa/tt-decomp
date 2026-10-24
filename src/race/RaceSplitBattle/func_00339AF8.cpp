@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void RaceArcadeDemo__structor_0();
 

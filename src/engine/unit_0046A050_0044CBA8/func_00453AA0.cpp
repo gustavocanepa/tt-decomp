@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct Vec2_0048D000 {
     f32 a[2];

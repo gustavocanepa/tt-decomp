@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 extern "C" void func_00104838(char *arg0) {
     *(f32 *)(arg0 + 0x20) = 0.5f;

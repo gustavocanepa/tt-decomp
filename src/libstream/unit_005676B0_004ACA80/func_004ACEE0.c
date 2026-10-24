@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Pair { s32 a; s32 b; };
 typedef struct Pair Pair; struct Obj { char pad[0x34]; Pair p; }; typedef struct Obj Obj;

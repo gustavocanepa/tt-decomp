@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 static inline f32 fabs_(f32 v) {
     f32 r;

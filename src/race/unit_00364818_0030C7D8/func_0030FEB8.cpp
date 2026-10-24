@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 TireWearParameters__isWearAvailable(void *);
 extern "C" s32 TireWearParameters__isHeatAvailable(void *);

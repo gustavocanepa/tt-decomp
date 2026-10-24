@@ -1,4 +1,4 @@
-typedef long long s64;
+#include "types.h"
 struct func_00400D68 {
     func_00400D68();
     virtual ~func_00400D68();

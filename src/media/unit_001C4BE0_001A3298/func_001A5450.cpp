@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 struct Entry { s32 id; s32 a, b, c; };
 extern Entry D_005E7C80[];

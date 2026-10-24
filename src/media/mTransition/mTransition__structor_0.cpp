@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern void *D_005B3178;
 extern "C" void *func_002A7618(void *);

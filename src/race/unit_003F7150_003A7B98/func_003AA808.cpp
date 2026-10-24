@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern "C" f32 func_003AA808(f32 x, f32 lo, f32 hi, f32 period) {
     if (lo <= x && x <= hi) {

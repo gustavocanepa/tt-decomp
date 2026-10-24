@@ -1,4 +1,4 @@
-typedef unsigned short u16;
+#include "types.h"
 struct S;
 
 extern "C" void *func_004C9C60(struct S *arg0);

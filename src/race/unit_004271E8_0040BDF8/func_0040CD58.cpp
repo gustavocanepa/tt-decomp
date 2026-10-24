@@ -1,7 +1,4 @@
-typedef int s32;
-typedef long long s64;
-typedef signed char s8;
-typedef unsigned char u8;
+#include "types.h"
 
 struct Global;
 extern Global D_00585A30;

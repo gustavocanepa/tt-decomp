@@ -1,4 +1,4 @@
-typedef long long s64;
+#include "types.h"
 
 struct Obj { char pad[0x8]; s64 *ptr8; };
 

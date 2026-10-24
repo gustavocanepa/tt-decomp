@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 struct V2 {
     f32 x, y;
     void set(f32 a, f32 b) { x = a; y = b; }

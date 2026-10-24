@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void CameraSys__CameraControl__init(s32 arg0, s32 arg1, s32 arg2);
 

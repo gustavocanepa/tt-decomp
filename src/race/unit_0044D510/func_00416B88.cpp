@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 /* CameraBase, named after its constructor so that __13func_0044F188 resolves */
 struct func_00416E68 {

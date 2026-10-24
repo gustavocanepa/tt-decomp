@@ -1,6 +1,4 @@
-typedef int s32;
-typedef short s16;
-typedef signed char s8;
+#include "types.h"
 
 struct Obj {
     s32 unk0;

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
+#include "types.h"
 
 struct Node {
     s32 unk0;

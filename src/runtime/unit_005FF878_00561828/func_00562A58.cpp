@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern void func_003FD850(s32 a0, s32 a1, s32 a2);
 

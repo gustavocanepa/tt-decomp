@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern s32 func_00522EB8(void);
 extern void func_001B4900(s32);

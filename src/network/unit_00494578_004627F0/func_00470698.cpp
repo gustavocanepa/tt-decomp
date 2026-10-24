@@ -1,4 +1,4 @@
-typedef unsigned long long u64;
+#include "types.h"
 struct Spr {
     char pad[0x178]; short x; short pad1; short y;
     char pad2[0x1D8 - 0x17E]; u64 flags;

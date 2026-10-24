@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct Inner0024BE78 {
     f32 unk0;

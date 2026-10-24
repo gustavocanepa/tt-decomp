@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 struct Color { unsigned char r, g, b, a; int m4; };
 extern "C" void func_00444A78(Color *, u32, u32, u32, u32);
 extern "C" int func_00445370(Color *, int *);

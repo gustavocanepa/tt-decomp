@@ -1,0 +1,38 @@
+#include "types.h"
+
+struct VEntry {
+    s16 delta;
+    s16 pad;
+    s32 (*fn)(void *);
+};
+
+struct ObjA {
+    char pad0[4];
+    VEntry *vtbl;
+};
+
+struct Arg3 {
+    ObjA *obj;
+};
+
+extern "C" void func_002655D8(s32 *buf);
+extern "C" void func_00266330(s32 arg0, s32 arg1);
+extern "C" void func_00265580(void *buf, s32 arg1);
+
+extern "C" void func_00265B48(s32 arg0, s32 arg1, s32 n, Arg3 *arg3) {
+    if (n > 0) {
+        s32 buf[4];
+        s32 s0;
+        ObjA *obj;
+        VEntry *entry;
+        s32 result;
+
+        func_002655D8(buf);
+        s0 = buf[0];
+        obj = arg3->obj;
+        entry = obj->vtbl + 12;
+        result = entry->fn((char *)obj + entry->delta);
+        func_00266330(s0, result);
+        func_00265580(buf, 2);
+    }
+}

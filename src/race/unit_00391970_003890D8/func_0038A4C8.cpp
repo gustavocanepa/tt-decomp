@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern "C" void func_0038A4C8(f32 *arg0, f32 *arg1, f32 fparg0) {
     arg0[0] = arg1[0] * fparg0;

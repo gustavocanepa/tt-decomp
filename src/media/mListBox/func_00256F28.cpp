@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 struct mListBox_002B4728 {
     char pad0[0x148];

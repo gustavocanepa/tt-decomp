@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void RaceTireWearDisplay__setTireWearColor(s32 arg0);
 

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 
 struct Item_002B5438 {
     char pad[0x1C];

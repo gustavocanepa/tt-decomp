@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 extern "C" void func_0045A148(void);
 struct D_005DA220 {
     s32 a;

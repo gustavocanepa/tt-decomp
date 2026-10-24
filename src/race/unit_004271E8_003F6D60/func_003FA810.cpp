@@ -1,4 +1,4 @@
-typedef unsigned long u64;
+#include "types.h"
 
 struct Obj {
     int m0;

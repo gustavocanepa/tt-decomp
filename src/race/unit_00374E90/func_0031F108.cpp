@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef float f32;
+#include "types.h"
 
 extern "C" s32 func_0031F108(f32 *a, f32 x) {
     s32 i;

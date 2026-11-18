@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Pair_0048ECC8 {
     s32 a;

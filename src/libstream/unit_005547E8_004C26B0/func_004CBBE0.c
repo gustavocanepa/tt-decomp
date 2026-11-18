@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 int func_004CBBE0(u32 stat, u32 mask) {
     u32 pcr = *(volatile u32 *)0x1000E020;

@@ -1,6 +1,4 @@
-typedef unsigned int u32;
-typedef int s32;
-typedef signed char s8;
+#include "types.h"
 
 struct Obj {
     char pad[0x10];

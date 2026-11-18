@@ -1,5 +1,4 @@
-typedef unsigned int u32;
-typedef unsigned short u16;
+#include "types.h"
 
 struct Pair { u16 lo; u16 hi; };
 struct Rec { u32 idx; struct Pair val; };

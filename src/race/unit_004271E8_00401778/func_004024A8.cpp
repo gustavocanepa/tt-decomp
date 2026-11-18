@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 struct BitSet {
     u32 unk0;

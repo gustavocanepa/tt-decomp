@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 struct Pair { s32 key; s32 val; };
 struct Map { Pair *items; u32 n; };

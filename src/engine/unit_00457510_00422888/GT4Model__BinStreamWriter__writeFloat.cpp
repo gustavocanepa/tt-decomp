@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
-typedef float f32;
+#include "types.h"
 
 extern "C" void GT4Model__BinStreamWriter__writeArray(s32 arg0, u8 *arg1, s32 arg2);
 

@@ -1,0 +1,7 @@
+#include "types.h"
+
+extern "C" void func_00457820(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+
+extern "C" void func_004579B0(s32 arg0, s32 arg1, s32 arg2) {
+    func_00457820(arg0, arg1, 3, 1, arg2);
+}

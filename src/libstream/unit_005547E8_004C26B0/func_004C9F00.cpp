@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" int func_004F8588(s32 arg0, const char *arg1);
 

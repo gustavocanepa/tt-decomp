@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct UnkStruct2 {
     char pad[0x4];

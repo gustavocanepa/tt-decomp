@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
-typedef float f32;
+#include "types.h"
 
 struct Elem003E6C20 {
     s32 unk0;

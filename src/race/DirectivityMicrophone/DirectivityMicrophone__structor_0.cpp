@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 /* The base class; its constructor is func_0034F1D0 (named after it so __13func_0039A480
    resolves). The vptr sits after its 0x1C bytes of data. */

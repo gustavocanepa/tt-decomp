@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern char D_00578E28[];
 extern char D_00578E68[];

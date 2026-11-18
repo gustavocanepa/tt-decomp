@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void DynamicsConductorFreeRun__InitializeLapTimeCorrection(char *arg0) {
     s32 *p = (s32 *)(arg0 + 0x241E4);

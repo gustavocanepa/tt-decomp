@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Obj_0044D220 {
     virtual void v01();

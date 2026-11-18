@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef signed char s8;
+#include "types.h"
 
 struct Info {
     s32 unk0;

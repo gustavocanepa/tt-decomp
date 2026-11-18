@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 typedef void (*Fn)(void);
 extern Fn D_0059D534;

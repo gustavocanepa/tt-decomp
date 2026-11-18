@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
+#include "types.h"
 
 extern "C" s32 func_004B50B0(const u16 *s) {
     s32 n = 0;

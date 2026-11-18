@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct VEntry { short delta; short index; void (*fn)(void *); };
 struct Obj { char pad[0x84]; s32 f84; char pad88[0x20]; VEntry *vtbl; };

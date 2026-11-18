@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 extern "C" f32 PaletteFlowAnimation__getColor(void **arg0, s32 *arg1);
 

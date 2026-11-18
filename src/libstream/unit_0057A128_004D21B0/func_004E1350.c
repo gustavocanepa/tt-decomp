@@ -1,7 +1,6 @@
 /* compiler: ee-gcc2.9-991111 */
 extern int D_005A0DAC;
 extern int D_005A0D90;
-extern int D_00655F20;
 extern char D_005A2900[];
 extern int D_005A1F80[];
 extern char D_00614E48[];

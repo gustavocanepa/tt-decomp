@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 typedef struct L { s32 pad; s32 *first; s32 *last; } L;
 s32 func_001E4EA0(char *arg0) {
     L *p = (L *)(arg0 + 0x24);

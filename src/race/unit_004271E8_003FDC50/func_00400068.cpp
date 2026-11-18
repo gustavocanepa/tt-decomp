@@ -1,6 +1,4 @@
-typedef int s32;
-typedef short s16;
-typedef unsigned char u8;
+#include "types.h"
 
 extern "C" s32 func_004CB020(void *arg0, s32 arg1);
 

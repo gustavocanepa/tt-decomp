@@ -1,4 +1,4 @@
-typedef unsigned long long u64;
+#include "types.h"
 
 struct Key_001D1478 {
     u64 id : 56;

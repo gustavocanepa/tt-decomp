@@ -1,5 +1,4 @@
-typedef int s32;
-typedef long long s64;
+#include "types.h"
 
 struct Mgr {
     char pad[0x1E8];

@@ -1,0 +1,42 @@
+#include "types.h"
+
+extern "C" char D_005865D0[];
+
+struct VEntry_60 { s16 delta; s16 index; f32 (*fn)(void *); };
+struct VObj_60 { char pad0[4]; VEntry_60 *vtbl; };
+static inline f32 vcallf_60(char *o) {
+    VEntry_60 *e = &((VObj_60 *)o)->vtbl[14];
+    return e->fn(o + e->delta);
+}
+
+extern "C" f32 func_00439488(s32 *p, f32 x);
+extern "C" void func_0029EA18(void *arg0, void *arg1);
+extern "C" void func_002C0FE8(s32 p);
+extern "C" void func_002C1050(s32 p);
+extern "C" void func_0029CEF0(void *arg0, s32 arg1);
+
+extern "C" void func_00189098(s32 *arg0, s32 arg1, void **arg2) {
+    s32 buf0[4];
+    s32 newVal;
+    s32 oldVal;
+    if (arg1 > 0) {
+        f32 r = vcallf_60((char *)(*(s32 *)arg2));
+        if (*(s32 *)D_005865D0 != 0) {
+            r = func_00439488((s32 *)D_005865D0, r * 0x1.1C71C6p-2f);
+        }
+        s32 t = (s32)(r + 0x1.0p-1f);
+        func_0029EA18(buf0, (void *)t);
+        if (arg0 != buf0) {
+            newVal = buf0[0];
+            if (newVal != 0) {
+                func_002C0FE8(newVal);
+            }
+            oldVal = *arg0;
+            if (oldVal != 0) {
+                func_002C1050(oldVal);
+            }
+            *arg0 = newVal;
+        }
+        func_0029CEF0(buf0, 0x2);
+    }
+}

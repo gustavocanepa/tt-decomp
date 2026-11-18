@@ -1,4 +1,4 @@
-typedef unsigned short u16;
+#include "types.h"
 
 extern const u16 D_00605B98[];
 extern const u16 D_00605BE8[];

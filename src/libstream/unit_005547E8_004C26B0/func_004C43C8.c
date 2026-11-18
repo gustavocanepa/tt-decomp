@@ -1,5 +1,4 @@
-typedef unsigned int u32;
-typedef unsigned short u16;
+#include "types.h"
 
 struct Res { char pad[0x44]; u16 *table; };
 struct Obj { char pad[0x14]; struct Res *res; };

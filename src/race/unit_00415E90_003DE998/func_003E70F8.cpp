@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern "C" f32 func_004A6120(f32 x, f32 y); /* powf */
 

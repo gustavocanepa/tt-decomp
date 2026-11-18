@@ -1,5 +1,4 @@
-typedef int s32;
-typedef long s64;
+#include "types.h"
 
 struct Obj001D1440 {
     s64 arr[0x190];

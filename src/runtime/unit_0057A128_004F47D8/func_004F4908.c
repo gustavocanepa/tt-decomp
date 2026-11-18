@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 struct Ring0057B3B0 {
     u32 wr;

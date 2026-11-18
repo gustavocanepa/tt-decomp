@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 func_00317F88(s32 arg0) {
     if (arg0 < 0) {

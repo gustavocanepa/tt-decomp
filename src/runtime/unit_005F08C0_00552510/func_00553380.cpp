@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 struct Elem005F5950 {
     char pad0[0x2C];

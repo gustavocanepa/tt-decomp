@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 typedef int s128 __attribute__((mode(TI)));
 
 struct Vec {

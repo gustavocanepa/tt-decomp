@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 /* A function-local static object written out: guard D_0057C2C8, object D_00766D00, its
    constructor func_002A7A30 and the atexit-registered destructor stub func_002A9E18. */

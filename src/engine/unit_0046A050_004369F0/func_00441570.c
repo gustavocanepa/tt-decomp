@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 s32 func_0043DEF0(s32 *a);
 s32 func_00441570(char *arg0) {
     s32 *p = (s32 *)(arg0 + 0x14);

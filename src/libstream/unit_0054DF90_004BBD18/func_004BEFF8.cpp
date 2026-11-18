@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 extern void func_004F45B8(void *, u32);
 extern char D_00776E40[];

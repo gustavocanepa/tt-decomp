@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 extern "C" s32 func_0045DAB8(s32 arg0, s32 arg1, s32 arg2);
 

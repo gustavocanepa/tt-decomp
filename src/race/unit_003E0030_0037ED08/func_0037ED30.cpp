@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Node { char pad[0x10]; Node *next; s32 id; };
 struct List { char pad[0x14]; Node *head; };

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef long long s64;
+#include "types.h"
 
 struct Global;
 extern Global D_00585A30;

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 extern "C" s32 func_004ACE48(u32 *arg0, u32 *arg1) {
     u32 a = *arg0;

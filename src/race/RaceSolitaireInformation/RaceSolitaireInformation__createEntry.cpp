@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void RaceSolitaireEntry__structor_0(void *arg0);
 extern "C" void *exception__structor_0(s32 arg0);

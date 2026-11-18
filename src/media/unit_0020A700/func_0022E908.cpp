@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Val_0020A8D0;
 extern "C" void func_0022C0B8(Val_0020A8D0 *self, const s32 *x);

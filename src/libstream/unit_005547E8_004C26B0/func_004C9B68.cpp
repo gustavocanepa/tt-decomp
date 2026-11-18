@@ -1,5 +1,4 @@
-typedef unsigned int u32;
-typedef unsigned long long u64;
+#include "types.h"
 
 extern "C" u32 func_004C9B10(void *self, int index);
 

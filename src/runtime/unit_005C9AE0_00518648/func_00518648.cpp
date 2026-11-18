@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 typedef void (*FnPtr)(s32 arg0);
 

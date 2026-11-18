@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 s32 func_004AC7B8(void **arg0) {
     s32 n = 0;
     void **p = (void **)*arg0;

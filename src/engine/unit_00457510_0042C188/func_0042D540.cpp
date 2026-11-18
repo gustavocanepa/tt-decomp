@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern char D_0076A058[];
 

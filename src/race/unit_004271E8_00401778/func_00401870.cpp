@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
+#include "types.h"
 
 extern "C" void func_00401870(char *arg0, u32 arg1) {
     if (arg1 < 7U) {

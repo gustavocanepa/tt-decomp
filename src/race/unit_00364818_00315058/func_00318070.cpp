@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct Curve_0036F710 {
     f32 x0, y0, x1, y1;

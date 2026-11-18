@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern "C" void func_002EA390(f32 *p, f32 target, f32 step) {
     f32 v = *p;

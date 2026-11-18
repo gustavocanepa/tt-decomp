@@ -1,4 +1,4 @@
-typedef unsigned long long u64;
+#include "types.h"
 
 /* GS TEX0, TEX1 and CLAMP registers (bitfields as in the GS manual). */
 struct func_00468FE0_Tex0 {

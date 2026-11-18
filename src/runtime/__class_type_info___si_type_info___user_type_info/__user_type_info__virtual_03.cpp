@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 __user_type_info__virtual_03(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 r = 1;

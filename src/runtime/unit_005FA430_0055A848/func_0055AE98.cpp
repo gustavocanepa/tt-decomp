@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 RaceEventQueue__check(s32 arg0);
 

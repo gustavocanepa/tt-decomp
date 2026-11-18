@@ -1,5 +1,4 @@
-typedef unsigned long long u64;
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 func_003FA7E8(u64 *arg0, u64 *arg1) {
     u64 temp_v1;

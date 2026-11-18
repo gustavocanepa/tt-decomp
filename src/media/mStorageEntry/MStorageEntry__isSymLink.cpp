@@ -1,5 +1,4 @@
-typedef int s32;
-typedef long long s64;
+#include "types.h"
 extern "C" void *func_00283D68(void *);
 extern "C" void func_00283D10(void *, s32);
 extern "C" void func_0029EA18(void *, s32);

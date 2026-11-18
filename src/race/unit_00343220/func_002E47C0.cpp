@@ -1,5 +1,4 @@
-typedef unsigned char u8;
-typedef float f32;
+#include "types.h"
 
 struct Self { char pad[4]; f32 m4; char pad2[0xC]; u8 m14; };
 extern char D_00582E98[];

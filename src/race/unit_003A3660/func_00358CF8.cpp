@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 struct S003A3660 {
     char pad[0x8];

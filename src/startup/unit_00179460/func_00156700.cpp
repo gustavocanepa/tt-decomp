@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Entry_001794A0 {
     s32 value;

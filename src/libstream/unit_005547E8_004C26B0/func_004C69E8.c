@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Obj { char pad[0x234]; s32 f234; };
 extern char D_005A0B88[];

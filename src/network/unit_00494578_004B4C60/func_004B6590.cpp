@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Sub_00548850 {
     char data[8];

@@ -1,9 +1,4 @@
-typedef int s32;
-typedef long long s64;
-typedef signed char s8;
-typedef unsigned char u8;
-typedef short s16;
-typedef unsigned short u16;
+#include "types.h"
 
 struct Obj {
     char pad[0x28];

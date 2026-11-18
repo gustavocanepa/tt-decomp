@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern "C" f32 func_00117E10(f32 arg0, f32 arg1, f32 arg2, f32 arg3, f32 arg4) {
     f32 inv = 1.0f / (arg1 - arg0);

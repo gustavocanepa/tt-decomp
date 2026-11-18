@@ -1,0 +1,121 @@
+/* compiler: ee-gcc2.96-nsa-g */
+/* expm1 from newlib 1.9.0 libm: s_expm1.c (fdlibm, Sun Microsystems), see THIRD_PARTY.md. */
+typedef int __int32_t;
+typedef unsigned int __uint32_t;
+
+typedef union {
+  double value;
+  struct { __uint32_t lsw; __uint32_t msw; } parts;
+} ieee_double_shape_type;
+
+#define EXTRACT_WORDS(ix0,ix1,d) do { ieee_double_shape_type ew_u; ew_u.value = (d); (ix0) = ew_u.parts.msw; (ix1) = ew_u.parts.lsw; } while (0)
+#define SET_HIGH_WORD(d,v) do { ieee_double_shape_type sh_u; sh_u.value = (d); sh_u.parts.msw = (v); (d) = sh_u.value; } while (0)
+#define GET_HIGH_WORD(i,d) do { ieee_double_shape_type gh_u; gh_u.value = (d); (i) = gh_u.parts.msw; } while (0)
+#define INSERT_WORDS(d,ix0,ix1) do { ieee_double_shape_type iw_u; iw_u.parts.msw = (ix0); iw_u.parts.lsw = (ix1); (d) = iw_u.value; } while (0)
+
+
+#define GET_LOW_WORD(i,d) do { ieee_double_shape_type gl_u; gl_u.value = (d); (i) = gl_u.parts.lsw; } while (0)
+#define SET_LOW_WORD(d,v) do { ieee_double_shape_type sl_u; sl_u.value = (d); sl_u.parts.lsw = (v); (d) = sl_u.value; } while (0)
+
+double func_0059C6E8(double);
+double func_005A0DE0(double);
+double func_0059CC60(double,int);
+
+
+static const double
+one		= 1.0,
+huge		= 1.0e+300,
+tiny		= 1.0e-300,
+o_threshold	= 7.09782712893383973096e+02,
+ln2_hi		= 6.93147180369123816490e-01,
+ln2_lo		= 1.90821492927058770002e-10,
+invln2		= 1.44269504088896338700e+00,
+Q1  =  -3.33333333333331316428e-02, 
+Q2  =   1.58730158725481460165e-03, 
+Q3  =  -7.93650757867487942473e-05, 
+Q4  =   4.00821782732936239552e-06, 
+Q5  =  -2.01099218183624371326e-07; 
+	double func_004F39A0(double x)
+{
+	double y,hi,lo,c,t,e,hxs,hfx,r1;
+	__int32_t k,xsb;
+	__uint32_t hx;
+	GET_HIGH_WORD(hx,x);
+	xsb = hx&0x80000000;		
+	if(xsb==0) y=x; else y= -x;	
+	hx &= 0x7fffffff;		
+	if(hx >= 0x4043687A) {			
+	    if(hx >= 0x40862E42) {		
+                if(hx>=0x7ff00000) {
+		    __uint32_t low;
+		    GET_LOW_WORD(low,x);
+		    if(((hx&0xfffff)|low)!=0) 
+		         return x+x; 	 
+		    else return (xsb==0)? x:-1.0;
+	        }
+	        if(x > o_threshold) return huge*huge; 
+	    }
+	    if(xsb!=0) { 
+		if(x+tiny<0.0)		
+		return tiny-one;	
+	    }
+	}
+	if(hx > 0x3fd62e42) {		 
+	    if(hx < 0x3FF0A2B2) {	
+		if(xsb==0)
+		    {hi = x - ln2_hi; lo =  ln2_lo;  k =  1;}
+		else
+		    {hi = x + ln2_hi; lo = -ln2_lo;  k = -1;}
+	    } else {
+		k  = invln2*x+((xsb==0)?0.5:-0.5);
+		t  = k;
+		hi = x - t*ln2_hi;	
+		lo = t*ln2_lo;
+	    }
+	    x  = hi - lo;
+	    c  = (hi-x)-lo;
+	} 
+	else if(hx < 0x3c900000) {  	
+	    t = huge+x;	
+	    return x - (t-(huge+x));	
+	}
+	else k = 0;
+	hfx = 0.5*x;
+	hxs = x*hfx;
+	r1 = one+hxs*(Q1+hxs*(Q2+hxs*(Q3+hxs*(Q4+hxs*Q5))));
+	t  = 3.0-r1*hfx;
+	e  = hxs*((r1-t)/(6.0 - x*t));
+	if(k==0) return x - (x*e-hxs);		
+	else {
+	    e  = (x*(e-c)-c);
+	    e -= hxs;
+	    if(k== -1) return 0.5*(x-e)-0.5;
+          if(k==1) {
+	       	if(x < -0.25) return -2.0*(e-(x+0.5));
+	       	else 	      return  one+2.0*(x-e);
+          }
+	    if (k <= -2 || k>56) {   
+	        __uint32_t high;
+	        y = one-(e-x);
+		GET_HIGH_WORD(high,y);
+		SET_HIGH_WORD(y,high+(k<<20));	
+	        return y-one;
+	    }
+	    t = one;
+	    if(k<20) {
+	        __uint32_t high;
+	        SET_HIGH_WORD(t,0x3ff00000 - (0x200000>>k));  
+	       	y = t-(e-x);
+		GET_HIGH_WORD(high,y);
+		SET_HIGH_WORD(y,high+(k<<20));	
+	   } else {
+	        __uint32_t high;
+		SET_HIGH_WORD(t,((0x3ff-k)<<20));	
+	       	y = x-(e+t);
+	       	y += one;
+		GET_HIGH_WORD(high,y);
+		SET_HIGH_WORD(y,high+(k<<20));	
+	    }
+	}
+	return y;
+}

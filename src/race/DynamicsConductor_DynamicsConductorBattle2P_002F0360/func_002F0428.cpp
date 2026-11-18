@@ -1,4 +1,4 @@
-typedef unsigned short u16;
+#include "types.h"
 
 struct Owner {
     char pad0[0xF4];

@@ -1,4 +1,4 @@
-typedef unsigned char u8;
+#include "types.h"
 
 extern "C" void func_003A5D28(u8 *lo, u8 *hi) {
     if (*hi > *lo)

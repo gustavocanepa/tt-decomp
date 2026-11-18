@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 extern "C" void func_003F2928(f32 *a, const f32 *b, s32 n, f32 t) {
     if (n > 0) {

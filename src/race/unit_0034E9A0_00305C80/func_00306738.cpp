@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 extern "C" int func_00306738(u32 v) {
     switch (v) {

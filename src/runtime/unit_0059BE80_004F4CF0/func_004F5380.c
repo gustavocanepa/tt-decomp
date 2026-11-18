@@ -16405,8 +16405,6 @@ void _reclaim_reent _PARAMS ((struct _reent *));
 extern int *func_005A3130 _PARAMS ((void));
 #endif
 
-extern __IMPORT _CONST char * _CONST _sys_errlist[];
-extern __IMPORT int _sys_nerr;
 
 #define __errno_r(ptr) ((ptr)->_errno)
 

@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct Struct_00399490 {
     f32 unk0;

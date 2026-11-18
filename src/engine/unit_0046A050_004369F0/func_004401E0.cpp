@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 extern const char D_00697EE8[]; /* "" */
 

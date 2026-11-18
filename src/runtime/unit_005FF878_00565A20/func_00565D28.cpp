@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 
 struct Obj00603668 {
     char pad0[0x2C];

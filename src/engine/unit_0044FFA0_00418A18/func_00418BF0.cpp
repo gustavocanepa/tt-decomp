@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
-typedef unsigned long long u64;
+#include "types.h"
 
 struct Table_00450178 {
     char pad0[8];

@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern void *D_005D0E88;
 extern "C" void *RaceDisplayObjectBase__structor_0(void *);

@@ -118,3 +118,95 @@ archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-
 dir = "~/.local/share/gt4/ee-gcc2.96"
 command = "{dir}/bin/ee-gcc -c -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-strict-aliasing -fno-schedule-insns -Iinclude"
 archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+
+[compilers."ee-gcc2.96-exceptions"]
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "{dir}/bin/ee-gcc -c -B {dir}/bin/ee- -O2 -G0 -fexceptions -Iinclude"
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+
+# The runtime uses EH landing pads and the later assembler's unaligned loads.
+
+[compilers."ee-gcc2.96-exceptions-as2004"]
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "bash {tools}/cc_as.sh \"$HOME/.local/share/gt4/compilers/ee-gcc3.2-040921/bin/ee-as\" \"{dir}/bin/ee-gcc -B {dir}/bin/ee- -O2 -G0 -fexceptions -Iinclude\""
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+needs = { "ee-gcc3.2-040921" = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc3.2-040921.tar.xz" }
+
+[compilers."ee-gcc2.96-nsa-as2004"]
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "bash {tools}/cc_as.sh \"$HOME/.local/share/gt4/compilers/ee-gcc3.2-040921/bin/ee-as\" \"{dir}/bin/ee-gcc -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-strict-aliasing -Iinclude\""
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+needs = { "ee-gcc3.2-040921" = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc3.2-040921.tar.xz" }
+
+# The game's flags without global common-subexpression elimination: the 0x70002000 scratchpad
+# code (around 0x4a0000-0x4a8000) keeps the base address in one register across branches and
+# calls, which only -fno-gcse reproduces (found on 0x004a0690: 23 -> 3 differing instructions).
+
+[compilers."ee-gcc2.96-nogcse-as2004"]
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "bash {tools}/cc_as.sh \"$HOME/.local/share/gt4/compilers/ee-gcc3.2-040921/bin/ee-as\" \"{dir}/bin/ee-gcc -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-gcse -Iinclude\""
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+needs = { "ee-gcc3.2-040921" = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc3.2-040921.tar.xz" }
+
+[compilers."ee-gcc2.96-as2004g"]
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "bash {tools}/cc_as.sh \"$HOME/.local/share/gt4/compilers/ee-gcc3.2-040921/bin/ee-as -EL -march=r5900 -mabi=eabi -g -G0\" \"{dir}/bin/ee-gcc -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -Iinclude\""
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+needs = { "ee-gcc3.2-040921" = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc3.2-040921.tar.xz" }
+
+# newlib (libc and libm, 0x59c3b0-0x5ad880) as Sony's toolchain built it: the game's flags with -g
+# (newlib's own default, CFLAGS = -g -O2), strict aliasing on, assembled by the later ee-as. Found by
+# the profile sweep of tools/libmatch.py (2026-10-12): every function the other profiles place in
+# newlib is placed by these two as well, plus _dtoa_r and __kernel_rem_pio2. The line notes of -g stop
+# reorg from filling call delay slots, as in ee-gcc2.96-nsa-g above.
+
+[compilers."ee-gcc2.96-g"]
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "{dir}/bin/ee-gcc -c -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -g -Iinclude"
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+
+[compilers."ee-gcc2.96-g-as2004"]
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "bash {tools}/cc_as.sh \"$HOME/.local/share/gt4/compilers/ee-gcc3.2-040921/bin/ee-as -G0\" \"{dir}/bin/ee-gcc -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -g -Iinclude\""
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+needs = { "ee-gcc3.2-040921" = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc3.2-040921.tar.xz" }
+
+# The game's flags without global common-subexpression elimination: the 0x70002000 scratchpad
+# code (around 0x4a0000-0x4a8000) keeps the base address in one register across branches and
+# calls, which only -fno-gcse reproduces (found on 0x004a0690: 23 -> 3 differing instructions).
+
+[compilers."ee-gcc2.96-g-as2004g"]
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "bash {tools}/cc_as.sh \"$HOME/.local/share/gt4/compilers/ee-gcc3.2-040921/bin/ee-as -EL -march=r5900 -mabi=eabi -g -G0\" \"{dir}/bin/ee-gcc -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -g -Iinclude\""
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+needs = { "ee-gcc3.2-040921" = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc3.2-040921.tar.xz" }
+
+# The C libraries also use the later assembler with strict aliasing disabled.
+
+# The project's compiler with the SGI STL headers (include/stl, gcc 2000-10-03's libstdc++ v2, see
+# THIRD_PARTY.md) and the C-library stand-ins (include/shim) on the include path, and no implicit
+# template instantiation: the object holds only the member the source instantiates explicitly
+# (tools/stl.py). Same archive as the main compiler, unpacked a second time under this name.
+# Soft-float libm (newlib/fdlibm, e.g. scalbn 0059CC60) was built with -g: the line notes stop reorg
+# from filling call delay slots from earlier instructions (jal followed by nop). Found by the Opus
+# tier on 2026-10-11 (newlib s_scalbn.c as is). Same archive as the main compiler.
+
+[compilers."ee-gcc2.96-nsa-g"]
+dir = "~/.local/share/gt4/compilers/ee-gcc2.96-no-strict-aliasing"
+command = "{dir}/bin/ee-gcc -c -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-strict-aliasing -g -Iinclude"
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+
+# The as2004 profiles with the assembler run with -g: it then fills no delay slot itself, as the
+# network unit's retail code shows (`ld; jalr; nop` where plain as2004 moves the ld into the slot;
+# 0051FAF8, 00521B38, 00525EC0, 0052CAE0, 00536078).
+
+[compilers."ee-gcc2.96-nsa-nosib-as2004g"]
+dir = "~/.local/share/gt4/compilers/ee-gcc2.96-nsa-nosib"
+command = "bash {tools}/cc_as.sh \"$HOME/.local/share/gt4/compilers/ee-gcc3.2-040921/bin/ee-as -EL -march=r5900 -mabi=eabi -g -G0\" \"{dir}/bin/ee-gcc -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-strict-aliasing -fno-optimize-sibling-calls -Iinclude\""
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"
+needs = { "ee-gcc3.2-040921" = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc3.2-040921.tar.xz" }
+
+[compilers."ee-gcc2.96-nsa-nogcse"]
+dir = "~/.local/share/gt4/ee-gcc2.96"
+command = "{dir}/bin/ee-gcc -c -B {dir}/bin/ee- -O2 -G0 -fno-exceptions -fno-strict-aliasing -fno-gcse -Iinclude"
+archive = "https://github.com/decompme/compilers/releases/download/compilers/ee-gcc2.96.tar.xz"

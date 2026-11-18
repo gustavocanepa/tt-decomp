@@ -1,4 +1,4 @@
-typedef short s16;
+#include "types.h"
 struct Rec { char pad0[0x2E]; s16 v2E; s16 v30; s16 v32; s16 v34; s16 v36; };
 extern "C" s16 func_0040F378(Rec *r, int index) {
     if (index < 1 || index > 5) return 0;

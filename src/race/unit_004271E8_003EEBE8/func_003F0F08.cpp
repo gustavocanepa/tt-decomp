@@ -1,5 +1,4 @@
-typedef unsigned short u16;
-typedef int s32;
+#include "types.h"
 
 struct Entry {
     char pad[2];

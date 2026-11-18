@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Val;
 extern "C" void func_0043D510(Val *);

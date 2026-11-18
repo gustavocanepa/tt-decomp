@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Range { s32 m0; s32 lo; s32 hi; };
 extern "C" s32 func_004AC488(Range *);

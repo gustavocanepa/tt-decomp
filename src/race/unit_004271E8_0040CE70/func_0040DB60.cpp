@@ -1,5 +1,4 @@
-typedef int s32;
-typedef long long s64;
+#include "types.h"
 
 struct Info { s32 pad[5]; s32 m14; s32 pad2[0x1A]; };
 struct Mgr { char pad[0x1E8]; s32 m1E0; };

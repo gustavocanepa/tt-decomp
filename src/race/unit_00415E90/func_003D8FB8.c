@@ -1,6 +1,4 @@
-typedef float f32;
-typedef unsigned char u8;
-typedef unsigned u32;
+#include "types.h"
 u8 *func_003D8FB8(u8 *arg0, f32 fparg0) {
     f32 v = fparg0;
     u8 *s = (u8 *)&v;

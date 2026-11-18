@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Self { char pad[0x968C]; s32 m9674; s32 m9678; };
 extern "C" void func_0039B7F8(Self *, s32, s32, s32);

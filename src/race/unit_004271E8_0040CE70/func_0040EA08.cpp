@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 SPEC_DATABASE__DatabaseStorage__getRow(void *arg0, s32 arg1, void *arg2);
 extern "C" char *func_0040B8A0(void *arg0, s32 arg1);

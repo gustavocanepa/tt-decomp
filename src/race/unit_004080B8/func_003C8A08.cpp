@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern void ModelSet2__registerExternalTexSet(s32 a0);
 

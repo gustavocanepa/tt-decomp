@@ -1,6 +1,4 @@
-typedef int s32;
-typedef long long s64;
-typedef unsigned long long u64;
+#include "types.h"
 
 extern s32 D_00585CA4;
 extern "C" s32 SPEC_DATABASE__DatabaseTable__getRow(s32, s32, s32);

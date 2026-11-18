@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 func_004A6720(void *a, void *b, const char *fmt, __builtin_va_list args);
 

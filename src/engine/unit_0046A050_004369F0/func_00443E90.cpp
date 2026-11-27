@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
+#include "types.h"
 
 extern "C" void func_00443E90(s32 arg0, char *arg1, char *arg2) {
     s32 temp_a0 = arg0 + 0xC;

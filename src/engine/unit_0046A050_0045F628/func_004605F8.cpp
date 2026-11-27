@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
+#include "types.h"
 
 struct Obj00491C10 {
     char pad0[0x10];

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 extern "C" void RaceMessageDisplay__setMessage(s32 arg0, f32 arg1, f32 arg2);
 

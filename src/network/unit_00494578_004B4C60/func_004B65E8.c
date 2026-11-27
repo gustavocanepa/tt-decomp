@@ -1,5 +1,4 @@
-typedef unsigned long u64;
-typedef unsigned int u32;
+#include "types.h"
 
 struct Clock { char pad[0x80]; u32 now; };
 extern struct Clock D_00774200;

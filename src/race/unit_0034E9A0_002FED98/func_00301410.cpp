@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned char u8;
-typedef short s16;
+#include "types.h"
 
 struct Sub {
     char pad[0x4D1];

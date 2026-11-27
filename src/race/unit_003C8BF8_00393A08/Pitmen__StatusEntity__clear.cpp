@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Self { s32 m0; char pad[0x10]; s32 m14; s32 m18; char m1C[0x14C]; s32 m168, m16C, m170, m174; };
 extern "C" void ConcourseLighting__clear(void *);

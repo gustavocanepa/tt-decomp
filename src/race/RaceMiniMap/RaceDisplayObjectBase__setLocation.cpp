@@ -1,4 +1,4 @@
-typedef short s16;
+#include "types.h"
 
 struct Obj {
     char pad[0x4];

@@ -23,7 +23,6 @@ struct HeapName {
 
 extern "C" int func_00608D98(const void *self, const void *other, unsigned int pos, unsigned int n);
 extern "C" char *func_005D2B58(Rep *rep);
-extern "C" void stl_unknown_release(void *p, int size);
 
 /* the game's string: libstdc++ v2 basic_string (knowledge/runtime-types.md) */
 struct Str2 {
@@ -45,7 +44,6 @@ struct Str2 {
 };
 
 extern "C" void func_0043D3B8(void *self, const void *other);
-extern "C" void stl_unknown_dtor(void *self, int in_charge);
 
 extern "C" void func_004768C0(void *self);
 

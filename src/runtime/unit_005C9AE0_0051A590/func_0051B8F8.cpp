@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct ObjInner {
     char pad[0x1148];

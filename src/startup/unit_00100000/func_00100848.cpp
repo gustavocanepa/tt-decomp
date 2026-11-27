@@ -22,6 +22,6 @@ extern "C" void func_00100848(Obj *o) {
     Obj *d = GT4MC__FileGT4GameData__loadInstance(e->fn, func_0050EB20, 0, (char *)o + e->delta, func_0050F058, o);
     if (d == 0)
         exception__structor_2();
-    VEntry *v = (VEntry *)((char *)d->vtbl + 0x68);
+    VEntry *v = &d->vtbl[13];
     ((void (*)(void *))v->fn)((char *)d + v->delta);
 }

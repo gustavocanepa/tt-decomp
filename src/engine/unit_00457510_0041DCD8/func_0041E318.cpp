@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 extern "C" f32 func_0041E068(void *self, int which);
 extern "C" void GT4Model__CarData__offsetBrake(void *self, f32 value);

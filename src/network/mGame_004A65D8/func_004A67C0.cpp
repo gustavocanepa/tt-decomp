@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern void *D_005DAC90;
 extern "C" void *RefCounter__structor_0(void *);

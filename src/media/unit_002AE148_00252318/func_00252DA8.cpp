@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Handle {
     void *p;
@@ -25,7 +25,7 @@ extern "C" void func_002C0FE8(void *p);
 extern "C" void func_002C1050(void *p);
 
 static inline s32 vcall(VObj *o) {
-    VEntry *e = (VEntry *)((char *)o->vtbl + 0x68);
+    VEntry *e = &o->vtbl[13];
     return e->fn((char *)o + e->delta);
 }
 

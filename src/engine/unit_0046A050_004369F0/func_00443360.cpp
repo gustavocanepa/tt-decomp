@@ -1,6 +1,4 @@
-typedef int s32;
-typedef unsigned int u32;
-typedef float f32;
+#include "types.h"
 
 struct Val;
 extern "C" void func_0043D510(Val *);

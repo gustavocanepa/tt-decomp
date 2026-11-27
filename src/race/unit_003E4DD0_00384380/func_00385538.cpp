@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 extern "C" void func_00385538(f32 *out, const f32 *p, const f32 *d, s32 axis, f32 t) {
     f32 s = (t - p[axis]) / d[axis];

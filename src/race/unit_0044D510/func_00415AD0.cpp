@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 struct V2 { f32 x, y; };
 struct Self { s32 m0, m4; f32 x, y; };

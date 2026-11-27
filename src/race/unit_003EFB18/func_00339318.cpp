@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Inner_003870B8 {
     char pad0[0xDC];

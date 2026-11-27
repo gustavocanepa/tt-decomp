@@ -1,5 +1,4 @@
-typedef short s16;
-typedef int s32;
+#include "types.h"
 
 struct Link { s16 next; s16 pad; s32 m4; };
 struct Key { s32 key; s32 pad; };

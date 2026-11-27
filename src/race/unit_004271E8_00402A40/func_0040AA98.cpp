@@ -1,4 +1,4 @@
-typedef unsigned char u8;
+#include "types.h"
 
 struct Ctx {
     char pad0[0x156];

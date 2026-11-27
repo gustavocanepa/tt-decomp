@@ -1,7 +1,4 @@
-typedef int s32;
-typedef long long s64;
-typedef signed char s8;
-typedef unsigned char u8;
+#include "types.h"
 
 struct Global;
 extern Global D_00585A30;
@@ -25,7 +22,6 @@ struct Obj {
 
 extern "C" s32 func_0040B980(Global *g, s64 id);
 extern "C" s32 SPEC_DATABASE__DatabaseStorage__getRow(Global *g, s64 id, Info *info);
-extern "C" u8 func_004452A8(Obj *self, s32 a, s32 b, s32 c);
 
 extern "C" s32 func_0040C790(Obj *self) {
     s64 id = self->id;

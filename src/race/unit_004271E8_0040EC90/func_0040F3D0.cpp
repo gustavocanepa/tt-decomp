@@ -1,4 +1,4 @@
-typedef unsigned char u8;
+#include "types.h"
 struct Rec { char pad0[0x8C]; u8 v8C; u8 v8D; u8 v8E; u8 v8F; u8 v90; u8 v91; };
 extern "C" u8 func_0040F3D0(Rec *r, unsigned int index) {
     if (index >= 6) return 0;

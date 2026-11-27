@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 /* RaceDisplayObjectBase, named after its constructor (RaceDisplayObjectBase__structor_0): vptr after 0x14 bytes of data */
 struct RaceDisplayObjectBase__structor_0 {

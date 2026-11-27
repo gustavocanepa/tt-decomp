@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Obj_001C6D78 {
     s32 unk0;

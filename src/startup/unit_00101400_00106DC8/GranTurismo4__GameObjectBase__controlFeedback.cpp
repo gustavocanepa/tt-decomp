@@ -1,4 +1,4 @@
-typedef short s16;
+#include "types.h"
 
 struct VEntry {
     s16 delta;
@@ -20,7 +20,7 @@ extern "C" void GranTurismo4__GameObjectBase__controlFeedback(struct Obj *arg0) 
     Sub *a1 = arg0->unk58;
 
     if (a1 != 0) {
-        VEntry *e = (VEntry *)((char *)a1->vtbl + 0x18);
+        VEntry *e = &a1->vtbl[3];
         e->fn((char *)a1 + e->delta);
     }
 }

@@ -1,6 +1,4 @@
-typedef int s32;
-typedef long long s64;
-typedef unsigned int u32;
+#include "types.h"
 
 struct Obj001CB8D8 {
     s32 unk0;

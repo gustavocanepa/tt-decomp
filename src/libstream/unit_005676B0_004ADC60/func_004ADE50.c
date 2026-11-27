@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 void func_004ADE50(s32 *arg0) {
     s32 i;
     s32 *p;

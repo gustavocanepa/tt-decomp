@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 /* RaceValueDisplayBase; its constructor is RaceValueDisplayBase__structor_1. The vptr sits at 0x14. */
 struct RaceValueDisplayBase__structor_1 {

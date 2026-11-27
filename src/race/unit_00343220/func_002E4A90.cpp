@@ -1,5 +1,4 @@
-typedef float f32;
-typedef unsigned char u8;
+#include "types.h"
 
 struct Obj { char pad[0x14]; u8 f14; };
 extern char D_00582E98[];

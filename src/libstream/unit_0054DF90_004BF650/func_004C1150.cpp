@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 /* The base class, named after its constructor (func_004CEDD0) so that __13func_005659D8
    resolves. The vptr sits after its 0x68 bytes of data. */

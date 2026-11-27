@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 typedef unsigned int u128 __attribute__((mode(TI)));
 
 extern "C" void func_00454B28(u128 *dst, s32 i, u128 *a, u128 *b) {

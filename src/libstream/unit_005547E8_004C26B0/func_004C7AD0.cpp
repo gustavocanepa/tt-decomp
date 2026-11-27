@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Self { char pad[0x14]; s32 m14; char pad2[0x1C]; s32 m34; };
 struct Best { Self *obj; s32 key; s32 sub; };

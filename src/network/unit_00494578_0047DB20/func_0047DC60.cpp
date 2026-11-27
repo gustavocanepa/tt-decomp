@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Q { s32 a, b, c, d; };
 extern "C" void func_0047DD30(void *, s32, s32, Q *, s32);

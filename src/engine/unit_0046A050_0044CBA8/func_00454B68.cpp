@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 typedef unsigned int u128 __attribute__((mode(TI)));
 
 /* out[i] = a[i] - b[i] on VU0 (libvu0-style inline asm). The original reserves an unused

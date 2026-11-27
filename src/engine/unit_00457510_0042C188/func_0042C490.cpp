@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct G { s32 m0; s32 m4; void *h; };
 extern G D_0076A008;

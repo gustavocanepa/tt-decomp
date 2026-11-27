@@ -1,5 +1,4 @@
-typedef int s32;
-typedef short s16;
+#include "types.h"
 
 extern "C" void GT4Model__BinStreamReader__readArray(s32 arg0, char *arg1, s32 arg2);
 

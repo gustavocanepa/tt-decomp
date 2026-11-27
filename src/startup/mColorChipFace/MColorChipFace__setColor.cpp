@@ -1,10 +1,8 @@
-typedef int s32;
+#include "types.h"
 
-extern "C" void func_0013BDC0(s32 *arg0, s32 arg1);
 extern "C" void func_00293220(s32 *arg0, s32 arg1);
 extern "C" void func_0013CB08(s32 *arg0, s32 arg1);
 extern "C" void func_0013D428(s32 arg0, s32 *arg1);
-extern "C" void func_0013BD68(s32 *arg0, s32 arg1);
 extern "C" void func_002931C8(s32 *arg0, s32 arg1);
 extern "C" void func_0013CAB0(s32 *arg0, s32 arg1);
 

@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
+#include "types.h"
 
 extern "C" s32 func_00301538(char *arg0base) {
     u16 *p = (u16 *)(arg0base + 0x5DC);

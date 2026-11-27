@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct Self { char pad[0x38]; f32 m38, m3C; };
 extern f32 D_00584094;

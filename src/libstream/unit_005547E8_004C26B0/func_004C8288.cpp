@@ -1,6 +1,4 @@
-typedef short s16;
-typedef int s32;
-typedef long long s64;
+#include "types.h"
 
 struct __attribute__((aligned(8))) Obj {
     s64 unk0;

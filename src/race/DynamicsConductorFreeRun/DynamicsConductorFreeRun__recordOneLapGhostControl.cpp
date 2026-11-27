@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Node_003F59A0 {
     char pad[0x64];

@@ -1,6 +1,4 @@
-typedef long long s64;
-typedef unsigned long long u64;
-typedef unsigned int u32;
+#include "types.h"
 
 struct Database {
     char pad0[0x88];

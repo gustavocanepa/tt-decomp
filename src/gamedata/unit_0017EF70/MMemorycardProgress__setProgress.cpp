@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 extern f32 D_00579EA4;
 extern f32 D_00579EA8;

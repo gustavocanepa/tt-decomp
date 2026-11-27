@@ -1,7 +1,4 @@
-typedef unsigned long u64;
-typedef unsigned int u32;
-typedef unsigned short u16;
-typedef short s16;
+#include "types.h"
 
 #define IPU_CMD 0x10002000
 

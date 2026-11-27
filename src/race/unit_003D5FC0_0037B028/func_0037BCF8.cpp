@@ -1,5 +1,4 @@
-typedef unsigned int u32;
-typedef int s32;
+#include "types.h"
 
 extern "C" s32 func_0037BCF8(u32 *p, u32 v) {
     u32 cur = *p;

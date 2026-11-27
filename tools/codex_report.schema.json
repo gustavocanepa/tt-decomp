@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["functions", "lessons"],
+  "properties": {
+    "functions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["addr", "result", "tries", "best", "note"],
+        "properties": {
+          "addr": {"type": "string"},
+          "result": {"type": "string", "enum": ["match", "deferred", "fragment"]},
+          "tries": {"type": "integer"},
+          "best": {"type": "integer"},
+          "note": {"type": "string"}
+        }
+      }
+    },
+    "lessons": {"type": "array", "items": {"type": "string"}}
+  }
+}

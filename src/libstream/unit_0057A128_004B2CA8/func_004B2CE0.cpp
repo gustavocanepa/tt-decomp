@@ -1,4 +1,4 @@
-typedef unsigned long u64;
+#include "types.h"
 struct BitReader { int m0; unsigned char *p; unsigned char cur; int left; };
 
 

@@ -1,0 +1,3 @@
+struct V{short d,i;int(*fn)(void*);};struct Result{char p[16];void* object;char rest[12];};struct Config{int fields[10];};
+extern "C" void StrobeHandler__readFile(Result*,int,int);extern "C" void func_0043A7E8(void*);extern "C" void func_002E39A0(void*);extern "C" void func_00439930(Config*);extern "C" void func_0043AD60(void*,Config*);
+extern "C" void func_0037DF48(char* self,int arg){if(*(void**)(self+868))return;*(int*)(self+864)=arg;V* v=(V*)(*(char**)(self+24)+112);int a=v->fn(self+v->d);V* w=(V*)(*(char**)(self+24)+120);int b=w->fn(self+w->d);Result r;StrobeHandler__readFile(&r,a,b);*(void**)(self+868)=r.object;func_0043A7E8(r.object);func_002E39A0(*(void**)(self+868));Config c;func_00439930(&c);func_0043AD60(*(void**)(self+868),&c);}

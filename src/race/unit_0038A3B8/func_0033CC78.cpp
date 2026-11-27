@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void RaceInput__structor_2(void *arg0, s32 arg1);
 extern char D_00767AA0[];

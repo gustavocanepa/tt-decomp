@@ -1,0 +1,2 @@
+extern "C" void func_00475440(const float*);
+extern "C" void func_004737C8(float l,float r,float b,float t,float n,float f,float nearScale){float x=1.0f/(r-l),y=1.0f/(t-b),z=1.0f/(f-n);float twice=nearScale+nearScale;float m[16];m[0]=twice*x;m[1]=0;m[2]=0;m[3]=0;m[4]=0;m[5]=twice*y;m[6]=0;m[7]=0;m[8]=(r+l)*x;m[9]=(t+b)*y;m[10]=-(f+n)*z;m[11]=-1;m[12]=0;m[13]=0;m[14]=(f*-2.0f)*n*z;m[15]=0;func_00475440(m);}

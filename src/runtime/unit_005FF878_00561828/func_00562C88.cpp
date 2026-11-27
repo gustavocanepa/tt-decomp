@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 struct Obj;
 
 extern "C" void func_003FDC30(struct Obj *arg0, s32 arg1, s32 arg2);

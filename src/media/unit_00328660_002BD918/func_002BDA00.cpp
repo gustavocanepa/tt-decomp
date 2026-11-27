@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 extern "C" void ADHOC__PoolAllocator__dump(s32 a0, s32 a1);
 

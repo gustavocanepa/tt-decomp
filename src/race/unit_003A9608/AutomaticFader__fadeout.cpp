@@ -1,5 +1,4 @@
-typedef int s32;
-typedef float f32;
+#include "types.h"
 
 struct Self { char pad[0x10]; f32 rate; char pad2[4]; s32 mode; };
 extern f32 D_005F57D8;

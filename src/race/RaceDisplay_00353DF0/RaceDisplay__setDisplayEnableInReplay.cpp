@@ -1,5 +1,4 @@
-typedef short s16;
-typedef int s32;
+#include "types.h"
 
 struct VEntry_003A2008 {
     s16 delta;
@@ -12,7 +11,7 @@ struct Obj_003A2008 {
 };
 
 extern "C" void RaceDisplay__setDisplayEnableInReplay(struct Obj_003A2008 *arg0, s32 arg1) {
-    VEntry_003A2008 *e = (VEntry_003A2008 *)((char *)arg0->vtbl + 0x1E8);
+    VEntry_003A2008 *e = &arg0->vtbl[61];
 
     e->fn((char *)arg0 + e->delta, arg1 != 0);
 }

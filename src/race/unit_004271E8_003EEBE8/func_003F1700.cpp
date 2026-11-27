@@ -1,4 +1,4 @@
-typedef unsigned short u16;
+#include "types.h"
 
 struct Inner { char pad[0x16]; u16 unk16; };
 struct Obj { char pad0[0x4]; Inner *inner; };

@@ -1,5 +1,4 @@
-typedef unsigned short u16;
-typedef float f32;
+#include "types.h"
 
 extern "C" f32 func_0011C700(u16 *arg0) {
     return (f32)(*arg0 & 7) / 7.0f;

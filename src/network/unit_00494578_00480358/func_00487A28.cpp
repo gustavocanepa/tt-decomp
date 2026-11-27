@@ -1,4 +1,4 @@
-typedef unsigned short u16;
+#include "types.h"
 
 struct Node {
     u16 flag : 1;

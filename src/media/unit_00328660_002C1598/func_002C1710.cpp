@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Obj0032B860 {
     char *str0;

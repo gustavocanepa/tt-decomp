@@ -1,4 +1,4 @@
-typedef unsigned int u32;
+#include "types.h"
 
 struct StringRep {
     u32 len;

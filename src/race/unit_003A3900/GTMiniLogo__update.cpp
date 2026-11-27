@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct Part { char b[0x20]; };
 struct Obj { char pad[4]; Part a; Part b; };

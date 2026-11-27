@@ -1,6 +1,4 @@
-typedef int s32;
-typedef float f32;
-typedef unsigned char u8;
+#include "types.h"
 
 struct Part { char b[0x20]; };
 struct Obj { char pad[0x18]; u8 f18; char pad19[3]; Part p; };

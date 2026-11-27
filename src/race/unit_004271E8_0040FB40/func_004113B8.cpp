@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Buf { char b[0x1E0]; };
 extern "C" void func_00411400(void *, s32, Buf *);

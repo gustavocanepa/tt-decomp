@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Obj001D26A8 {
     char pad[0x6E0];

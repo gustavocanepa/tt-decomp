@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Mgr {
     char lock[0x6C];

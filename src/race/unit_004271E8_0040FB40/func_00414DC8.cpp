@@ -1,4 +1,4 @@
-typedef unsigned char u8;
+#include "types.h"
 
 static inline u8 merge(const u8 *p, int shift)
 {

@@ -1,5 +1,4 @@
-typedef unsigned int u32;
-typedef float f32;
+#include "types.h"
 
 extern "C" f32 func_002E4680(u32 *total, f32 amount) {
     int whole = (int)amount;

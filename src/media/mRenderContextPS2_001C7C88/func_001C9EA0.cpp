@@ -1,0 +1,43 @@
+/* compiler: ee-gcc2.96-no-strict-aliasing */
+struct Entry { short delta, index; void (*fn)(void *, float *, int); };
+struct Obj { int first; char *vtbl; };
+struct TEntry { int w[15]; };
+struct Table { TEntry e[2]; int m78; };
+extern Table D_00579534;
+extern "C" void func_00104BA8(void *);
+extern "C" void func_00104D10(void *);
+extern "C" void func_0046F0F8(int);
+extern "C" void func_004702D8(int, float);
+extern "C" void func_004704E0(int);
+extern "C" void func_004730A8(void);
+extern "C" void func_00473498(void);
+extern "C" void func_00474318(float, float, float, float, float, float, float, float);
+extern "C" void func_00477E30(float, float, float, float);
+extern "C" void func_001C9EA0(Obj *self, void *p, int c, float f) {
+    float v[4];
+    float zero = 0.0f;
+    v[0] = zero; v[1] = zero; v[2] = zero; v[3] = zero;
+    Entry *en = (Entry *)(self->vtbl + 0x218);
+    en->fn((char *)self + en->delta, v, c);
+    func_004730A8();
+    func_0046F0F8(6);
+    func_004702D8(100, f);
+    func_00477E30(1.0f, 1.0f, 1.0f, 1.0f);
+    float x = v[0];
+    float y = v[1];
+    float w = v[2];
+    float h = v[3];
+    if (x < zero) x = zero;
+    if (y < zero) y = zero;
+    func_00473498();
+    func_00104D10(p);
+    y *= 0.5f;
+    h *= 0.5f;
+    func_004704E0(0);
+    float x2 = x + w;
+    float y2 = y + h;
+    func_00474318(x, y, x2, y2, x, y, x2, y2);
+    func_004704E0(D_00579534.e[D_00579534.m78].w[10]);
+    func_00104BA8(p);
+    func_004702D8(0x44, 1.0f);
+}

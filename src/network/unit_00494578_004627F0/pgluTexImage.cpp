@@ -1,4 +1,4 @@
-typedef unsigned long long u64;
+#include "types.h"
 
 /* GS TEX0 and MIPTBP1/2 register images (libgraph sceGsTex0 / sceGsMiptbp1 layouts) */
 struct func_00468CA8_Tex0 {

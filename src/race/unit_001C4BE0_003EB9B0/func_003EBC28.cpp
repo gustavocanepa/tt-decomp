@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Block { char b[32]; };
 struct Obj { s32 a; s32 b; struct Block blk; };

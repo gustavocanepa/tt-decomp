@@ -1,5 +1,4 @@
-typedef unsigned int u32;
-typedef unsigned long long u64;
+#include "types.h"
 
 extern u32 D_0058C510;
 

@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Elem_001C7178 {
     char pad0[0x10];

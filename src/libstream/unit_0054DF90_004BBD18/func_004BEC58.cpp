@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Struct0086F800 {
     s32 unk0;

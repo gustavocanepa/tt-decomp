@@ -1,5 +1,4 @@
-typedef int s32;
-typedef signed char s8;
+#include "types.h"
 s32 func_0040D610(char *a, s32 b);
 s32 func_0040D5D8(char *arg0) {
     s32 c = *(s8 *)(arg0 + 0x18);

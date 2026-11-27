@@ -1,5 +1,4 @@
-typedef int s32;
-typedef unsigned short u16;
+#include "types.h"
 
 extern "C" s32 func_004AF490(s32 key, const u16 *table, s32 hi) {
     s32 lo = 0;

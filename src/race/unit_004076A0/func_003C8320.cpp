@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct func_003CA210 {
     char data[0x14C];

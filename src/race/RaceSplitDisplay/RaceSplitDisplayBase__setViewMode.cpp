@@ -1,4 +1,4 @@
-typedef int s32;
+#include "types.h"
 
 struct Target_003A2DC0 {
     virtual void v01();

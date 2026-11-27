@@ -1,5 +1,4 @@
-typedef float f32;
-typedef int s32;
+#include "types.h"
 
 struct Obj00384D88 {
     s32 unk0;

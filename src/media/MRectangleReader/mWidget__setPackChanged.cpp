@@ -1,4 +1,4 @@
-typedef float f32;
+#include "types.h"
 
 struct Rect {
     f32 x, y, w, h;

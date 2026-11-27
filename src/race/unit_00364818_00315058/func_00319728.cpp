@@ -1,5 +1,4 @@
-typedef float f32;
-typedef int s32;
+#include "types.h"
 
 struct Struct_00370D98 {
     char pad0[0x4C];
